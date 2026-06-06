@@ -1,0 +1,278 @@
+@import "tailwindcss" source(none);
+@source "../app";
+@source "../components";
+@source "../lib";
+@source "../types";
+
+/* ========================================
+   Brand Tokens — build.pm
+   ======================================== */
+
+@theme {
+  /* Primary */
+  --color-brand-dark: #1A1A1A;
+  --color-brand-grey: #2A2A2A;
+  --color-brand-coral: #FF5733;
+  --color-brand-white: #FFFFFF;
+  --color-brand-off-white: #F7F6F3;
+
+  /* Neutrals */
+  --color-grey-50: #FAFAF9;
+  --color-grey-100: #F5F4F1;
+  --color-grey-200: #EEEDEB;
+  --color-grey-300: #D5D4D0;
+  --color-grey-400: #A3A29E;
+  --color-grey-500: #72716E;
+  --color-grey-600: #52514E;
+  --color-grey-700: #3D3D3A;
+  --color-grey-800: #2A2A2A;
+  --color-grey-900: #1A1A1A;
+
+  /* Semantic */
+  --color-success: #1D9E75;
+  --color-warning: #BA7517;
+  --color-error: #E24B4A;
+  --color-info: #378ADD;
+
+  /* Builder score tiers */
+  --color-tier-member: #A3A29E;
+  --color-tier-contributor: #378ADD;
+  --color-tier-builder: #FF5733;
+  --color-tier-steward: #7F77DD;
+
+  /* Terminal colors */
+  --color-terminal-red: #FF5F57;
+  --color-terminal-yellow: #FFBD2E;
+  --color-terminal-green: #27C93F;
+
+  /* Typography */
+  --font-display: 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'SF Mono', monospace;
+
+  /* Easing */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Duration */
+  --duration-fast: 120ms;
+  --duration-normal: 200ms;
+  --duration-slow: 400ms;
+  --duration-hero: 800ms;
+}
+
+/* ========================================
+   Base Styles
+   ======================================== */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-brand-dark);
+  color: var(--color-brand-white);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Selection */
+::selection {
+  background: rgba(255, 87, 51, 0.3);
+  color: inherit;
+}
+
+/* Focus visible for keyboard users */
+:focus-visible {
+  outline: 2px solid #FF5733;
+  outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* ========================================
+   Marquee Animations
+   ======================================== */
+
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to { transform: translateX(0); }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 40s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 40s linear infinite;
+}
+
+.marquee-container:hover .animate-marquee-left,
+.marquee-container:hover .animate-marquee-right {
+  animation-play-state: paused;
+}
+
+/* Fade edges for marquee */
+.marquee-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 10%,
+    black 90%,
+    transparent 100%
+  );
+}
+
+/* ========================================
+   Cursor + Pulse Animations
+   ======================================== */
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-cursor-blink {
+  animation: cursor-blink 1.2s step-end infinite;
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* ========================================
+   Floating Animation (Builder Score Card)
+   ======================================== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ========================================
+   Bounce Arrow
+   ======================================== */
+
+@keyframes bounce-down {
+  0%, 100% { transform: translateY(0); opacity: 0.5; }
+  50% { transform: translateY(8px); opacity: 1; }
+}
+
+.animate-bounce-down {
+  animation: bounce-down 2s ease-in-out infinite;
+}
+
+/* 404 glitch effect */
+@keyframes glitch-1 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(-3px, 2px); }
+  40% { transform: translate(3px, -2px); }
+  60% { transform: translate(-2px, -1px); }
+  80% { transform: translate(2px, 1px); }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { transform: translate(0); }
+  20% { transform: translate(3px, -2px); }
+  40% { transform: translate(-3px, 2px); }
+  60% { transform: translate(2px, 1px); }
+  80% { transform: translate(-2px, -1px); }
+}
+
+.animate-glitch-1 {
+  animation: glitch-1 3s ease-in-out infinite;
+}
+
+.animate-glitch-2 {
+  animation: glitch-2 3s ease-in-out infinite 0.15s;
+}
+
+/* ========================================
+   404 Page — Entrance animations
+   ======================================== */
+
+@keyframes nf-slide-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes nf-fade {
+  from { opacity: 0; }
+  to { opacity: 0.4; }
+}
+
+.nf-entrance {
+  opacity: 0;
+  animation: nf-slide-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.nf-entrance-fade {
+  opacity: 0;
+  animation: nf-fade 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+/* ========================================
+   Thin Scrollbar (dark theme)
+   ======================================== */
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: #333 transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: #333;
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: #444;
+}
