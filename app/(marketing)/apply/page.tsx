@@ -3,6 +3,7 @@
 import { useState, useRef, type FormEvent } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import { Input, Textarea, Select } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { ARCHETYPES, REFERRAL_SOURCES, IS_PRELAUNCH } from "@/lib/constants";
@@ -56,7 +57,10 @@ export default function ApplyPage() {
 
   if (status === "success") {
     return (
-      <main id="main-content" className="min-h-svh flex items-center justify-center px-4">
+      <main id="main-content" className="relative min-h-svh flex items-center justify-center px-4">
+        <div className="absolute top-4 right-4">
+          <ThemeToggle />
+        </div>
         <div className="max-w-md text-center" aria-live="polite">
           <div className="text-4xl mb-4">✓</div>
           <h1 className="text-h3 text-foreground">Application received</h1>
@@ -80,11 +84,12 @@ export default function ApplyPage() {
   return (
     <main id="main-content" className="min-h-svh flex items-center justify-center px-4 py-20">
       <div className="w-full max-w-[640px]">
-        {/* Logo */}
-        <div className="mb-10">
+        {/* Logo + theme toggle */}
+        <div className="mb-10 flex items-center justify-between">
           <Link href="/">
-            <Logo variant="dark" size="md" />
+            <Logo size="md" />
           </Link>
+          <ThemeToggle />
         </div>
 
         {/* Header */}

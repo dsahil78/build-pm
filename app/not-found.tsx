@@ -3,6 +3,7 @@
 import { useSyncExternalStore } from "react";
 import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
 
 const EXCUSES = [
   "The PM reprioritized. The engineer is on PTO. Check back next sprint.",
@@ -157,6 +158,10 @@ export default function NotFound() {
 
   return (
     <main id="main-content" className="relative min-h-svh flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden bg-background">
+      {/* Theme toggle — this page has no nav of its own */}
+      <div className="absolute top-4 right-4 z-10">
+        <ThemeToggle />
+      </div>
       {/* Radial glow */}
       <div
         className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] pointer-events-none"

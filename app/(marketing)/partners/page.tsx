@@ -4,6 +4,7 @@ import { useState, useRef, type FormEvent } from "react";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { Logo } from "@/components/brand/Logo";
+import { ThemeToggle } from "@/components/shared/ThemeToggle";
 import { Input, Textarea, Select } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -148,10 +149,11 @@ export default function PartnersPage() {
   return (
     <div className="bg-background min-h-svh">
       {/* Nav */}
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex items-center justify-between">
         <Link href="/">
-          <Logo variant="dark" size="md" />
+          <Logo size="md" />
         </Link>
+        <ThemeToggle />
       </nav>
 
       <main id="main-content">
