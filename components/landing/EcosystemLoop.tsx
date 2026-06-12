@@ -106,11 +106,11 @@ export function EcosystemLoop() {
               {i < LOOP_STEPS.length - 1 && (
                 <div className="flex items-center justify-center text-subtle-foreground shrink-0 py-1 md:py-0 md:px-4">
                   {/* Vertical arrow for mobile */}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:hidden" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="md:hidden" aria-hidden="true">
                     <line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" />
                   </svg>
                   {/* Horizontal arrow for desktop */}
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="hidden md:block" aria-hidden="true">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="hidden md:block" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                   </svg>
                 </div>
@@ -128,7 +128,7 @@ export function EcosystemLoop() {
           className="flex items-center justify-center gap-3 mt-8"
         >
           <div className="h-px w-8 bg-border-strong" />
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent-text" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="text-accent-text" aria-hidden="true">
             <polyline points="23 4 23 10 17 10" />
             <polyline points="1 20 1 14 7 14" />
             <path d="M3.51 9a9 9 0 0114.85-3.36L23 10" />

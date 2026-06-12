@@ -67,7 +67,7 @@ const SUPPORTING: ValueItem[] = [
     description: "Vote on the roadmap. Elect chapter leads. Shape what gets built. The builders run this.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
-        <rect x="3" y="11" width="18" height="11" rx="2" /><line x1="9" y1="11" x2="15" y2="11" strokeWidth="2" /><rect x="9" y="3" width="6" height="9" rx="1" /><path d="M10.5 8L11.5 9.5L13.5 6.5" strokeLinecap="round" strokeLinejoin="round" />
+        <rect x="3" y="11" width="18" height="11" rx="2" /><line x1="9" y1="11" x2="15" y2="11" strokeWidth="1.5" /><rect x="9" y="3" width="6" height="9" rx="1" /><path d="M10.5 8L11.5 9.5L13.5 6.5" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     ),
   },

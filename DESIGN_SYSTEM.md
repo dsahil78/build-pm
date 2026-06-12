@@ -130,8 +130,11 @@ nothing bouncy. `prefers-reduced-motion` is respected via the CSS `@media` rule
   `-translate-y` + shadow/`elevated`, never a hard border flash.
 - **Section headings** follow one pattern: overline (`text-caption` accent) →
   heading (`text-h2`) → optional subtext (`text-body-lg muted-foreground`).
-- **Icons:** stroke-1.5, `currentColor`, sized 16/20/24, `aria-hidden` when
-  decorative. (See open items re: unifying on a single set.)
+- **Icons:** a single hand-rolled SVG set — 24-grid, **stroke-1.5**,
+  `currentColor`, sized 16/20/24, round caps, `aria-hidden` when decorative. No
+  external icon library (the theme toggle's sun/moon are drawn to match;
+  `lucide-react` was removed). Illustrations (404 robot) and the product
+  "screenshots" are a separate, intentional category.
 - **Always-dark zones** (hero terminal, ProductPreview mockup) are intentional
   "product screenshots" and stay dark in both themes.
 
@@ -155,9 +158,5 @@ nothing bouncy. `prefers-reduced-motion` is respected via the CSS `@media` rule
 - **Per-breakpoint visual QA** (375 / 768 / 1280 / 1536, both themes) and **axe**
   can't run headless here — commands in [ACCESSIBILITY.md](ACCESSIBILITY.md).
   Build + `eslint-plugin-jsx-a11y` are clean.
-- **Icon set:** most icons are a consistent hand-rolled SVG set (stroke-1.5,
-  currentColor); `lucide-react` is used only for the theme toggle. Decide: convert
-  the toggle to the custom set, or migrate all icons to lucide — currently a minor
-  mix.
 - **Small body sizes** (`text-[13px]`, `text-[11px]`) in a few dense mockups could
   snap to `text-caption`; left where the dark "screenshot" density is intentional.
