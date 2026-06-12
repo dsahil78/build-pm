@@ -117,7 +117,7 @@ export function Testimonials() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={sectionRef} className="bg-muted py-24 px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="bg-muted py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         {/* Section heading */}
         <motion.div

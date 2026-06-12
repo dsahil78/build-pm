@@ -190,7 +190,7 @@ export default function PartnersPage() {
         <div className="mt-8">
           <a
             href="#apply"
-            className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground font-semibold rounded-xl transition-all hover:bg-accent-hover"
+            className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground font-semibold rounded-xl transition-all hover:bg-accent-hover active:translate-y-px"
             style={{ transitionDuration: "var(--duration-fast)" }}
             onClick={() => analytics.trackCtaClicked("partner_hero", "Apply as founding partner", "#apply")}
           >
@@ -385,10 +385,10 @@ export default function PartnersPage() {
               }}
               className="mt-10 space-y-5"
             >
-              <Input name="company" label="Company name" placeholder="Acme Inc." required />
-              <Input name="contact_name" label="Your name" placeholder="Jane Smith" required />
-              <Input name="contact_email" label="Work email" type="email" placeholder="jane@acme.com" required />
-              <Input name="role" label="Your role" placeholder="Head of Developer Relations" required />
+              <Input name="company" label="Company name" placeholder="Acme Inc." autoComplete="organization" autoCapitalize="words" required />
+              <Input name="contact_name" label="Your name" placeholder="Jane Smith" autoComplete="name" autoCapitalize="words" required />
+              <Input name="contact_email" label="Work email" type="email" placeholder="jane@acme.com" autoComplete="email" required />
+              <Input name="role" label="Your role" placeholder="Head of Developer Relations" autoComplete="organization-title" autoCapitalize="words" required />
               <Select
                 name="tier"
                 label={IS_PRELAUNCH ? "What interests you most?" : "Which tier interests you?"}

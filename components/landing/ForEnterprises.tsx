@@ -158,7 +158,7 @@ export function ForEnterprises() {
     <section
       id="enterprises"
       ref={sectionRef}
-      className="bg-muted py-24 px-4 sm:px-6 lg:px-8"
+      className="bg-muted py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-6xl mx-auto">
         {/* Section heading */}
@@ -192,7 +192,7 @@ export function ForEnterprises() {
           >
             <a
               href="/partners"
-              className="inline-block bg-accent text-accent-foreground rounded-xl px-8 py-4 text-base font-medium hover:bg-accent-hover transition-all"
+              className="inline-block bg-accent text-accent-foreground rounded-xl px-8 py-4 text-base font-medium hover:bg-accent-hover active:translate-y-px transition-all"
             >
               Become a founding partner
             </a>

@@ -22,15 +22,33 @@ export function Navbar() {
 
   const links = IS_PRELAUNCH ? PRELAUNCH_NAV_LINKS : NAV_LINKS;
   const ctaLabel = IS_PRELAUNCH ? "Apply for early access" : "Start building";
+  // Only show a hamburger menu when there are actual nav links to put in it.
+  // In pre-launch the only mobile action is "Apply", so we surface it directly.
+  const hasMenu = links.length > 0;
 
   const closeMobile = useCallback(() => {
     setMobileOpen(false);
   }, []);
 
+  // While the mobile menu is open: close on Escape and lock background scroll.
+  useEffect(() => {
+    if (!mobileOpen) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setMobileOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = prevOverflow;
+    };
+  }, [mobileOpen]);
+
   return (
     <nav
       className={cn(
-        "fixed top-0 left-0 right-0 z-50 transition-all",
+        "fixed top-0 left-0 right-0 z-50 transition-all pt-safe",
         scrolled
           ? "bg-background/90 backdrop-blur-lg border-b border-border-base"
           : "bg-transparent"
@@ -62,7 +80,7 @@ export function Navbar() {
             <ThemeToggle />
             <a
               href="/apply"
-              className="inline-flex items-center px-5 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-lg transition-all hover:bg-accent-hover"
+              className="inline-flex items-center px-5 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-lg transition-all hover:bg-accent-hover active:translate-y-px"
               style={{ transitionDuration: "var(--duration-fast)" }}
               onClick={() => analytics.trackCtaClicked("navbar", ctaLabel, "/apply")}
             >
@@ -71,14 +89,25 @@ export function Navbar() {
           </div>
 
           {/* Mobile controls */}
-          <div className="md:hidden flex items-center gap-1">
+          <div className="md:hidden flex items-center gap-1.5">
             <ThemeToggle />
+            {!hasMenu && (
+              <a
+                href="/apply"
+                className="inline-flex h-10 items-center px-4 bg-accent text-accent-foreground text-sm font-medium rounded-lg transition-colors hover:bg-accent-hover active:translate-y-px"
+                onClick={() => analytics.trackCtaClicked("navbar_mobile", ctaLabel, "/apply")}
+              >
+                Apply
+              </a>
+            )}
+            {hasMenu && (
             <button
               onClick={() => setMobileOpen((prev) => !prev)}
               className="inline-flex h-11 w-11 items-center justify-center text-muted-foreground hover:text-foreground transition-colors"
               style={{ transitionDuration: "var(--duration-fast)" }}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
+              aria-controls="mobile-menu"
             >
             <svg
               width="24"
@@ -105,11 +134,14 @@ export function Navbar() {
               )}
             </svg>
             </button>
+            )}
           </div>
         </div>
 
-        {/* Mobile slide-down panel */}
+        {/* Mobile slide-down panel (only when there are nav links) */}
+        {hasMenu && (
         <div
+          id="mobile-menu"
           className={cn(
             "md:hidden overflow-hidden transition-all",
             mobileOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
@@ -125,7 +157,7 @@ export function Navbar() {
                 <a
                   key={link.href}
                   href={link.href}
-                  className="text-sm text-muted-foreground hover:text-foreground px-2 py-1.5 transition-colors"
+                  className="text-sm text-muted-foreground hover:text-foreground px-2 py-2.5 transition-colors"
                   style={{ transitionDuration: "var(--duration-fast)" }}
                   onClick={closeMobile}
                 >
@@ -134,7 +166,7 @@ export function Navbar() {
               ))}
               <a
                 href="/apply"
-                className="inline-flex items-center justify-center px-5 py-2.5 bg-accent text-accent-foreground text-sm font-medium rounded-lg mt-2 transition-colors"
+                className="inline-flex items-center justify-center h-11 px-5 bg-accent text-accent-foreground text-sm font-medium rounded-lg mt-2 transition-colors hover:bg-accent-hover active:translate-y-px"
                 style={{ transitionDuration: "var(--duration-fast)" }}
                 onClick={() => { closeMobile(); analytics.trackCtaClicked("navbar_mobile", ctaLabel, "/apply"); }}
               >
@@ -143,6 +175,7 @@ export function Navbar() {
             </div>
           </div>
         </div>
+        )}
       </div>
     </nav>
   );

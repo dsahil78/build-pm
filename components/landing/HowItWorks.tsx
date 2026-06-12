@@ -79,7 +79,7 @@ function StepItem({ step, index }: { step: Step; index: number }) {
 
 export function HowItWorks() {
   return (
-    <section className="bg-muted py-24 px-4 sm:px-6 lg:px-8">
+    <section className="bg-muted py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Heading */}
         <h2 className="text-h2 text-center text-foreground">

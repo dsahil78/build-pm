@@ -159,7 +159,7 @@ export default function NotFound() {
   return (
     <main id="main-content" className="relative min-h-svh flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden bg-background">
       {/* Theme toggle — this page has no nav of its own */}
-      <div className="absolute top-4 right-4 z-10">
+      <div className="absolute inset-safe-top inset-safe-right z-10">
         <ThemeToggle />
       </div>
       {/* Radial glow */}

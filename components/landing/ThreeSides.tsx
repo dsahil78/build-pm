@@ -211,7 +211,7 @@ export function ThreeSides() {
   return (
     <section
       id="builders"
-      className="bg-background py-24 md:py-32 px-4 sm:px-6 lg:px-8"
+      className="bg-background py-16 sm:py-24 md:py-20 sm:py-28 md:py-32 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-6xl mx-auto" ref={headingRef}>
         {/* Heading */}

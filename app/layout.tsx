@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Suspense } from "react";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
@@ -57,6 +57,18 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true },
   },
+};
+
+// Mobile viewport: device-width, zoom NOT disabled (a11y), cover the notch for
+// safe-area insets, and a theme-color that tracks light/dark.
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  viewportFit: "cover",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#F7F6F3" },
+    { media: "(prefers-color-scheme: dark)", color: "#1A1A1A" },
+  ],
 };
 
 const structuredData = JSON.stringify({

@@ -55,7 +55,7 @@ export function BuildFeed() {
   const isInView = useInView(headingRef, { once: true, margin: "-60px" });
 
   return (
-    <section className="bg-background py-24 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section className="bg-background py-16 sm:py-24 md:py-20 sm:py-28 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <motion.div
           ref={headingRef}

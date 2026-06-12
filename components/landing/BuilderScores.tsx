@@ -73,7 +73,7 @@ export function BuilderScores() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={sectionRef} className="bg-background py-24 px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="bg-background py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Right column first on mobile (order) — card */}

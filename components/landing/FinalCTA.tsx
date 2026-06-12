@@ -38,7 +38,7 @@ export function FinalCTA() {
     <section
       id="apply"
       ref={sectionRef}
-      className="bg-background py-32 px-4 sm:px-6 lg:px-8"
+      className="bg-background py-20 sm:py-28 md:py-32 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-3xl mx-auto text-center">
         {/* Display heading */}
@@ -64,7 +64,7 @@ export function FinalCTA() {
         >
           <a
             href="/apply"
-            className="bg-accent text-accent-foreground rounded-xl px-8 py-4 font-medium hover:bg-accent-hover transition-all"
+            className="bg-accent text-accent-foreground rounded-xl px-8 py-4 font-medium hover:bg-accent-hover active:translate-y-px transition-all"
             onClick={() => analytics.trackCtaClicked("final_cta", IS_PRELAUNCH ? "Apply for early access" : "Start building", "/apply")}
           >
             {IS_PRELAUNCH ? "Apply for early access" : "Start building"}
@@ -105,9 +105,13 @@ export function FinalCTA() {
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email"
                   aria-label="Email address"
+                  autoComplete="email"
+                  inputMode="email"
+                  autoCapitalize="none"
+                  autoCorrect="off"
                   required
                   disabled={status === "submitting"}
-                  className="bg-input border border-input-border text-foreground rounded-lg px-4 py-3 text-sm flex-1 outline-none focus:border-ring transition-colors placeholder:text-subtle-foreground disabled:opacity-60"
+                  className="bg-input border border-input-border text-foreground rounded-lg px-4 py-3 text-base flex-1 outline-none focus:border-ring transition-colors placeholder:text-subtle-foreground disabled:opacity-60"
                 />
                 <button
                   type="submit"

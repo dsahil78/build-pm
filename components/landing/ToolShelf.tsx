@@ -47,7 +47,7 @@ function MarqueeRow({
 
 export function ToolShelf() {
   return (
-    <section className="bg-background py-24 px-4 sm:px-6 lg:px-8">
+    <section className="bg-background py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-xl text-muted-foreground text-center">
           40+ enterprise tools. Free for members.

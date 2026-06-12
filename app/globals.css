@@ -213,6 +213,8 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem; /* offset anchor jumps for the fixed navbar */
+  -webkit-text-size-adjust: 100%; /* stop iOS from auto-inflating text */
 }
 
 body {
@@ -224,7 +226,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  overflow-wrap: break-word; /* never let long words/URLs blow out the layout */
 }
+
+/* Deliberate tap highlight — no default grey box; feedback comes from :active */
+a, button, [role="button"], input, select, textarea, summary, label {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Safe-area helpers for fixed/full-bleed chrome on notched phones */
+.pt-safe { padding-top: env(safe-area-inset-top); }
+.inset-safe-top { top: max(1rem, env(safe-area-inset-top)); }
+.inset-safe-right { right: max(1rem, env(safe-area-inset-right)); }
 
 /* Headings balance their last line; body prose avoids orphans where supported. */
 h1, h2, h3, h4, h5, h6 {

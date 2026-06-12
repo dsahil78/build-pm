@@ -254,7 +254,7 @@ export function TerminalHero() {
           {IS_PRELAUNCH ? (
             <a
               href="/apply"
-              className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground text-base font-medium rounded-xl hover:bg-accent-hover transition-all"
+              className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground text-base font-medium rounded-xl hover:bg-accent-hover active:translate-y-px transition-all"
               onClick={() => analytics.trackCtaClicked("hero", "Apply for early access", "/apply")}
             >
               Apply for early access
@@ -263,7 +263,7 @@ export function TerminalHero() {
             <>
               <a
                 href="/apply"
-                className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground text-base font-medium rounded-xl hover:bg-accent-hover transition-all"
+                className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground text-base font-medium rounded-xl hover:bg-accent-hover active:translate-y-px transition-all"
                 onClick={() => analytics.trackCtaClicked("hero", "Start building", "/apply")}
               >
                 Start building

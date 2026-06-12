@@ -62,7 +62,7 @@ export function CookieConsent() {
           </button>
           <button
             onClick={accept}
-            className="px-4 py-2 text-sm text-accent-foreground bg-accent rounded-lg hover:bg-accent-hover transition-all"
+            className="px-4 py-2 text-sm text-accent-foreground bg-accent rounded-lg hover:bg-accent-hover active:translate-y-px transition-all"
             style={{ transitionDuration: "var(--duration-fast)" }}
           >
             Accept

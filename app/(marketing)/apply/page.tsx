@@ -58,7 +58,7 @@ export default function ApplyPage() {
   if (status === "success") {
     return (
       <main id="main-content" className="relative min-h-svh flex items-center justify-center px-4">
-        <div className="absolute top-4 right-4">
+        <div className="absolute inset-safe-top inset-safe-right">
           <ThemeToggle />
         </div>
         <div className="max-w-md text-center" aria-live="polite">
@@ -117,6 +117,8 @@ export default function ApplyPage() {
             name="full_name"
             label="Full name"
             placeholder="Jane Smith"
+            autoComplete="name"
+            autoCapitalize="words"
             required
           />
 
@@ -125,6 +127,7 @@ export default function ApplyPage() {
             label="Email"
             type="email"
             placeholder="you@example.com"
+            autoComplete="email"
             required
           />
 
@@ -133,6 +136,7 @@ export default function ApplyPage() {
             label="LinkedIn URL (optional)"
             type="url"
             placeholder="https://linkedin.com/in/you"
+            autoComplete="url"
             hint="Optional — so we can see what you've shipped"
           />
 

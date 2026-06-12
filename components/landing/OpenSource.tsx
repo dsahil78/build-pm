@@ -13,7 +13,7 @@ export function OpenSource() {
     <section
       id="open-source"
       ref={sectionRef}
-      className="bg-background py-24 px-4 sm:px-6 lg:px-8"
+      className="bg-background py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-2xl mx-auto text-center">
         {/* Heading */}

@@ -137,7 +137,7 @@ export function ProductPreview() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-background py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative bg-background py-16 sm:py-24 md:py-20 sm:py-28 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* Background glow */}
       <div

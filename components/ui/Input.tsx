@@ -10,8 +10,16 @@ function fieldIds(id: string | undefined, label: string | undefined, hint?: stri
   return { inputId, hintId, errorId, describedBy };
 }
 
+// text-base (16px) so iOS Safari never zooms the viewport on focus.
 const fieldBase =
-  "w-full bg-card border border-border-base rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-subtle-foreground transition-colors focus:border-ring focus:outline-none";
+  "w-full bg-card border border-border-base rounded-lg px-4 py-3 text-base text-foreground placeholder:text-subtle-foreground transition-colors focus:border-ring focus:outline-none";
+
+// Sensible mobile-keyboard defaults per input type (overridable via props).
+const typeDefaults: Record<string, { inputMode?: "email" | "url" | "tel"; autoCapitalize?: string; autoCorrect?: string; spellCheck?: boolean }> = {
+  email: { inputMode: "email", autoCapitalize: "none", autoCorrect: "off", spellCheck: false },
+  url: { inputMode: "url", autoCapitalize: "none", autoCorrect: "off", spellCheck: false },
+  tel: { inputMode: "tel" },
+};
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -19,7 +27,7 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   hint?: string;
 }
 
-export function Input({ label, error, hint, className, id, ...props }: InputProps) {
+export function Input({ label, error, hint, className, id, type, ...props }: InputProps) {
   const { inputId, hintId, errorId, describedBy } = fieldIds(id, label, hint, error);
   return (
     <div className="space-y-1.5">
@@ -31,10 +39,12 @@ export function Input({ label, error, hint, className, id, ...props }: InputProp
       {hint && <p id={hintId} className="text-xs text-subtle-foreground">{hint}</p>}
       <input
         id={inputId}
+        type={type}
         aria-describedby={describedBy}
         aria-invalid={error ? true : undefined}
         className={cn(fieldBase, error && "border-error", className)}
         style={{ transitionDuration: "var(--duration-fast)" }}
+        {...(type ? typeDefaults[type] : undefined)}
         {...props}
       />
       {error && <p id={errorId} role="alert" className="text-xs text-error">{error}</p>}
