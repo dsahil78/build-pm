@@ -1,30 +1,36 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useSyncExternalStore } from "react";
 import posthog from "posthog-js";
 
 const CONSENT_KEY = "cookie_consent";
 
-export function CookieConsent() {
-  const [visible, setVisible] = useState(false);
+// No external changes to subscribe to — we only read the persisted value once.
+const noopSubscribe = () => () => {};
 
-  useEffect(() => {
-    const stored = localStorage.getItem(CONSENT_KEY);
-    if (!stored) {
-      setVisible(true);
-    }
-  }, []);
+export function CookieConsent() {
+  // Read persisted consent via useSyncExternalStore: the server renders "pending"
+  // (banner hidden), and the client reads localStorage after hydration — no
+  // setState-in-effect and no hydration mismatch.
+  const storedConsent = useSyncExternalStore(
+    noopSubscribe,
+    () => localStorage.getItem(CONSENT_KEY),
+    () => "pending",
+  );
+  const [dismissed, setDismissed] = useState(false);
+
+  const visible = storedConsent === null && !dismissed;
 
   function accept() {
     localStorage.setItem(CONSENT_KEY, "granted");
     posthog.opt_in_capturing();
-    setVisible(false);
+    setDismissed(true);
   }
 
   function reject() {
     localStorage.setItem(CONSENT_KEY, "denied");
     posthog.opt_out_capturing();
-    setVisible(false);
+    setDismissed(true);
   }
 
   if (!visible) return null;

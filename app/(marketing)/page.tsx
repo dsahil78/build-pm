@@ -9,6 +9,7 @@ import { HowItWorks } from "@/components/landing/HowItWorks";
 import { BuilderScores } from "@/components/landing/BuilderScores";
 import { ForEnterprises } from "@/components/landing/ForEnterprises";
 import { Testimonials } from "@/components/landing/Testimonials";
+import { FAQ } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { Footer } from "@/components/landing/Footer";
 import { ScrollDepthTracker } from "@/components/shared/ScrollDepthTracker";
@@ -36,6 +37,9 @@ export default function LandingPage() {
         {!IS_PRELAUNCH && <BuilderScores />}
         {!IS_PRELAUNCH && <ForEnterprises />}
         {!IS_PRELAUNCH && <Testimonials />}
+
+        {/* Pre-apply FAQ — answers objections before the final CTA */}
+        <FAQ />
 
         {/* 8. Final CTA */}
         <FinalCTA />

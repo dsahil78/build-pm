@@ -1,29 +1,37 @@
 "use client";
 
+// ⚠️ PLACEHOLDER TESTIMONIALS — DO NOT ENABLE IN PRODUCTION.
+// These are fabricated and must NOT be shown until replaced with real, verified,
+// consenting members' testimonials. Same trust risk as fabricated metrics.
+// Identities must stay consistent with Testimonials.tsx.
+
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { EASE_OUT } from "@/lib/motion";
 import { TOOL_LOGOS } from "@/lib/tool-logos";
 
+// TODO(pre-launch): These testimonials are placeholders. Verify each is a real,
+// consenting member and that names/titles match across the site before launch.
+// Identities are kept consistent with components/landing/Testimonials.tsx.
 const TESTIMONIALS = [
   {
     quote: "I shipped more in my first two weeks here than in six months at my previous company. The build squads are addictive.",
     name: "Riya P.",
-    title: "Builder PM at Stripe",
+    title: "PM at a Series B startup",
     initials: "RP",
     bg: "#378ADD",
   },
   {
     quote: "My build.pm portfolio got me three interviews in a week. Recruiters actually looked at what I shipped instead of my resume.",
     name: "Dan M.",
-    title: "Senior PM at Notion",
+    title: "Senior PM, fintech",
     initials: "DM",
     bg: "#7F77DD",
   },
   {
     quote: "Finally, a community that values doing over talking. The feedback from other builders made my product 10x better.",
     name: "Kim T.",
-    title: "Founder PM",
+    title: "Founder, prev. Google PM",
     initials: "KT",
     bg: "#1D9E75",
   },

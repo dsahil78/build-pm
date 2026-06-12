@@ -236,6 +236,11 @@ export function ProductPreview() {
             </div>
           </motion.div>
         </div>
+
+        {/* Preview caption — honest framing for a pre-launch product */}
+        <p className="text-center text-grey-500 text-xs sm:text-sm mt-8 font-mono tracking-wide">
+          Preview — this is what your builder profile will look like at launch.
+        </p>
       </div>
     </section>
   );

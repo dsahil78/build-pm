@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, type FormEvent } from "react";
+import Link from "next/link";
 import { motion, useInView } from "framer-motion";
 import { Logo } from "@/components/brand/Logo";
 import { Input, Textarea, Select } from "@/components/ui/Input";
@@ -148,9 +149,9 @@ export default function PartnersPage() {
     <div className="bg-brand-dark min-h-svh">
       {/* Nav */}
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <a href="/">
+        <Link href="/">
           <Logo variant="dark" size="md" />
-        </a>
+        </Link>
       </nav>
 
       {/* ═══════════════════════════════════════
@@ -365,9 +366,9 @@ export default function PartnersPage() {
                 We&apos;re reviewing partner applications personally.
                 Expect to hear from us within 48 hours.
               </p>
-              <a href="/" className="text-brand-coral text-sm mt-6 inline-block hover:underline">
+              <Link href="/" className="text-brand-coral text-sm mt-6 inline-block hover:underline">
                 &larr; Back to home
-              </a>
+              </Link>
             </div>
           ) : (
             <form

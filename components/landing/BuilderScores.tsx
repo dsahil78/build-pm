@@ -109,14 +109,6 @@ export function BuilderScores() {
               aspiring PM who leads a build sprint outranks a FAANG PM who lurks.
               Your score grows every time you build, teach, review, or mentor.
             </p>
-
-            {/* Link */}
-            <a
-              href="#"
-              className="text-brand-coral text-sm mt-4 inline-block hover:opacity-80 transition-opacity"
-            >
-              Learn more &rarr;
-            </a>
           </motion.div>
         </div>
       </div>

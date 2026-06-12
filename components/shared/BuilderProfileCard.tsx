@@ -1,10 +1,34 @@
 "use client";
 
+import { useRef, useSyncExternalStore } from "react";
 import { motion } from "framer-motion";
 import { EASE_OUT } from "@/lib/motion";
 import { MOCK_BUILDER } from "@/lib/mock-data";
 
+const HEATMAP_CELLS = 28;
+const INTENSITY_LEVELS = [0, 0.15, 0.3, 0.5, 0.8];
+// Deterministic placeholder used for SSR and hydration.
+const SERVER_HEATMAP: number[] = Array(HEATMAP_CELLS).fill(0);
+
+const noopSubscribe = () => () => {};
+
+function randomHeatmap(): number[] {
+  return Array.from(
+    { length: HEATMAP_CELLS },
+    () => INTENSITY_LEVELS[Math.floor(Math.random() * INTENSITY_LEVELS.length)],
+  );
+}
+
 export function BuilderProfileCard() {
+  // Generate the decorative heatmap once on the client (stable across renders),
+  // avoiding an impure Math.random() call during render / hydration mismatch.
+  const cache = useRef<number[] | null>(null);
+  const heatmap = useSyncExternalStore(
+    noopSubscribe,
+    () => (cache.current ??= randomHeatmap()),
+    () => SERVER_HEATMAP,
+  );
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20, rotateX: 4 }}
@@ -84,18 +108,15 @@ export function BuilderProfileCard() {
           </div>
           {/* Mini activity heatmap */}
           <div className="flex gap-[3px]">
-            {Array.from({ length: 28 }, (_, i) => {
-              const intensity = [0, 0.15, 0.3, 0.5, 0.8][Math.floor(Math.random() * 5)];
-              return (
-                <div
-                  key={i}
-                  className="w-2.5 h-2.5 rounded-[3px]"
-                  style={{
-                    backgroundColor: intensity > 0 ? `rgba(255,87,51,${intensity})` : "#2A2A2A",
-                  }}
-                />
-              );
-            })}
+            {heatmap.map((intensity, i) => (
+              <div
+                key={i}
+                className="w-2.5 h-2.5 rounded-[3px]"
+                style={{
+                  backgroundColor: intensity > 0 ? `rgba(255,87,51,${intensity})` : "#2A2A2A",
+                }}
+              />
+            ))}
           </div>
         </div>
       </div>

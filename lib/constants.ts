@@ -10,6 +10,7 @@ export const PRELAUNCH_FOOTER_COLUMNS = [
     title: "build.pm",
     links: [
       { label: "Apply for early access", href: "/apply" },
+      { label: "For partners", href: "/partners" },
       { label: "Contact", href: "mailto:hello@build.pm" },
     ],
   },
@@ -72,11 +73,13 @@ export const FOOTER_COLUMNS = [
   },
 ] as const;
 
-export const SOCIAL_LINKS = [
-  { label: "GitHub", href: "https://github.com/buildpm" },
-  { label: "LinkedIn", href: "https://linkedin.com/company/buildpm" },
-  { label: "Twitter", href: "https://x.com/buildpm" },
-] as const;
+// Social accounts are hidden until they're live. Re-enable by restoring the
+// entries below (the Footer renders whatever is in this array).
+export const SOCIAL_LINKS: readonly { label: string; href: string }[] = [
+  // { label: "GitHub", href: "https://github.com/buildpm" },
+  // { label: "LinkedIn", href: "https://linkedin.com/company/buildpm" },
+  // { label: "Twitter", href: "https://x.com/buildpm" },
+];
 
 export const ARCHETYPES = [
   { value: "aspiring", label: "Aspiring PM" },

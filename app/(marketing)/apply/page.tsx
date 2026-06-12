@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, type FormEvent } from "react";
+import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { Input, Textarea, Select } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
@@ -64,12 +65,12 @@ export default function ApplyPage() {
             In the meantime, join the newsletter for weekly build updates.
           </p>
           <div className="mt-6">
-            <a
+            <Link
               href="/"
               className="text-brand-coral text-sm hover:underline"
             >
               ← Back to home
-            </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -81,18 +82,18 @@ export default function ApplyPage() {
       <div className="w-full max-w-[640px]">
         {/* Logo */}
         <div className="mb-10">
-          <a href="/">
+          <Link href="/">
             <Logo variant="dark" size="md" />
-          </a>
+          </Link>
         </div>
 
         {/* Header */}
         <h1 className="text-3xl font-bold text-white">
-          {IS_PRELAUNCH ? "Apply for early access" : "Apply to build.pm"}
+          {IS_PRELAUNCH ? "Apply to the founding cohort" : "Apply to build.pm"}
         </h1>
         <p className="text-grey-400 mt-2 leading-relaxed">
           {IS_PRELAUNCH
-            ? "We\u2019re accepting a limited number of early members. Tell us what you\u2019ve shipped and why you want to build."
+            ? "We\u2019re hand-picking the first 100 builders. Takes 2 minutes. If it\u2019s a fit, you get free enterprise tools, a build squad, and early access at launch \u2014 we reply within 7 days."
             : "We review every application. We\u2019re looking for people who build, not just talk."}
         </p>
 
@@ -124,11 +125,10 @@ export default function ApplyPage() {
 
           <Input
             name="linkedin_url"
-            label="LinkedIn URL"
+            label="LinkedIn URL (optional)"
             type="url"
             placeholder="https://linkedin.com/in/you"
-            hint="So we can see what you've shipped"
-            required
+            hint="Optional — so we can see what you've shipped"
           />
 
           <Select

@@ -59,11 +59,19 @@ const TERMINAL_BLOCKS: TerminalBlock[] = [
   },
   {
     command: "build --impact",
-    lines: [
-      { text: "\u2713 500+ builders shipping weekly", type: "checkmark" },
-      { text: "\u2713 $200K+ in free enterprise tools", type: "checkmark" },
-      { text: "Ready to build? \u2192", type: "cta" },
-    ],
+    lines: IS_PRELAUNCH
+      ? [
+          { text: "\u2713 Founding cohort forming \u2014 first 100 builders", type: "checkmark" },
+          { text: "\u2713 $200K+ in enterprise tools committed from launch partners", type: "checkmark" },
+          { text: "Ready to build? \u2192", type: "cta" },
+        ]
+      : [
+          // TODO(post-launch): Replace with REAL, verified metrics before setting
+          // IS_PRELAUNCH=false. Never ship fabricated traction numbers.
+          { text: "\u2713 [TODO: verified builder count]", type: "checkmark" },
+          { text: "\u2713 [TODO: verified tools value]", type: "checkmark" },
+          { text: "Ready to build? \u2192", type: "cta" },
+        ],
   },
 ];
 

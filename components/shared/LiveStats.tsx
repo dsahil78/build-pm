@@ -1,28 +1,13 @@
 "use client";
 
-import { useRef, useEffect, useState } from "react";
+import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { EASE_OUT } from "@/lib/motion";
 import { LIVE_STATS } from "@/lib/mock-data";
+import { useCountUp } from "@/hooks/useCountUp";
 
 function AnimatedNumber({ target, inView }: { target: number; inView: boolean }) {
-  const [count, setCount] = useState(0);
-
-  useEffect(() => {
-    if (!inView) return;
-    let start: number | null = null;
-    let raf: number;
-    const animate = (ts: number) => {
-      if (!start) start = ts;
-      const p = Math.min((ts - start) / 1600, 1);
-      const eased = 1 - Math.pow(1 - p, 3);
-      setCount(Math.floor(eased * target));
-      if (p < 1) raf = requestAnimationFrame(animate);
-    };
-    raf = requestAnimationFrame(animate);
-    return () => cancelAnimationFrame(raf);
-  }, [inView, target]);
-
+  const count = useCountUp(target, { active: inView, duration: 1600 });
   return <>{count}</>;
 }
 

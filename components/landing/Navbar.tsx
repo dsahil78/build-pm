@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 import { NAV_LINKS, PRELAUNCH_NAV_LINKS, IS_PRELAUNCH } from "@/lib/constants";
 import { cn } from "@/lib/utils";
@@ -9,20 +10,10 @@ import { analytics } from "@/lib/analytics";
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [showCta, setShowCta] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 80);
-
-      // Show navbar CTA once hero CTA scrolls out of viewport
-      const heroCta = document.getElementById("hero-cta");
-      if (!heroCta) {
-        setShowCta(true);
-        return;
-      }
-      const rect = heroCta.getBoundingClientRect();
-      setShowCta(rect.bottom < 0);
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
@@ -51,9 +42,9 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <a href="/" className="flex-shrink-0">
+          <Link href="/" className="flex-shrink-0">
             <Logo variant="dark" size="md" />
-          </a>
+          </Link>
 
           {/* Desktop nav */}
           <div className="hidden md:flex items-center gap-8">
@@ -69,16 +60,8 @@ export function Navbar() {
             ))}
             <a
               href="/apply"
-              className={cn(
-                "inline-flex items-center px-5 py-2 bg-brand-coral text-white text-sm font-medium rounded-lg transition-all",
-                showCta
-                  ? "opacity-100 translate-y-0 scale-100"
-                  : "opacity-0 translate-y-3 scale-95 pointer-events-none"
-              )}
-              style={{
-                transitionDuration: "400ms",
-                transitionTimingFunction: "cubic-bezier(0.16, 1, 0.3, 1)",
-              }}
+              className="inline-flex items-center px-5 py-2 bg-brand-coral text-white text-sm font-medium rounded-lg transition-all hover:brightness-110"
+              style={{ transitionDuration: "var(--duration-fast)" }}
               onClick={() => analytics.trackCtaClicked("navbar", ctaLabel, "/apply")}
             >
               {ctaLabel}

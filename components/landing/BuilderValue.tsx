@@ -46,7 +46,7 @@ const CORE: ValueItem[] = [
 const SUPPORTING: ValueItem[] = [
   {
     title: "Free enterprise tools",
-    description: "$200K+ in tools from 40+ sponsors. Cursor, Claude, AWS, Datadog. All free.",
+    description: "$200K+ in tools committed from 40+ launch partners. Cursor, Claude, AWS, Datadog. Free for members.",
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
         <rect x="3" y="11" width="18" height="11" rx="2" /><rect x="2" y="7" width="20" height="4" rx="1" /><line x1="12" y1="7" x2="12" y2="22" /><path d="M12 7C12 7 9 7 7 5C5 3 7 1 9 2C11 3 12 7 12 7Z" strokeLinejoin="round" /><path d="M12 7C12 7 15 7 17 5C19 3 17 1 15 2C13 3 12 7 12 7Z" strokeLinejoin="round" />

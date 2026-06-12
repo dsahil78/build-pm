@@ -1,5 +1,10 @@
 "use client";
 
+// ⚠️ PLACEHOLDER TESTIMONIALS — DO NOT ENABLE IN PRODUCTION.
+// These are fabricated and must NOT be shown until replaced with real, verified,
+// consenting members' testimonials. Same trust risk as fabricated metrics.
+// Identities must stay consistent with SocialProof.tsx.
+
 import { useRef } from "react";
 import { motion, useInView } from "framer-motion";
 import { EASE_OUT } from "@/lib/motion";
@@ -12,6 +17,8 @@ interface Testimonial {
   quote: string;
 }
 
+// TODO(pre-launch): These testimonials are placeholders. Verify each is a real,
+// consenting member before launch. Identities must match SocialProof.tsx.
 const TESTIMONIALS: Testimonial[] = [
   {
     initials: "RP",

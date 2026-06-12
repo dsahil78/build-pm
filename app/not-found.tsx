@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useSyncExternalStore } from "react";
+import Link from "next/link";
 import { Logo } from "@/components/brand/Logo";
 
 const EXCUSES = [
@@ -10,6 +11,11 @@ const EXCUSES = [
   "Scope creep ate this page. We're descoping to an MVP.",
   "This was in the PRD. Nobody read the PRD.",
 ];
+
+// Pick one random excuse on the client, cached so the snapshot stays stable.
+let cachedExcuse: string | null = null;
+const pickExcuse = () => (cachedExcuse ??= EXCUSES[Math.floor(Math.random() * EXCUSES.length)]);
+const noopSubscribe = () => () => {};
 
 /* ─────────────────────────────────────────────
  * Build Bot — Premium robot mascot illustration
@@ -145,11 +151,9 @@ function BuildBot() {
 }
 
 export default function NotFound() {
-  const [excuse, setExcuse] = useState("");
-
-  useEffect(() => {
-    setExcuse(EXCUSES[Math.floor(Math.random() * EXCUSES.length)]);
-  }, []);
+  // Server renders an empty placeholder; the client swaps in a random excuse
+  // after hydration (no setState-in-effect, no hydration mismatch).
+  const excuse = useSyncExternalStore(noopSubscribe, pickExcuse, () => "");
 
   return (
     <div className="relative min-h-svh flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden bg-brand-dark">
@@ -195,13 +199,13 @@ export default function NotFound() {
         </p>
 
         {/* CTA */}
-        <a
+        <Link
           href="/"
           className="mt-8 inline-flex items-center px-6 py-2.5 bg-brand-coral text-white text-sm font-semibold rounded-lg transition-all hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] nf-entrance"
           style={{ animationDelay: "650ms", transitionDuration: "var(--duration-fast)" }}
         >
           Back to home
-        </a>
+        </Link>
 
         {/* Logo */}
         <div className="mt-10 nf-entrance-fade" style={{ animationDelay: "800ms" }}>

@@ -19,7 +19,6 @@ const VALID_PARTNER_TIERS = [
 
 /* ── Field length limits ── */
 const MAX_NAME = 120;
-const MAX_EMAIL = 254;
 const MAX_URL = 500;
 const MAX_SHORT = 100;
 const MAX_TEXT = 2000;

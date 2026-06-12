@@ -10,11 +10,12 @@ export function FinalCTA() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
   const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
 
   async function handleSubscribe(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!email.trim()) return;
+    setStatus("submitting");
 
     try {
       const res = await fetch("/api/waitlist", {
@@ -22,16 +23,15 @@ export function FinalCTA() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, source: "landing_cta" }),
       });
-      if (res.ok) {
-        analytics.trackWaitlistSignup("landing_cta");
-        analytics.identify(email);
-      }
+      if (!res.ok) throw new Error("Request failed");
+      analytics.trackWaitlistSignup("landing_cta");
+      analytics.identify(email);
+      setStatus("success");
+      setEmail("");
     } catch {
-      // Silently fail — form still shows success for UX
+      // Surface a real error so the user can retry — never fake success.
+      setStatus("error");
     }
-
-    setSubmitted(true);
-    setEmail("");
   }
 
   return (
@@ -86,40 +86,59 @@ export function FinalCTA() {
           transition={{ duration: 0.5, delay: 0.3, ease: EASE_OUT }}
           className="mt-12"
         >
-          <p className="text-grey-400 text-sm mb-3">
-            {IS_PRELAUNCH ? "Get notified when we launch" : "Get weekly build updates"}
+          <p className="text-grey-500 text-sm mb-3">
+            {IS_PRELAUNCH ? "Not ready to apply? Get notified at launch." : "Get weekly build updates"}
           </p>
           <div aria-live="polite">
-            {submitted && (
+            {status === "success" ? (
               <p className="text-brand-coral text-sm font-medium">
                 Thanks! You&apos;re subscribed.
               </p>
+            ) : (
+              <form
+                onSubmit={handleSubscribe}
+                className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+              >
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Your email"
+                  required
+                  disabled={status === "submitting"}
+                  className="bg-[#1F1F1F] border border-[#3A3A3A] text-white rounded-lg px-4 py-3 text-sm flex-1 outline-none focus:border-grey-500 transition-colors placeholder:text-grey-600 disabled:opacity-60"
+                />
+                <button
+                  type="submit"
+                  disabled={status === "submitting"}
+                  className="bg-[#2A2A2A] border border-[#3A3A3A] text-grey-200 rounded-lg px-6 py-3 text-sm font-medium hover:bg-[#333] hover:text-white transition-all disabled:opacity-60"
+                >
+                  {status === "submitting" ? "Joining…" : IS_PRELAUNCH ? "Notify me" : "Subscribe"}
+                </button>
+              </form>
+            )}
+            {status === "error" && (
+              <p className="text-error text-sm mt-3">
+                Couldn&apos;t sign you up just now — please try again.
+              </p>
             )}
           </div>
-          {!submitted && (
-            <form
-              onSubmit={handleSubscribe}
-              action="/api/waitlist"
-              method="POST"
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            >
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Your email"
-                required
-                className="bg-[#333] border border-[#444] text-white rounded-lg px-4 py-3 text-sm flex-1 outline-none focus:border-brand-coral transition-colors placeholder:text-grey-500"
-              />
-              <button
-                type="submit"
-                className="bg-brand-coral text-white rounded-lg px-6 py-3 text-sm font-medium hover:brightness-110 transition-all"
-              >
-                {IS_PRELAUNCH ? "Join waitlist" : "Subscribe"}
-              </button>
-            </form>
-          )}
         </motion.div>
+
+        {/* Partners path — one low-key line for tool companies */}
+        {IS_PRELAUNCH && (
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : { opacity: 0 }}
+            transition={{ duration: 0.5, delay: 0.45, ease: EASE_OUT }}
+            className="mt-10 text-grey-500 text-sm"
+          >
+            Run a tool PMs love?{" "}
+            <a href="/partners" className="text-brand-coral hover:underline">
+              Partner with us &rarr;
+            </a>
+          </motion.p>
+        )}
       </div>
     </section>
   );
