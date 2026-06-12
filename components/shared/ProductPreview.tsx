@@ -137,7 +137,7 @@ export function ProductPreview() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-brand-dark py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative bg-background py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* Background glow */}
       <div
@@ -160,12 +160,12 @@ export function ProductPreview() {
           <p className="text-brand-coral text-sm font-semibold tracking-wider uppercase">
             The platform
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mt-4 tracking-tight leading-[1.1]">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mt-4 tracking-tight leading-[1.1]">
             Your builds. Your proof.
             <br />
-            <span className="text-grey-500">Your career.</span>
+            <span className="text-muted-foreground">Your career.</span>
           </h2>
-          <p className="text-grey-400 mt-6 text-lg sm:text-xl">
+          <p className="text-muted-foreground mt-6 text-lg sm:text-xl">
             Every project you ship becomes a permanent part of your builder portfolio.
           </p>
         </motion.div>
@@ -238,7 +238,7 @@ export function ProductPreview() {
         </div>
 
         {/* Preview caption — honest framing for a pre-launch product */}
-        <p className="text-center text-grey-500 text-xs sm:text-sm mt-8 font-mono tracking-wide">
+        <p className="text-center text-subtle-foreground text-xs sm:text-sm mt-8 font-mono tracking-wide">
           Preview — this is what your builder profile will look like at launch.
         </p>
       </div>

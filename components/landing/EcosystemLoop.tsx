@@ -53,7 +53,7 @@ export function EcosystemLoop() {
   const isInView = useInView(headingRef, { once: true, margin: "-60px" });
 
   return (
-    <section className="bg-brand-dark py-24 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section className="bg-background py-24 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto" ref={headingRef}>
         {/* Heading */}
         <motion.div
@@ -65,10 +65,10 @@ export function EcosystemLoop() {
           <p className="text-brand-coral text-sm font-semibold tracking-wider uppercase">
             The ecosystem
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-2">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mt-2">
             A flywheel, not a funnel.
           </h2>
-          <p className="text-grey-400 mt-4 text-lg">
+          <p className="text-muted-foreground mt-4 text-lg">
             Every participant makes the ecosystem stronger.
           </p>
         </motion.div>
@@ -85,19 +85,18 @@ export function EcosystemLoop() {
                 className="group relative w-full md:w-[220px]"
               >
                 <div
-                  className="rounded-2xl bg-gradient-to-b from-[#242424] to-[#1F1F1F] p-5 text-center h-full transition-all duration-300 hover:-translate-y-1 hover:from-[#282828] hover:to-[#222]"
-                  style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
+                  className="rounded-2xl bg-card border border-border-base p-5 text-center h-full transition-all duration-300 hover:-translate-y-1 hover:bg-elevated"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-brand-coral/[0.08] flex items-center justify-center text-brand-coral mx-auto transition-colors duration-300 group-hover:bg-brand-coral/[0.15]">
+                  <div className="w-11 h-11 rounded-xl bg-accent/[0.08] flex items-center justify-center text-accent mx-auto transition-colors duration-300 group-hover:bg-accent/[0.15]">
                     {step.icon}
                   </div>
-                  <h3 className="text-white font-semibold text-sm mt-3">
+                  <h3 className="text-foreground font-semibold text-sm mt-3">
                     {step.label}
                   </h3>
-                  <p className="text-brand-coral text-xs font-medium mt-1">
+                  <p className="text-accent text-xs font-medium mt-1">
                     {step.action}
                   </p>
-                  <p className="text-grey-500 text-[11px] mt-2 leading-relaxed">
+                  <p className="text-muted-foreground text-[11px] mt-2 leading-relaxed">
                     {step.description}
                   </p>
                 </div>
@@ -105,7 +104,7 @@ export function EcosystemLoop() {
 
               {/* Arrow between steps */}
               {i < LOOP_STEPS.length - 1 && (
-                <div className="flex items-center justify-center text-grey-600 shrink-0 py-1 md:py-0 md:px-4">
+                <div className="flex items-center justify-center text-subtle-foreground shrink-0 py-1 md:py-0 md:px-4">
                   {/* Vertical arrow for mobile */}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:hidden" aria-hidden="true">
                     <line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" />
@@ -128,17 +127,17 @@ export function EcosystemLoop() {
           transition={{ duration: 0.5, delay: 0.5 }}
           className="flex items-center justify-center gap-3 mt-8"
         >
-          <div className="h-px w-8 bg-grey-600" />
+          <div className="h-px w-8 bg-border-strong" />
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-coral" aria-hidden="true">
             <polyline points="23 4 23 10 17 10" />
             <polyline points="1 20 1 14 7 14" />
             <path d="M3.51 9a9 9 0 0114.85-3.36L23 10" />
             <path d="M20.49 15a9 9 0 01-14.85 3.36L1 14" />
           </svg>
-          <p className="text-grey-500 text-xs font-mono tracking-wider uppercase">
+          <p className="text-subtle-foreground text-xs font-mono tracking-wider uppercase">
             The cycle repeats
           </p>
-          <div className="h-px w-8 bg-grey-600" />
+          <div className="h-px w-8 bg-border-strong" />
         </motion.div>
       </div>
     </section>

@@ -43,7 +43,7 @@ const FAQS: QA[] = [
 
 export function FAQ() {
   return (
-    <section className="bg-brand-dark py-24 px-4 sm:px-6 lg:px-8">
+    <section className="bg-background py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -55,7 +55,7 @@ export function FAQ() {
           <p className="text-brand-coral text-sm font-semibold tracking-wider uppercase">
             Questions
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2 tracking-tight">
             Before you apply
           </h2>
         </motion.div>
@@ -68,10 +68,10 @@ export function FAQ() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.4, delay: i * 0.05, ease: EASE_OUT }}
-              className="border-b border-[#2A2A2A] pb-8"
+              className="border-b border-border-base pb-8"
             >
-              <dt className="text-white font-semibold text-lg">{faq.question}</dt>
-              <dd className="text-grey-400 mt-2 leading-relaxed">{faq.answer}</dd>
+              <dt className="text-foreground font-semibold text-lg">{faq.question}</dt>
+              <dd className="text-muted-foreground mt-2 leading-relaxed">{faq.answer}</dd>
             </motion.div>
           ))}
         </dl>

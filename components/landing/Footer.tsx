@@ -28,13 +28,13 @@ function SocialIcon({ label }: { label: string }) {
 
 export function Footer() {
   return (
-    <footer className="bg-brand-dark border-t border-[#222]">
+    <footer className="bg-background border-t border-border-base">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {/* Footer columns */}
         <div className={`grid gap-8 ${IS_PRELAUNCH ? "grid-cols-1 max-w-xs" : "grid-cols-2 md:grid-cols-4"}`}>
           {(IS_PRELAUNCH ? PRELAUNCH_FOOTER_COLUMNS : FOOTER_COLUMNS).map((column) => (
             <div key={column.title}>
-              <h3 className="text-grey-500 text-xs uppercase tracking-[0.08em] font-medium mb-4">
+              <h3 className="text-subtle-foreground text-xs uppercase tracking-[0.08em] font-medium mb-4">
                 {column.title}
               </h3>
               <ul className="space-y-3">
@@ -42,7 +42,7 @@ export function Footer() {
                   <li key={link.label}>
                     <a
                       href={link.href}
-                      className="text-grey-400 text-sm hover:text-white transition-colors"
+                      className="text-muted-foreground text-sm hover:text-foreground transition-colors"
                     >
                       {link.label}
                     </a>
@@ -54,18 +54,18 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-8 pt-8 border-t border-[#333] flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="mt-8 pt-8 border-t border-border-base flex flex-col sm:flex-row items-center justify-between gap-4">
           {/* Left */}
           <div className="flex items-center gap-3">
             <LogoMark size={24} className="opacity-40" />
-            <span className="text-grey-600 text-xs">
+            <span className="text-subtle-foreground text-xs">
               &copy; 2026 BuildPM
               {" "}&middot;{" "}
-              <a href="/privacy" className="hover:text-white transition-colors">
+              <a href="/privacy" className="hover:text-foreground transition-colors">
                 Privacy
               </a>{" "}
               &middot;{" "}
-              <a href="/terms" className="hover:text-white transition-colors">
+              <a href="/terms" className="hover:text-foreground transition-colors">
                 Terms
               </a>
             </span>
@@ -79,7 +79,7 @@ export function Footer() {
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-grey-600 hover:text-white transition-colors"
+                className="text-muted-foreground hover:text-foreground transition-colors"
                 aria-label={social.label}
               >
                 <SocialIcon label={social.label} />
@@ -89,7 +89,7 @@ export function Footer() {
         </div>
 
         {/* Built in Seattle tagline */}
-        <p className="mt-6 text-center text-grey-600 text-xs tracking-wide">
+        <p className="mt-6 text-center text-subtle-foreground text-xs tracking-wide">
           Built in Seattle, WA — shipped everywhere.
         </p>
       </div>

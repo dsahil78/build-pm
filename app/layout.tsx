@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { Analytics } from "@vercel/analytics/react";
+import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { PostHogPageView } from "@/components/providers/PostHogPageView";
 import { CookieConsent } from "@/components/shared/CookieConsent";
 import "./globals.css";
@@ -72,7 +73,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <script
           type="application/ld+json"
@@ -80,19 +81,26 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: structuredData }}
         />
       </head>
-      <body className="bg-brand-dark text-white font-body antialiased">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-brand-coral focus:text-white focus:rounded-lg focus:text-sm focus:font-medium"
+      <body className="bg-background text-foreground font-body antialiased">
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
         >
-          Skip to content
-        </a>
-        {children}
-        <Suspense>
-          <PostHogPageView />
-        </Suspense>
-        <CookieConsent />
-        <Analytics />
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[200] focus:px-4 focus:py-2 focus:bg-accent focus:text-accent-foreground focus:rounded-lg focus:text-sm focus:font-medium"
+          >
+            Skip to content
+          </a>
+          {children}
+          <Suspense>
+            <PostHogPageView />
+          </Suspense>
+          <CookieConsent />
+          <Analytics />
+        </ThemeProvider>
       </body>
     </html>
   );

@@ -38,7 +38,7 @@ export function FinalCTA() {
     <section
       id="apply"
       ref={sectionRef}
-      className="bg-brand-dark py-32 px-4 sm:px-6 lg:px-8"
+      className="bg-background py-32 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-3xl mx-auto text-center">
         {/* Display heading */}
@@ -47,7 +47,7 @@ export function FinalCTA() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, ease: EASE_OUT }}
         >
-          <p className="text-grey-300 text-4xl md:text-5xl font-bold tracking-tight" style={{ letterSpacing: "-0.02em" }}>
+          <p className="text-foreground text-4xl md:text-5xl font-bold tracking-tight" style={{ letterSpacing: "-0.02em" }}>
             Stop talking about building.
           </p>
           <p className="text-brand-coral text-4xl md:text-5xl font-bold tracking-tight mt-2" style={{ letterSpacing: "-0.02em" }}>
@@ -64,7 +64,7 @@ export function FinalCTA() {
         >
           <a
             href="/apply"
-            className="bg-brand-coral text-white rounded-xl px-8 py-4 font-medium hover:brightness-110 hover:scale-[1.02] transition-all"
+            className="bg-accent text-accent-foreground rounded-xl px-8 py-4 font-medium hover:brightness-110 hover:scale-[1.02] transition-all"
             onClick={() => analytics.trackCtaClicked("final_cta", IS_PRELAUNCH ? "Apply for early access" : "Start building", "/apply")}
           >
             {IS_PRELAUNCH ? "Apply for early access" : "Start building"}
@@ -72,7 +72,7 @@ export function FinalCTA() {
           {!IS_PRELAUNCH && (
             <a
               href="/partners"
-              className="bg-transparent border-2 border-brand-coral text-brand-coral rounded-xl px-8 py-4 font-medium hover:bg-brand-coral hover:text-white transition-all"
+              className="bg-transparent border-2 border-accent text-accent rounded-xl px-8 py-4 font-medium hover:bg-accent hover:text-accent-foreground transition-all"
             >
               Partner with us
             </a>
@@ -86,7 +86,7 @@ export function FinalCTA() {
           transition={{ duration: 0.5, delay: 0.3, ease: EASE_OUT }}
           className="mt-12"
         >
-          <p className="text-grey-500 text-sm mb-3">
+          <p className="text-muted-foreground text-sm mb-3">
             {IS_PRELAUNCH ? "Not ready to apply? Get notified at launch." : "Get weekly build updates"}
           </p>
           <div aria-live="polite">
@@ -106,12 +106,12 @@ export function FinalCTA() {
                   placeholder="Your email"
                   required
                   disabled={status === "submitting"}
-                  className="bg-[#1F1F1F] border border-[#3A3A3A] text-white rounded-lg px-4 py-3 text-sm flex-1 outline-none focus:border-grey-500 transition-colors placeholder:text-grey-600 disabled:opacity-60"
+                  className="bg-input border border-input-border text-foreground rounded-lg px-4 py-3 text-sm flex-1 outline-none focus:border-ring transition-colors placeholder:text-subtle-foreground disabled:opacity-60"
                 />
                 <button
                   type="submit"
                   disabled={status === "submitting"}
-                  className="bg-[#2A2A2A] border border-[#3A3A3A] text-grey-200 rounded-lg px-6 py-3 text-sm font-medium hover:bg-[#333] hover:text-white transition-all disabled:opacity-60"
+                  className="bg-muted border border-border-base text-foreground rounded-lg px-6 py-3 text-sm font-medium hover:bg-elevated transition-all disabled:opacity-60"
                 >
                   {status === "submitting" ? "Joining…" : IS_PRELAUNCH ? "Notify me" : "Subscribe"}
                 </button>
@@ -131,10 +131,10 @@ export function FinalCTA() {
             initial={{ opacity: 0 }}
             animate={isInView ? { opacity: 1 } : { opacity: 0 }}
             transition={{ duration: 0.5, delay: 0.45, ease: EASE_OUT }}
-            className="mt-10 text-grey-500 text-sm"
+            className="mt-10 text-muted-foreground text-sm"
           >
             Run a tool PMs love?{" "}
-            <a href="/partners" className="text-brand-coral hover:underline">
+            <a href="/partners" className="text-accent hover:underline">
               Partner with us &rarr;
             </a>
           </motion.p>

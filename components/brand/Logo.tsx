@@ -12,16 +12,15 @@ const sizes = {
   lg: { icon: 40, text: "text-xl", gap: "gap-3" },
 };
 
-export function Logo({ className, variant = "dark", size = "md" }: LogoProps) {
+export function Logo({ className, size = "md" }: LogoProps) {
   const s = sizes[size];
-  const coral = "#FF5733";
-  const primary = variant === "dark" ? coral : "#1A1A1A";
-  const secondary = variant === "dark" ? "#FFFFFF" : coral;
-  const ghost = variant === "dark" ? "rgba(255,255,255,0.15)" : "rgba(255,87,51,0.15)";
-  const wordmark = variant === "dark" ? "#FFFFFF" : "#1A1A1A";
 
+  // Theme-aware: coral accent stays fixed; the foreground-dependent parts use
+  // currentColor (= --foreground) so the mark adapts to light/dark automatically.
   return (
-    <div className={cn("flex items-center", s.gap, className)}>
+    <div
+      className={cn("flex items-center text-foreground", s.gap, className)}
+    >
       {/* Block monogram — L-shape abstract "b" */}
       <svg
         width={s.icon}
@@ -30,19 +29,19 @@ export function Logo({ className, variant = "dark", size = "md" }: LogoProps) {
         fill="none"
         aria-hidden="true"
       >
-        {/* Left column: 3 stacked blocks */}
-        <rect x="2" y="2" width="12" height="7" rx="2" fill={primary} />
-        <rect x="2" y="12.5" width="12" height="7" rx="2" fill={primary} />
-        <rect x="2" y="23" width="12" height="7" rx="2" fill={primary} />
-        {/* Right column: ghost top-right, 2 offset blocks */}
-        <rect x="18" y="2" width="12" height="7" rx="2" fill={ghost} />
-        <rect x="18" y="12.5" width="12" height="7" rx="2" fill={secondary} />
-        <rect x="18" y="23" width="12" height="7" rx="2" fill={secondary} />
+        {/* Left column: 3 stacked coral blocks */}
+        <rect x="2" y="2" width="12" height="7" rx="2" fill="var(--accent)" />
+        <rect x="2" y="12.5" width="12" height="7" rx="2" fill="var(--accent)" />
+        <rect x="2" y="23" width="12" height="7" rx="2" fill="var(--accent)" />
+        {/* Right column: ghost top-right, 2 foreground blocks */}
+        <rect x="18" y="2" width="12" height="7" rx="2" fill="currentColor" opacity="0.15" />
+        <rect x="18" y="12.5" width="12" height="7" rx="2" fill="currentColor" />
+        <rect x="18" y="23" width="12" height="7" rx="2" fill="currentColor" />
       </svg>
 
       {/* Wordmark */}
-      <span className={cn("font-semibold tracking-tight", s.text)} style={{ color: wordmark }}>
-        Build<span style={{ color: coral }}>PM</span>
+      <span className={cn("font-semibold tracking-tight", s.text)}>
+        Build<span style={{ color: "var(--accent)" }}>PM</span>
       </span>
     </div>
   );

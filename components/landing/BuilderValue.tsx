@@ -82,23 +82,14 @@ function CoreCard({ item, index }: { item: ValueItem; index: number }) {
       transition={{ duration: 0.5, delay: index * 0.08, ease: EASE_OUT }}
       className="group"
     >
-      <div
-        className="rounded-3xl bg-gradient-to-b from-[#252525] to-[#1F1F1F] p-8 h-full transition-all duration-500 ease-out hover:from-[#282828] hover:to-[#222] hover:-translate-y-1"
-        style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.05), 0 0 0 0 rgba(0,0,0,0)" }}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.06), 0 20px 40px -12px rgba(0,0,0,0.4)";
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.boxShadow = "inset 0 1px 0 rgba(255,255,255,0.05), 0 0 0 0 rgba(0,0,0,0)";
-        }}
-      >
-        <div className="w-12 h-12 rounded-2xl bg-brand-coral/[0.08] flex items-center justify-center text-brand-coral transition-colors duration-300 group-hover:bg-brand-coral/[0.15]">
+      <div className="rounded-3xl bg-card border border-border-base p-8 h-full transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20">
+        <div className="w-12 h-12 rounded-2xl bg-accent/[0.08] flex items-center justify-center text-accent transition-colors duration-300 group-hover:bg-accent/[0.15]">
           {item.icon}
         </div>
-        <h3 className="text-xl font-semibold text-white mt-5 tracking-tight">
+        <h3 className="text-xl font-semibold text-foreground mt-5 tracking-tight">
           {item.title}
         </h3>
-        <p className="text-[15px] text-grey-400 mt-3 leading-relaxed">
+        <p className="text-[15px] text-muted-foreground mt-3 leading-relaxed">
           {item.description}
         </p>
       </div>
@@ -113,14 +104,13 @@ function SupportingCard({ item, index }: { item: ValueItem; index: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.4, delay: index * 0.06, ease: EASE_OUT }}
-      className="group rounded-2xl bg-gradient-to-b from-[#2A2A2A] to-[#252525] px-5 py-5 transition-all duration-300 hover:from-[#2E2E2E] hover:to-[#292929] hover:-translate-y-0.5 h-full"
-      style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.03)" }}
+      className="group rounded-2xl bg-card border border-border-base px-5 py-5 transition-all duration-300 hover:bg-elevated hover:-translate-y-0.5 h-full"
     >
-      <div className="w-10 h-10 rounded-xl bg-brand-coral/[0.06] flex items-center justify-center text-brand-coral shrink-0 mb-3 transition-colors duration-300 group-hover:bg-brand-coral/[0.12]">
+      <div className="w-10 h-10 rounded-xl bg-accent/[0.06] flex items-center justify-center text-accent shrink-0 mb-3 transition-colors duration-300 group-hover:bg-accent/[0.12]">
         {item.icon}
       </div>
-      <h3 className="text-sm font-semibold text-white">{item.title}</h3>
-      <p className="text-[13px] text-grey-400 mt-1.5 leading-relaxed">{item.description}</p>
+      <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
+      <p className="text-[13px] text-muted-foreground mt-1.5 leading-relaxed">{item.description}</p>
     </motion.div>
   );
 }
@@ -130,7 +120,7 @@ export function BuilderValue() {
   const isInView = useInView(headingRef, { once: true, margin: "-60px" });
 
   return (
-    <section className="relative bg-[#222] py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section className="relative bg-muted py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Grid texture */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"
@@ -153,9 +143,9 @@ export function BuilderValue() {
           <p className="text-brand-coral text-sm font-semibold tracking-wider uppercase">
             The builder stack
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2 tracking-tight">
             Everything you need to{" "}
-            <span className="text-grey-500">ship and get hired</span>
+            <span className="text-muted-foreground">ship and get hired</span>
           </h2>
         </motion.div>
 
@@ -168,11 +158,11 @@ export function BuilderValue() {
 
         {/* Supporting label */}
         <div className="flex items-center gap-4 mt-14 mb-6">
-          <div className="h-px flex-1 bg-[#333]" />
-          <span className="text-grey-500 text-xs font-mono tracking-wider uppercase">
+          <div className="h-px flex-1 bg-border-base" />
+          <span className="text-subtle-foreground text-xs font-mono tracking-wider uppercase">
             Plus
           </span>
-          <div className="h-px flex-1 bg-[#333]" />
+          <div className="h-px flex-1 bg-border-base" />
         </div>
 
         {/* Supporting — compact cards */}

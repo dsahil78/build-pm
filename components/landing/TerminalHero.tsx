@@ -167,17 +167,17 @@ export function TerminalHero() {
   }, [handleSkip]);
 
   return (
-    <section className="relative min-h-svh flex flex-col items-center justify-center bg-brand-dark px-4 sm:px-6 pt-20 pb-10">
+    <section className="relative min-h-svh flex flex-col items-center justify-center bg-background px-4 sm:px-6 pt-20 pb-10">
       {/* Headline + Narrative */}
       <div className="w-full max-w-[768px] mb-2 text-center">
         {/* Problem bridge */}
-        <p className="text-grey-400 text-sm sm:text-base font-mono tracking-wide mb-2">
+        <p className="text-muted-foreground text-sm sm:text-base font-mono tracking-wide mb-2">
           Developers have GitHub. Designers have Dribbble.{" "}
-          <span className="text-grey-300">PMs have... resumes?</span>
+          <span className="text-foreground">PMs have... resumes?</span>
         </p>
 
         {/* Main headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] text-white">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] text-foreground">
           No GitHub for PMs.
           <br />
           <span className="text-brand-coral">Until now.</span>
@@ -254,7 +254,7 @@ export function TerminalHero() {
           {IS_PRELAUNCH ? (
             <a
               href="/apply"
-              className="inline-flex items-center px-8 py-4 bg-brand-coral text-white text-base font-medium rounded-xl hover:brightness-110 hover:scale-[1.02] transition-all"
+              className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground text-base font-medium rounded-xl hover:brightness-110 hover:scale-[1.02] transition-all"
               onClick={() => analytics.trackCtaClicked("hero", "Apply for early access", "/apply")}
             >
               Apply for early access
@@ -263,14 +263,14 @@ export function TerminalHero() {
             <>
               <a
                 href="/apply"
-                className="inline-flex items-center px-8 py-4 bg-brand-coral text-white text-base font-medium rounded-xl hover:brightness-110 hover:scale-[1.02] transition-all"
+                className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground text-base font-medium rounded-xl hover:brightness-110 hover:scale-[1.02] transition-all"
                 onClick={() => analytics.trackCtaClicked("hero", "Start building", "/apply")}
               >
                 Start building
               </a>
               <a
                 href="#apply"
-                className="inline-flex items-center px-8 py-4 border-2 border-brand-coral text-brand-coral text-base font-medium rounded-xl hover:bg-brand-coral hover:text-white transition-all"
+                className="inline-flex items-center px-8 py-4 border-2 border-accent text-accent text-base font-medium rounded-xl hover:bg-accent hover:text-accent-foreground transition-all"
               >
                 Learn more
               </a>
@@ -304,7 +304,7 @@ export function TerminalHero() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="absolute bottom-4 left-1/2 -translate-x-1/2"
           >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-grey-500 animate-bounce-down">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-subtle-foreground animate-bounce-down" aria-hidden="true">
               <polyline points="6 9 12 15 18 9" />
             </svg>
           </motion.div>
