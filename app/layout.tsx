@@ -6,10 +6,10 @@ import { CookieConsent } from "@/components/shared/CookieConsent";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://build.pm"),
+  metadataBase: new URL("https://buildpm.co"),
   title: {
-    default: "build.pm — For product people who ship",
-    template: "%s | build.pm",
+    default: "BuildPM — For product people who ship",
+    template: "%s | BuildPM",
   },
   description:
     "A community for PMs who build and ship. Free enterprise tools, build squads, career growth. Not another Slack group.",
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     "PM career",
     "builder community",
   ],
-  authors: [{ name: "build.pm" }],
-  creator: "build.pm",
+  authors: [{ name: "BuildPM" }],
+  creator: "BuildPM",
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://build.pm",
-    siteName: "build.pm",
-    title: "build.pm — For product people who ship",
+    url: "https://buildpm.co",
+    siteName: "BuildPM",
+    title: "BuildPM — For product people who ship",
     description:
       "Free enterprise tools. Build squads. Career growth. A community for PMs who build, not just talk.",
     images: [
@@ -38,13 +38,13 @@ export const metadata: Metadata = {
         url: "/og/default.png",
         width: 1200,
         height: 630,
-        alt: "build.pm — For product people who ship",
+        alt: "BuildPM — For product people who ship",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "build.pm — For product people who ship",
+    title: "BuildPM — For product people who ship",
     description:
       "Free enterprise tools. Build squads. Career growth. A community for PMs who build, not just talk.",
     images: ["/og/default.png"],
@@ -59,8 +59,8 @@ export const metadata: Metadata = {
 const structuredData = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "build.pm",
-  url: "https://build.pm",
+  name: "BuildPM",
+  url: "https://buildpm.co",
   description:
     "A three-sided marketplace for product builders. Free enterprise tools, build squads, and career growth.",
   foundingDate: "2026",

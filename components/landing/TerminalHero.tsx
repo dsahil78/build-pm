@@ -196,7 +196,7 @@ export function TerminalHero() {
               <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
             </div>
             <span className="mx-auto text-xs font-mono text-grey-500 select-none">
-              build.pm &mdash; v1.0.0
+              BuildPM &mdash; v1.0.0
             </span>
             <div className="w-[52px]" />
           </div>

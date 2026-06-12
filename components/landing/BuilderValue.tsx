@@ -24,7 +24,7 @@ const CORE: ValueItem[] = [
   {
     title: "Builder portfolio",
     description:
-      "build.pm/you. A living portfolio backed by shipped projects, documented decisions, and peer endorsements.",
+      "buildpm.co/you. A living portfolio backed by shipped projects, documented decisions, and peer endorsements.",
     icon: (
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true">
         <rect x="2" y="4" width="20" height="16" rx="2" /><line x1="2" y1="9" x2="22" y2="9" /><circle cx="5" cy="6.5" r="0.75" fill="currentColor" /><circle cx="7.5" cy="6.5" r="0.75" fill="currentColor" /><circle cx="10" cy="6.5" r="0.75" fill="currentColor" /><circle cx="8" cy="14" r="2" /><line x1="13" y1="13" x2="19" y2="13" strokeLinecap="round" /><line x1="13" y1="16" x2="17" y2="16" strokeLinecap="round" />

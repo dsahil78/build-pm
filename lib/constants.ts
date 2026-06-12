@@ -7,24 +7,24 @@ export const PRELAUNCH_NAV_LINKS: readonly { label: string; href: string }[] =
 
 export const PRELAUNCH_FOOTER_COLUMNS = [
   {
-    title: "build.pm",
+    title: "BuildPM",
     links: [
       { label: "Apply for early access", href: "/apply" },
       { label: "For partners", href: "/partners" },
-      { label: "Contact", href: "mailto:hello@build.pm" },
+      { label: "Contact", href: "mailto:hello@buildpm.co" },
     ],
   },
 ] as const;
 
 export const SITE_CONFIG = {
-  name: "build.pm",
-  url: "https://build.pm",
+  name: "BuildPM",
+  url: "https://buildpm.co",
   description:
     "A community for PMs who build and ship. Free enterprise tools, build squads, career growth. Not another Slack group.",
   tagline: "For product people who ship.",
   email: {
-    partners: "partners@build.pm",
-    support: "hello@build.pm",
+    partners: "partners@buildpm.co",
+    support: "hello@buildpm.co",
   },
 } as const;
 

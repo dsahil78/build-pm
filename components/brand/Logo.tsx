@@ -42,7 +42,7 @@ export function Logo({ className, variant = "dark", size = "md" }: LogoProps) {
 
       {/* Wordmark */}
       <span className={cn("font-semibold tracking-tight", s.text)} style={{ color: wordmark }}>
-        build<span style={{ color: coral }}>.pm</span>
+        Build<span style={{ color: coral }}>PM</span>
       </span>
     </div>
   );

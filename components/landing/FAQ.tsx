@@ -25,14 +25,14 @@ const FAQS: QA[] = [
   },
   {
     // TODO(founder): replace this answer with your founder note before launch.
-    question: "Who's behind build.pm?",
+    question: "Who's behind BuildPM?",
     answer:
-      "Builders, not bystanders. A proper founder note is coming here — for now, know that build.pm is being built by people who'd rather ship than talk about shipping.",
+      "Builders, not bystanders. A proper founder note is coming here — for now, know that BuildPM is being built by people who'd rather ship than talk about shipping.",
   },
   {
     question: "What do I get with early access?",
     answer:
-      "First access to build squads, the full tool shelf, and your builder profile at build.pm/you — before everyone else. Founding members help shape what we build next.",
+      "First access to build squads, the full tool shelf, and your builder profile at buildpm.co/you — before everyone else. Founding members help shape what we build next.",
   },
   {
     question: "How many spots are there?",

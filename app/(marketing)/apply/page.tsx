@@ -89,7 +89,7 @@ export default function ApplyPage() {
 
         {/* Header */}
         <h1 className="text-3xl font-bold text-white">
-          {IS_PRELAUNCH ? "Apply to the founding cohort" : "Apply to build.pm"}
+          {IS_PRELAUNCH ? "Apply to the founding cohort" : "Apply to BuildPM"}
         </h1>
         <p className="text-grey-400 mt-2 leading-relaxed">
           {IS_PRELAUNCH
@@ -150,7 +150,7 @@ export default function ApplyPage() {
 
           <Textarea
             name="why_build_pm"
-            label="Why build.pm?"
+            label="Why BuildPM?"
             placeholder="What do you want to build or learn? 2-3 sentences is perfect."
             required
           />

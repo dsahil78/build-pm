@@ -64,7 +64,7 @@ export function BuilderProfileCard() {
               </span>
             </div>
             <p className="text-grey-500 text-sm font-mono">
-              build.pm/{MOCK_BUILDER.handle}
+              buildpm.co/{MOCK_BUILDER.handle}
             </p>
           </div>
         </div>

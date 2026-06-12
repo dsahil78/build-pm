@@ -3,8 +3,8 @@ import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | build.pm",
-  description: "How build.pm collects, uses, stores, and protects your personal data.",
+  title: "Privacy Policy | BuildPM",
+  description: "How BuildPM collects, uses, stores, and protects your personal data.",
 };
 
 export default function PrivacyPage() {
@@ -22,10 +22,10 @@ export default function PrivacyPage() {
 
           <Section title="1. Introduction and scope">
             <p>
-              build.pm (&quot;build.pm&quot;, &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates
+              BuildPM (&quot;BuildPM&quot;, &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates
               the website located at{" "}
-              <a href="https://build.pm" className="text-brand-coral hover:underline">
-                https://build.pm
+              <a href="https://buildpm.co" className="text-brand-coral hover:underline">
+                https://buildpm.co
               </a>{" "}
               and any associated subdomains, applications, and services (collectively, the &quot;Service&quot;).
             </p>
@@ -43,10 +43,10 @@ export default function PrivacyPage() {
           <Section title="2. Data controller">
             <p>
               For the purposes of the EU General Data Protection Regulation (&quot;GDPR&quot;), the UK GDPR,
-              and other applicable data protection laws, build.pm is the data controller responsible for
+              and other applicable data protection laws, BuildPM is the data controller responsible for
               your personal data. You can contact us at{" "}
-              <a href="mailto:privacy@build.pm" className="text-brand-coral hover:underline">
-                privacy@build.pm
+              <a href="mailto:privacy@buildpm.co" className="text-brand-coral hover:underline">
+                privacy@buildpm.co
               </a>.
             </p>
           </Section>
@@ -220,7 +220,7 @@ export default function PrivacyPage() {
             </div>
             <p className="mt-3">
               We may also disclose data if required by law, court order, or governmental authority, or if
-              necessary to protect the rights, property, or safety of build.pm, our users, or the public.
+              necessary to protect the rights, property, or safety of BuildPM, our users, or the public.
             </p>
           </Section>
 
@@ -236,8 +236,8 @@ export default function PrivacyPage() {
             </ul>
             <p className="mt-3">
               You may request a copy of the applicable transfer safeguards by contacting us at{" "}
-              <a href="mailto:privacy@build.pm" className="text-brand-coral hover:underline">
-                privacy@build.pm
+              <a href="mailto:privacy@buildpm.co" className="text-brand-coral hover:underline">
+                privacy@buildpm.co
               </a>.
             </p>
           </Section>
@@ -303,8 +303,8 @@ export default function PrivacyPage() {
             </h3>
             <p>
               To exercise any of the above rights, email{" "}
-              <a href="mailto:privacy@build.pm" className="text-brand-coral hover:underline">
-                privacy@build.pm
+              <a href="mailto:privacy@buildpm.co" className="text-brand-coral hover:underline">
+                privacy@buildpm.co
               </a>{" "}
               with the subject line &quot;Privacy Rights Request&quot;. We will verify your identity and
               respond within 30 days (or sooner if required by applicable law). If we need additional
@@ -336,8 +336,8 @@ export default function PrivacyPage() {
               collect personal data from children under 16. If we learn that we have collected data from a
               child under 16, we will promptly delete it. If you believe we have inadvertently collected
               such data, please contact us at{" "}
-              <a href="mailto:privacy@build.pm" className="text-brand-coral hover:underline">
-                privacy@build.pm
+              <a href="mailto:privacy@buildpm.co" className="text-brand-coral hover:underline">
+                privacy@buildpm.co
               </a>.
             </p>
           </Section>
@@ -374,14 +374,14 @@ export default function PrivacyPage() {
             <ul className="list-none pl-0 space-y-1 mt-3">
               <li>
                 Email:{" "}
-                <a href="mailto:privacy@build.pm" className="text-brand-coral hover:underline">
-                  privacy@build.pm
+                <a href="mailto:privacy@buildpm.co" className="text-brand-coral hover:underline">
+                  privacy@buildpm.co
                 </a>
               </li>
               <li>
                 General inquiries:{" "}
-                <a href="mailto:hello@build.pm" className="text-brand-coral hover:underline">
-                  hello@build.pm
+                <a href="mailto:hello@buildpm.co" className="text-brand-coral hover:underline">
+                  hello@buildpm.co
                 </a>
               </li>
             </ul>

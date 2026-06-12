@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { IS_PRELAUNCH } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://build.pm";
+  const baseUrl = "https://buildpm.co";
 
   const routes: MetadataRoute.Sitemap = [
     {

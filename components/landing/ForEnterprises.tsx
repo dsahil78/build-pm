@@ -197,7 +197,7 @@ export function ForEnterprises() {
               Become a founding partner
             </a>
             <p className="text-grey-500 text-sm mt-3">
-              Or email partners@build.pm
+              Or email partners@buildpm.co
             </p>
           </motion.div>
         </div>

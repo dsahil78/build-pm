@@ -68,7 +68,7 @@ function ProfileSidebar() {
               {MOCK_BUILDER.role}
             </span>
           </div>
-          <p className="text-grey-500 text-[11px] font-mono">build.pm/{MOCK_BUILDER.handle}</p>
+          <p className="text-grey-500 text-[11px] font-mono">buildpm.co/{MOCK_BUILDER.handle}</p>
         </div>
       </div>
 
@@ -205,7 +205,7 @@ export function ProductPreview() {
                     <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#555" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
                       <rect x="3" y="11" width="18" height="11" rx="2" /><path d="M7 11V7a5 5 0 0110 0v4" />
                     </svg>
-                    <span className="text-[11px] text-grey-500 font-mono">build.pm/amara</span>
+                    <span className="text-[11px] text-grey-500 font-mono">buildpm.co/amara</span>
                   </div>
                 </div>
                 <div className="w-[44px]" />

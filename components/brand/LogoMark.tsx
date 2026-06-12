@@ -12,7 +12,7 @@ export function LogoMark({ size = 32, className = "" }: LogoMarkProps) {
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
-      aria-label="build.pm"
+      aria-label="BuildPM"
     >
       <rect width="32" height="32" rx="8" fill="#1A1A1A" />
       {/* 6 blocks */}

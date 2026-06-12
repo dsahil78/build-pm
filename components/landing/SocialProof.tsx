@@ -22,7 +22,7 @@ const TESTIMONIALS = [
     bg: "#378ADD",
   },
   {
-    quote: "My build.pm portfolio got me three interviews in a week. Recruiters actually looked at what I shipped instead of my resume.",
+    quote: "My BuildPM portfolio got me three interviews in a week. Recruiters actually looked at what I shipped instead of my resume.",
     name: "Dan M.",
     title: "Senior PM, fintech",
     initials: "DM",

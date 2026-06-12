@@ -3,8 +3,8 @@ import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | build.pm",
-  description: "Terms and conditions governing your use of build.pm.",
+  title: "Terms of Service | BuildPM",
+  description: "Terms and conditions governing your use of BuildPM.",
 };
 
 export default function TermsPage() {
@@ -23,11 +23,11 @@ export default function TermsPage() {
           <Section title="1. Agreement to terms">
             <p>
               These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you
-              (&quot;you&quot;, &quot;your&quot;, or &quot;User&quot;) and build.pm (&quot;build.pm&quot;,
+              (&quot;you&quot;, &quot;your&quot;, or &quot;User&quot;) and BuildPM (&quot;BuildPM&quot;,
               &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) governing your access to
               and use of the website at{" "}
-              <a href="https://build.pm" className="text-brand-coral hover:underline">
-                https://build.pm
+              <a href="https://buildpm.co" className="text-brand-coral hover:underline">
+                https://buildpm.co
               </a>{" "}
               and all related services, features, content, and applications (collectively, the &quot;Service&quot;).
             </p>
@@ -44,7 +44,7 @@ export default function TermsPage() {
 
           <Section title="2. Description of service">
             <p>
-              build.pm is a community platform for product managers to collaborate on real products, build
+              BuildPM is a community platform for product managers to collaborate on real products, build
               public portfolios of their work, and connect with enterprises and career opportunities. The
               Service may include, without limitation: community features, build squads, builder profiles,
               project portfolios, enterprise tool access, learning cohorts, and job referrals.
@@ -81,8 +81,8 @@ export default function TermsPage() {
               <li>Maintain the security and confidentiality of your account credentials</li>
               <li>Accept responsibility for all activities that occur under your account</li>
               <li>Notify us immediately at{" "}
-                <a href="mailto:support@build.pm" className="text-brand-coral hover:underline">
-                  support@build.pm
+                <a href="mailto:support@buildpm.co" className="text-brand-coral hover:underline">
+                  support@buildpm.co
                 </a>{" "}
                 if you suspect unauthorized use of your account</li>
             </ul>
@@ -97,12 +97,12 @@ export default function TermsPage() {
             <p>
               You retain all ownership rights in any content, materials, projects, build logs, documentation,
               and other information you submit, post, or display through the Service (&quot;User Content&quot;).
-              build.pm does not claim ownership of your User Content.
+              BuildPM does not claim ownership of your User Content.
             </p>
 
             <h3 className="text-lg font-semibold text-white mt-6 mb-3">5.2 License grant</h3>
             <p>
-              By submitting User Content to the Service, you grant build.pm a non-exclusive, worldwide,
+              By submitting User Content to the Service, you grant BuildPM a non-exclusive, worldwide,
               royalty-free, sublicensable, and transferable license to use, reproduce, display, distribute,
               and create derivative works of your User Content solely in connection with operating, providing,
               improving, and promoting the Service. This license continues until you remove your User Content
@@ -151,7 +151,7 @@ export default function TermsPage() {
             <p>
               The Service and its original content (excluding User Content), features, functionality, design,
               graphics, trademarks, service marks, and logos are and shall remain the exclusive property of
-              build.pm and its licensors. The Service is protected by copyright, trademark, trade dress,
+              BuildPM and its licensors. The Service is protected by copyright, trademark, trade dress,
               patent, and other intellectual property laws.
             </p>
             <p>
@@ -167,7 +167,7 @@ export default function TermsPage() {
               own respective terms of service and privacy policies.
             </p>
             <p>
-              build.pm is not responsible for: (a) the availability, accuracy, or quality of third-party
+              BuildPM is not responsible for: (a) the availability, accuracy, or quality of third-party
               services; (b) any loss or damage arising from your use of third-party services; or (c) the
               privacy practices or terms of third-party providers. Your use of third-party tools is at your
               own risk.
@@ -189,7 +189,7 @@ export default function TermsPage() {
 
           <Section title="10. Confidentiality">
             <p>
-              During your use of the Service, you may receive non-public information about build.pm, its
+              During your use of the Service, you may receive non-public information about BuildPM, its
               roadmap, features in development, or other users (&quot;Confidential Information&quot;). You
               agree not to disclose Confidential Information to any third party without our prior written
               consent. This obligation does not apply to information that: (a) is or becomes publicly
@@ -248,7 +248,7 @@ export default function TermsPage() {
 
           <Section title="13. Indemnification">
             <p>
-              You agree to indemnify, defend, and hold harmless build.pm and its directors, officers,
+              You agree to indemnify, defend, and hold harmless BuildPM and its directors, officers,
               employees, agents, and affiliates from and against any and all claims, damages, losses,
               liabilities, costs, and expenses (including reasonable attorneys&apos; fees) arising out of
               or related to: (a) your use of the Service; (b) your User Content; (c) your violation of
@@ -261,8 +261,8 @@ export default function TermsPage() {
             <p>
               <strong className="text-white">By you:</strong> You may stop using the Service at any time. To
               delete your account and data, email{" "}
-              <a href="mailto:support@build.pm" className="text-brand-coral hover:underline">
-                support@build.pm
+              <a href="mailto:support@buildpm.co" className="text-brand-coral hover:underline">
+                support@buildpm.co
               </a>.
             </p>
             <p>
@@ -282,14 +282,14 @@ export default function TermsPage() {
             <p>
               <strong className="text-white">Informal resolution first:</strong> Before filing any formal
               legal action, you agree to contact us at{" "}
-              <a href="mailto:legal@build.pm" className="text-brand-coral hover:underline">
-                legal@build.pm
+              <a href="mailto:legal@buildpm.co" className="text-brand-coral hover:underline">
+                legal@buildpm.co
               </a>{" "}
               and attempt to resolve the dispute informally for at least 30 days.
             </p>
             <p>
               <strong className="text-white">Binding arbitration:</strong> If the dispute is not resolved
-              informally, you and build.pm agree to resolve it through final and binding arbitration
+              informally, you and BuildPM agree to resolve it through final and binding arbitration
               administered by a mutually agreed-upon arbitration provider, in accordance with its rules then
               in effect. The arbitration shall be conducted in English. The arbitrator&apos;s decision shall
               be final and binding, and judgment on the award may be entered in any court of competent
@@ -326,7 +326,7 @@ export default function TermsPage() {
             <ul className="list-disc pl-5 space-y-3">
               <li>
                 <strong className="text-white">Entire agreement:</strong> These Terms, together with our
-                Privacy Policy, constitute the entire agreement between you and build.pm regarding the
+                Privacy Policy, constitute the entire agreement between you and BuildPM regarding the
                 Service and supersede all prior or contemporaneous agreements, representations, and
                 understandings.
               </li>
@@ -339,7 +339,7 @@ export default function TermsPage() {
               <li>
                 <strong className="text-white">Waiver:</strong> Our failure to enforce any right or provision
                 of these Terms shall not constitute a waiver of that right or provision. Any waiver must be
-                in writing and signed by build.pm.
+                in writing and signed by BuildPM.
               </li>
               <li>
                 <strong className="text-white">Assignment:</strong> You may not assign or transfer these Terms
@@ -355,8 +355,8 @@ export default function TermsPage() {
               <li>
                 <strong className="text-white">Notices:</strong> We may provide notices to you via email, the
                 Service, or posted on our website. Notices to us should be sent to{" "}
-                <a href="mailto:legal@build.pm" className="text-brand-coral hover:underline">
-                  legal@build.pm
+                <a href="mailto:legal@buildpm.co" className="text-brand-coral hover:underline">
+                  legal@buildpm.co
                 </a>.
               </li>
               <li>
@@ -373,20 +373,20 @@ export default function TermsPage() {
             <ul className="list-none pl-0 space-y-1 mt-3">
               <li>
                 Legal:{" "}
-                <a href="mailto:legal@build.pm" className="text-brand-coral hover:underline">
-                  legal@build.pm
+                <a href="mailto:legal@buildpm.co" className="text-brand-coral hover:underline">
+                  legal@buildpm.co
                 </a>
               </li>
               <li>
                 Support:{" "}
-                <a href="mailto:support@build.pm" className="text-brand-coral hover:underline">
-                  support@build.pm
+                <a href="mailto:support@buildpm.co" className="text-brand-coral hover:underline">
+                  support@buildpm.co
                 </a>
               </li>
               <li>
                 General:{" "}
-                <a href="mailto:hello@build.pm" className="text-brand-coral hover:underline">
-                  hello@build.pm
+                <a href="mailto:hello@buildpm.co" className="text-brand-coral hover:underline">
+                  hello@buildpm.co
                 </a>
               </li>
             </ul>

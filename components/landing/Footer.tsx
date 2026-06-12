@@ -59,7 +59,7 @@ export function Footer() {
           <div className="flex items-center gap-3">
             <LogoMark size={24} className="opacity-40" />
             <span className="text-grey-600 text-xs">
-              &copy; 2026 build.pm
+              &copy; 2026 BuildPM
               {" "}&middot;{" "}
               <a href="/privacy" className="hover:text-white transition-colors">
                 Privacy

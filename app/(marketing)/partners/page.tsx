@@ -173,7 +173,7 @@ export default function PartnersPage() {
           ) : (
             <>
               Partner with{" "}
-              <span className="text-brand-coral">build.pm</span>
+              <span className="text-brand-coral">BuildPM</span>
             </>
           )}
         </h1>
@@ -401,7 +401,7 @@ export default function PartnersPage() {
 
               <div aria-live="polite">
                 {status === "error" && (
-                  <p className="text-error text-sm">Something went wrong. Please try again or email partners@build.pm directly.</p>
+                  <p className="text-error text-sm">Something went wrong. Please try again or email partners@buildpm.co directly.</p>
                 )}
               </div>
 
@@ -411,8 +411,8 @@ export default function PartnersPage() {
 
               <p className="text-grey-600 text-xs text-center">
                 Or reach us directly at{" "}
-                <a href="mailto:partners@build.pm" className="text-grey-400 hover:text-white transition-colors">
-                  partners@build.pm
+                <a href="mailto:partners@buildpm.co" className="text-grey-400 hover:text-white transition-colors">
+                  partners@buildpm.co
                 </a>
               </p>
             </form>
