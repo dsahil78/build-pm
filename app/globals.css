@@ -106,7 +106,7 @@
   --border-strong: #A3A29E;       /* 3:1+ UI boundaries */
   --accent: #FF5733;              /* brand coral fill, unchanged */
   --accent-foreground: #1A1A1A;   /* near-black on coral = 5.5:1 (AA) */
-  --accent-text: #BE3A1D;         /* deepened coral for TEXT — 5:1 on bg */
+  --accent-text: #FF5733;         /* brand coral kept everywhere (deliberate — see ACCESSIBILITY.md; coral text on light bg is 2.85:1) */
   --input: #FFFFFF;
   --input-border: #D5D4D0;
   --ring: #FF5733;

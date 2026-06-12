@@ -44,7 +44,7 @@ ProductPreview app mockup, which stay dark in both themes by design).
 | `border-base` / `border-strong` | `#D5D4D0` / `#A3A29E` | `#333333` / `#72716E` | dividers / UI edges |
 | `accent` | `#FF5733` | `#FF5733` | coral **fills** (buttons, tints) |
 | `accent-foreground` | `#1A1A1A` | `#1A1A1A` | text **on** coral fills |
-| `accent-text` | `#BE3A1D` | `#FF5733` | coral used as **text** |
+| `accent-text` | `#FF5733` | `#FF5733` | coral used as **text** (brand-locked) |
 | `input` / `input-border` | `#FFFFFF` / `#D5D4D0` | `#242424` / `#3A3A3A` | form fields |
 | `ring` | `#FF5733` | `#FF5733` | focus ring |
 | `success` / `warning` / `error` / `info` | `#15803D` / `#B45309` / `#B91C1C` / `#1D4ED8` | `#4ADE80` / `#FBBF24` / `#F87171` / `#60A5FA` | status |
@@ -53,9 +53,12 @@ ProductPreview app mockup, which stay dark in both themes by design).
 The brand coral `#FF5733` is only **3.15:1** against white and **2.85:1** as text
 on the light background — both fail AA. So:
 - **`accent`** (`#FF5733`) is used only as a **fill** with **`accent-foreground`**
-  (near-black) text → **5.5:1** (passes).
-- **`accent-text`** is the coral used for **text/links/eyebrows**: the brand coral
-  on dark (5.5:1) but a deepened coral `#BE3A1D` on light (5.1:1).
+  (near-black) text → **5.5:1** (passes both themes).
+- **`accent-text`** is the coral used for **text/links/eyebrows**, kept at the
+  brand `#FF5733` in **both** themes by product decision. On **dark** it passes
+  (5.5:1). On **light** it is **2.85:1 — below AA — accepted as a deliberate
+  brand exception** (see §5). Prefer coral as a *fill* or for *large/display*
+  text rather than small body copy where you can.
 
 ## 3. Contrast ratios — key pairs (both themes)
 
@@ -66,7 +69,7 @@ All meet WCAG AA (normal text ≥ 4.5:1; large text / UI ≥ 3:1).
 | foreground on background | 16.1:1 | 17.4:1 |
 | muted-foreground on background | 7.4:1 | 6.8:1 |
 | subtle-foreground on background | 5.0:1 | 5.1:1 |
-| accent-text on background | 5.1:1 | 5.5:1 |
+| accent-text on background | 2.85:1 ⚠ brand exception | 5.5:1 |
 | accent-foreground on accent (button) | 5.5:1 | 5.5:1 |
 | error text on background | 6.0:1 | 6.3:1 |
 
@@ -106,6 +109,12 @@ All meet WCAG AA (normal text ≥ 4.5:1; large text / UI ≥ 3:1).
 
 ## 5. Known issues / open items
 
+- **Coral text on the light background is 2.85:1 (below AA), by design.** The brand
+  orange `#FF5733` is kept for all coral text (eyebrows, links, accents) in both
+  themes per product decision — it's the brand color and reads well. This is the
+  one intentional AA exception. Coral **buttons** are unaffected (dark text on
+  coral = 5.5:1). If strict AA is later required, set `--accent-text` in `:root`
+  (light) to a deepened coral such as `#BE3A1D` (~5:1) — it's a one-line change.
 - **OG/social image & favicon** (`/og/default.png`) are raster assets that still
   show old branding and are single-theme — regenerate in a design tool.
 - **404 robot illustration** ([`app/not-found.tsx`](app/not-found.tsx)) is a
