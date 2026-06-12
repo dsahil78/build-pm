@@ -2,7 +2,10 @@ import { NextResponse, type NextRequest } from "next/server";
 
 const ALLOWED_PATHS = new Set(["/", "/apply", "/partners", "/preview", "/privacy", "/terms"]);
 const ALLOWED_API_PREFIXES = ["/api/apply", "/api/waitlist"];
-const STATIC_ASSET_RE = /\.(js|css|png|jpg|jpeg|gif|svg|ico|webp|woff2?|ttf|eot|map)$/;
+// Generated metadata files (favicon, manifest, sitemap, robots) must be reachable
+// even in pre-launch — otherwise the icon/manifest/sitemap get redirected to "/".
+const ALLOWED_METADATA = ["/icon", "/apple-icon", "/manifest.webmanifest", "/sitemap.xml", "/robots.txt"];
+const STATIC_ASSET_RE = /\.(js|css|png|jpg|jpeg|gif|svg|ico|webp|woff2?|ttf|eot|map|webmanifest|xml|txt)$/;
 
 export function middleware(request: NextRequest) {
   const isPrelaunch = process.env.NEXT_PUBLIC_PRELAUNCH === "true";
@@ -17,6 +20,11 @@ export function middleware(request: NextRequest) {
 
   // Allow: whitelisted pages
   if (ALLOWED_PATHS.has(pathname)) {
+    return NextResponse.next();
+  }
+
+  // Allow: generated metadata routes (favicon/manifest/sitemap/robots)
+  if (ALLOWED_METADATA.some((p) => pathname === p || pathname.startsWith(p))) {
     return NextResponse.next();
   }
 
