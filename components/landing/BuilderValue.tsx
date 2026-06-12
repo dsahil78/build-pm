@@ -86,7 +86,7 @@ function CoreCard({ item, index }: { item: ValueItem; index: number }) {
         <div className="w-12 h-12 rounded-2xl bg-accent/[0.08] flex items-center justify-center text-accent-text transition-colors duration-300 group-hover:bg-accent/[0.15]">
           {item.icon}
         </div>
-        <h3 className="text-xl font-semibold text-foreground mt-5 tracking-tight">
+        <h3 className="text-h4 text-foreground mt-5 tracking-tight">
           {item.title}
         </h3>
         <p className="text-[15px] text-muted-foreground mt-3 leading-relaxed">
@@ -143,7 +143,7 @@ export function BuilderValue() {
           <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
             The builder stack
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2 tracking-tight">
+          <h2 className="text-h2 text-foreground mt-2 tracking-tight">
             Everything you need to{" "}
             <span className="text-muted-foreground">ship and get hired</span>
           </h2>

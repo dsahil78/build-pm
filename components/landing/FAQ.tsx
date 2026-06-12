@@ -55,7 +55,7 @@ export function FAQ() {
           <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
             Questions
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2 tracking-tight">
+          <h2 className="text-h2 text-foreground mt-2 tracking-tight">
             Before you apply
           </h2>
         </motion.div>

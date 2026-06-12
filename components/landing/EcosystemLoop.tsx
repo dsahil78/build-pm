@@ -65,7 +65,7 @@ export function EcosystemLoop() {
           <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
             The ecosystem
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mt-2">
+          <h2 className="text-h2 tracking-tight text-foreground mt-2">
             A flywheel, not a funnel.
           </h2>
           <p className="text-muted-foreground mt-4 text-lg">

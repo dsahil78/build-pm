@@ -13,7 +13,7 @@ export default function PrivacyPage() {
       <Navbar />
       <main id="main-content" className="min-h-screen bg-background pt-28 pb-20 px-4 sm:px-6">
         <article className="max-w-3xl mx-auto prose-invert">
-          <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2">
+          <h1 className="text-h2 text-foreground mb-2">
             Privacy Policy
           </h1>
           <p className="text-subtle-foreground text-sm mb-12">
@@ -52,7 +52,7 @@ export default function PrivacyPage() {
           </Section>
 
           <Section title="3. Personal data we collect">
-            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
+            <h3 className="text-h4 text-foreground mt-6 mb-3">
               3.1 Information you provide directly
             </h3>
             <ul className="list-disc pl-5 space-y-2">
@@ -73,7 +73,7 @@ export default function PrivacyPage() {
               </li>
             </ul>
 
-            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
+            <h3 className="text-h4 text-foreground mt-6 mb-3">
               3.2 Information collected automatically
             </h3>
             <p>
@@ -92,7 +92,7 @@ export default function PrivacyPage() {
               <li>Session recordings with all form inputs automatically masked</li>
             </ul>
 
-            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
+            <h3 className="text-h4 text-foreground mt-6 mb-3">
               3.3 Information we do NOT collect
             </h3>
             <ul className="list-disc pl-5 space-y-2">
@@ -136,7 +136,7 @@ export default function PrivacyPage() {
               honor the Do Not Track (DNT) browser signal.
             </p>
 
-            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">Cookie inventory</h3>
+            <h3 className="text-h4 text-foreground mt-6 mb-3">Cookie inventory</h3>
             <div className="overflow-x-auto mt-3">
               <table className="w-full text-sm">
                 <thead>
@@ -266,7 +266,7 @@ export default function PrivacyPage() {
           </Section>
 
           <Section title="10. Your privacy rights">
-            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
+            <h3 className="text-h4 text-foreground mt-6 mb-3">
               10.1 Rights under GDPR (EEA and UK residents)
             </h3>
             <ul className="list-disc pl-5 space-y-2">
@@ -283,7 +283,7 @@ export default function PrivacyPage() {
               ICO in the UK, CNIL in France, or your national DPA).
             </p>
 
-            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
+            <h3 className="text-h4 text-foreground mt-6 mb-3">
               10.2 Rights under CCPA/CPRA (California residents)
             </h3>
             <p>If you are a California resident, you have the right to:</p>
@@ -298,7 +298,7 @@ export default function PrivacyPage() {
               personal information for purposes beyond those permitted by the CPRA.
             </p>
 
-            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
+            <h3 className="text-h4 text-foreground mt-6 mb-3">
               10.3 How to exercise your rights
             </h3>
             <p>
@@ -405,7 +405,7 @@ function Section({
 }) {
   return (
     <section className="mb-10">
-      <h2 className="text-xl font-semibold text-foreground mb-4">{title}</h2>
+      <h2 className="text-h4 text-foreground mb-4">{title}</h2>
       <div className="text-muted-foreground text-[15px] leading-relaxed space-y-3">
         {children}
       </div>

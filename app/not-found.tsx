@@ -202,7 +202,7 @@ export default function NotFound() {
         {/* CTA */}
         <Link
           href="/"
-          className="mt-8 inline-flex items-center px-6 py-2.5 bg-accent text-accent-foreground text-sm font-semibold rounded-lg transition-all hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] nf-entrance"
+          className="mt-8 inline-flex items-center px-6 py-2.5 bg-accent text-accent-foreground text-sm font-semibold rounded-lg transition-all hover:bg-accent-hover active:scale-[0.98] nf-entrance"
           style={{ animationDelay: "650ms", transitionDuration: "var(--duration-fast)" }}
         >
           Back to home

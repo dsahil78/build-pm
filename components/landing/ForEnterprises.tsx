@@ -139,7 +139,7 @@ function EnterpriseCardItem({
         <div className="text-accent-text">{card.icon}</div>
 
         {/* Title */}
-        <h3 className="text-lg font-semibold text-foreground mt-3">{card.title}</h3>
+        <h3 className="text-h4 text-foreground mt-3">{card.title}</h3>
 
         {/* Description */}
         <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
@@ -168,7 +168,7 @@ export function ForEnterprises() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center"
         >
-          <h2 className="text-3xl font-bold text-foreground">
+          <h2 className="text-h2 text-foreground">
             Your next 500 power users are already here.
           </h2>
           <p className="text-muted-foreground mt-3">
@@ -192,7 +192,7 @@ export function ForEnterprises() {
           >
             <a
               href="/partners"
-              className="inline-block bg-accent text-accent-foreground rounded-xl px-8 py-4 text-base font-medium hover:brightness-110 transition-all"
+              className="inline-block bg-accent text-accent-foreground rounded-xl px-8 py-4 text-base font-medium hover:bg-accent-hover transition-all"
             >
               Become a founding partner
             </a>

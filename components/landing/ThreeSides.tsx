@@ -191,7 +191,7 @@ function SideCard({ side, index }: { side: MarketplaceSide; index: number }) {
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-semibold text-foreground mt-6 tracking-tight">
+        <h3 className="text-h4 text-foreground mt-6 tracking-tight">
           {side.title}
         </h3>
 
@@ -221,7 +221,7 @@ export function ThreeSides() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
+          <h2 className="text-display tracking-tight text-foreground">
             Three sides.
             <br />
             <span className="text-subtle-foreground">One ecosystem.</span>

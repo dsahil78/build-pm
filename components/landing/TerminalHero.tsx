@@ -177,7 +177,7 @@ export function TerminalHero() {
         </p>
 
         {/* Main headline */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] text-foreground">
+        <h1 className="text-display tracking-tight leading-[1.1] text-foreground">
           No GitHub for PMs.
           <br />
           <span className="text-accent-text">Until now.</span>
@@ -254,7 +254,7 @@ export function TerminalHero() {
           {IS_PRELAUNCH ? (
             <a
               href="/apply"
-              className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground text-base font-medium rounded-xl hover:brightness-110 hover:scale-[1.02] transition-all"
+              className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground text-base font-medium rounded-xl hover:bg-accent-hover transition-all"
               onClick={() => analytics.trackCtaClicked("hero", "Apply for early access", "/apply")}
             >
               Apply for early access
@@ -263,7 +263,7 @@ export function TerminalHero() {
             <>
               <a
                 href="/apply"
-                className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground text-base font-medium rounded-xl hover:brightness-110 hover:scale-[1.02] transition-all"
+                className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground text-base font-medium rounded-xl hover:bg-accent-hover transition-all"
                 onClick={() => analytics.trackCtaClicked("hero", "Start building", "/apply")}
               >
                 Start building

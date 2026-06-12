@@ -9,16 +9,17 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles = {
   primary:
-    "bg-accent text-accent-foreground hover:brightness-110 hover:scale-[1.02] active:scale-[0.98]",
+    "bg-accent text-accent-foreground hover:bg-accent-hover active:translate-y-px",
   secondary:
-    "bg-transparent border-2 border-accent text-accent-text hover:bg-accent hover:text-accent-foreground",
-  ghost: "bg-transparent text-muted-foreground hover:text-foreground hover:bg-muted",
+    "border border-accent text-accent-text hover:bg-accent hover:text-accent-foreground active:translate-y-px",
+  ghost: "text-muted-foreground hover:text-foreground hover:bg-muted",
 };
 
+/* Fixed heights: 40 / 44 / 48 — share these with inputs and inline CTAs. */
 const sizeStyles = {
-  sm: "px-4 py-2 text-sm rounded-lg",
-  md: "px-6 py-2.5 text-sm font-medium rounded-lg",
-  lg: "px-8 py-4 text-base font-medium rounded-xl",
+  sm: "h-10 px-4 text-body-sm rounded-lg gap-2",
+  md: "h-11 px-5 text-body-sm rounded-lg gap-2",
+  lg: "h-12 px-7 text-body rounded-xl gap-2",
 };
 
 export function Button({
@@ -31,7 +32,8 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center transition-all",
+        "inline-flex items-center justify-center font-medium whitespace-nowrap select-none",
+        "transition-[background-color,border-color,color,transform] disabled:opacity-50 disabled:pointer-events-none",
         variantStyles[variant],
         sizeStyles[size],
         className

@@ -47,10 +47,10 @@ export function FinalCTA() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, ease: EASE_OUT }}
         >
-          <p className="text-foreground text-4xl md:text-5xl font-bold tracking-tight" style={{ letterSpacing: "-0.02em" }}>
+          <p className="text-foreground text-h1 tracking-tight" style={{ letterSpacing: "-0.02em" }}>
             Stop talking about building.
           </p>
-          <p className="text-accent-text text-4xl md:text-5xl font-bold tracking-tight mt-2" style={{ letterSpacing: "-0.02em" }}>
+          <p className="text-accent-text text-h1 tracking-tight mt-2" style={{ letterSpacing: "-0.02em" }}>
             Start building.
           </p>
         </motion.div>
@@ -64,7 +64,7 @@ export function FinalCTA() {
         >
           <a
             href="/apply"
-            className="bg-accent text-accent-foreground rounded-xl px-8 py-4 font-medium hover:brightness-110 hover:scale-[1.02] transition-all"
+            className="bg-accent text-accent-foreground rounded-xl px-8 py-4 font-medium hover:bg-accent-hover transition-all"
             onClick={() => analytics.trackCtaClicked("final_cta", IS_PRELAUNCH ? "Apply for early access" : "Start building", "/apply")}
           >
             {IS_PRELAUNCH ? "Apply for early access" : "Start building"}

@@ -72,15 +72,15 @@ export function BuilderProfileCard() {
         {/* Stats row */}
         <div className="grid grid-cols-3 gap-4 mt-6 pt-5 border-t border-[#333]">
           <div className="text-center">
-            <p className="text-2xl font-bold text-white">{MOCK_BUILDER.score}</p>
+            <p className="text-h3 text-white">{MOCK_BUILDER.score}</p>
             <p className="text-[11px] text-grey-500 mt-0.5">Builder Score</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-white">{MOCK_BUILDER.projects}</p>
+            <p className="text-h3 text-white">{MOCK_BUILDER.projects}</p>
             <p className="text-[11px] text-grey-500 mt-0.5">Shipped</p>
           </div>
           <div className="text-center">
-            <p className="text-2xl font-bold text-white">{MOCK_BUILDER.streak}w</p>
+            <p className="text-h3 text-white">{MOCK_BUILDER.streak}w</p>
             <p className="text-[11px] text-grey-500 mt-0.5">Streak</p>
           </div>
         </div>

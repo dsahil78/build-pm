@@ -67,7 +67,7 @@ export function BuildFeed() {
           <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
             Shipped this week
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2 tracking-tight">
+          <h2 className="text-h2 text-foreground mt-2 tracking-tight">
             Builders are shipping.{" "}
             <span className="text-subtle-foreground">Right now.</span>
           </h2>

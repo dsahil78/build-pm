@@ -75,15 +75,15 @@ function ProfileSidebar() {
       {/* Stats */}
       <div className="grid grid-cols-3 gap-3 pt-4 border-t border-[#2A2A2A]">
         <div className="text-center">
-          <p className="text-xl font-bold text-white">{MOCK_BUILDER.score}</p>
+          <p className="text-h4 text-white">{MOCK_BUILDER.score}</p>
           <p className="text-[9px] text-grey-500 mt-0.5">Builder Score</p>
         </div>
         <div className="text-center">
-          <p className="text-xl font-bold text-white">{MOCK_BUILDER.projects}</p>
+          <p className="text-h4 text-white">{MOCK_BUILDER.projects}</p>
           <p className="text-[9px] text-grey-500 mt-0.5">Shipped</p>
         </div>
         <div className="text-center">
-          <p className="text-xl font-bold text-white">{MOCK_BUILDER.streak}w</p>
+          <p className="text-h4 text-white">{MOCK_BUILDER.streak}w</p>
           <p className="text-[9px] text-grey-500 mt-0.5">Streak</p>
         </div>
       </div>
@@ -160,7 +160,7 @@ export function ProductPreview() {
           <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
             The platform
           </p>
-          <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mt-4 tracking-tight leading-[1.1]">
+          <h2 className="text-display text-foreground mt-4 tracking-tight leading-[1.1]">
             Your builds. Your proof.
             <br />
             <span className="text-muted-foreground">Your career.</span>

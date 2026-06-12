@@ -126,7 +126,7 @@ export function Testimonials() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center"
         >
-          <h2 className="text-3xl font-bold text-foreground">From the builders</h2>
+          <h2 className="text-h2 text-foreground">From the builders</h2>
         </motion.div>
 
         {/* Testimonial cards */}

@@ -59,7 +59,7 @@ export default function ApplyPage() {
       <main id="main-content" className="min-h-svh flex items-center justify-center px-4">
         <div className="max-w-md text-center" aria-live="polite">
           <div className="text-4xl mb-4">✓</div>
-          <h1 className="text-2xl font-bold text-foreground">Application received</h1>
+          <h1 className="text-h3 text-foreground">Application received</h1>
           <p className="text-muted-foreground mt-3 leading-relaxed">
             We review applications weekly. You&apos;ll hear from us within 7 days.
             In the meantime, join the newsletter for weekly build updates.
@@ -88,7 +88,7 @@ export default function ApplyPage() {
         </div>
 
         {/* Header */}
-        <h1 className="text-3xl font-bold text-foreground">
+        <h1 className="text-h2 text-foreground">
           {IS_PRELAUNCH ? "Apply to the founding cohort" : "Apply to BuildPM"}
         </h1>
         <p className="text-muted-foreground mt-2 leading-relaxed">

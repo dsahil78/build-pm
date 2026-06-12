@@ -21,7 +21,7 @@ export function OpenSource() {
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           transition={{ duration: 0.5, ease: EASE_OUT }}
-          className="text-3xl font-bold text-foreground"
+          className="text-h2 text-foreground"
         >
           Built by the community. Open to all.
         </motion.h2>

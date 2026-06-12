@@ -62,7 +62,7 @@ export function Navbar() {
             <ThemeToggle />
             <a
               href="/apply"
-              className="inline-flex items-center px-5 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-lg transition-all hover:brightness-110"
+              className="inline-flex items-center px-5 py-2 bg-accent text-accent-foreground text-sm font-medium rounded-lg transition-all hover:bg-accent-hover"
               style={{ transitionDuration: "var(--duration-fast)" }}
               onClick={() => analytics.trackCtaClicked("navbar", ctaLabel, "/apply")}
             >

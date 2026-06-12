@@ -26,7 +26,7 @@ export function AnimatedCounter({
 
   return (
     <div ref={ref} className="text-center">
-      <div className="text-4xl font-bold text-foreground">
+      <div className="text-h1 text-foreground">
         {display}
         {suffix}
       </div>

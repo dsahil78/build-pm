@@ -26,7 +26,7 @@ function MockProfileCard() {
       </div>
 
       {/* Name */}
-      <h4 className="text-xl font-bold text-foreground mt-3">Jamie C.</h4>
+      <h4 className="text-h4 text-foreground mt-3">Jamie C.</h4>
 
       {/* Headline */}
       <p className="text-muted-foreground text-sm mt-1">
@@ -35,7 +35,7 @@ function MockProfileCard() {
 
       {/* Builder score + badge */}
       <div className="flex items-center gap-3 mt-4">
-        <span className="text-4xl font-bold text-accent-text">847</span>
+        <span className="text-h1 text-accent-text">847</span>
         <Badge variant="coral">Builder</Badge>
       </div>
 
@@ -99,7 +99,7 @@ export function BuilderScores() {
             </p>
 
             {/* Heading */}
-            <h2 className="text-3xl font-bold text-foreground mt-3">
+            <h2 className="text-h2 text-foreground mt-3">
               Builder scores, not job titles
             </h2>
 

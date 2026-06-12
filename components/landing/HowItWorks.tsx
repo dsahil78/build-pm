@@ -69,7 +69,7 @@ function StepItem({ step, index }: { step: Step; index: number }) {
       </div>
 
       {/* Title */}
-      <h3 className="text-lg font-semibold text-foreground mt-4">{step.title}</h3>
+      <h3 className="text-h4 text-foreground mt-4">{step.title}</h3>
 
       {/* Description */}
       <p className="text-sm text-muted-foreground mt-2 max-w-xs">{step.description}</p>
@@ -82,7 +82,7 @@ export function HowItWorks() {
     <section className="bg-muted py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Heading */}
-        <h2 className="text-3xl font-bold text-center text-foreground">
+        <h2 className="text-h2 text-center text-foreground">
           How it works
         </h2>
 

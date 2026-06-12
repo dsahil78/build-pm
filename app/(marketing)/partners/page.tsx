@@ -166,7 +166,7 @@ export default function PartnersPage() {
           </Badge>
         )}
 
-        <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[1.1]">
+        <h1 className="text-h1 text-foreground tracking-tight leading-[1.1]">
           {IS_PRELAUNCH ? (
             <>
               Get distribution{" "}
@@ -188,7 +188,7 @@ export default function PartnersPage() {
         <div className="mt-8">
           <a
             href="#apply"
-            className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground font-semibold rounded-xl transition-all hover:brightness-110 hover:scale-[1.02]"
+            className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground font-semibold rounded-xl transition-all hover:bg-accent-hover"
             style={{ transitionDuration: "var(--duration-fast)" }}
             onClick={() => analytics.trackCtaClicked("partner_hero", "Apply as founding partner", "#apply")}
           >
@@ -206,7 +206,7 @@ export default function PartnersPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {PARTNER_STATS.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <p className="text-3xl font-bold text-foreground">{stat.value}</p>
+                  <p className="text-h2 text-foreground">{stat.value}</p>
                   <p className="text-xs text-subtle-foreground mt-1">{stat.label}</p>
                 </div>
               ))}
@@ -244,7 +244,7 @@ export default function PartnersPage() {
                   <div className="w-10 h-10 rounded-xl bg-accent/[0.08] flex items-center justify-center text-accent-text">
                     {group.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-foreground">{group.label}</h3>
+                  <h3 className="text-h4 text-foreground">{group.label}</h3>
                 </div>
 
                 {/* Items */}
@@ -314,7 +314,7 @@ export default function PartnersPage() {
                   className="rounded-2xl bg-card border border-border-base p-6 text-center"
                   style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
                 >
-                  <p className="text-3xl font-bold text-accent-text">{uc.metric}</p>
+                  <p className="text-h2 text-accent-text">{uc.metric}</p>
                   <p className="text-sm text-muted-foreground mt-2">{uc.label}</p>
                 </motion.div>
               ))}
@@ -349,7 +349,7 @@ export default function PartnersPage() {
          ═══════════════════════════════════════ */}
       <section id="apply" className="py-20 md:py-24">
         <div className="max-w-lg mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-foreground text-center">
+          <h2 className="text-h3 text-foreground text-center">
             {IS_PRELAUNCH ? "Apply as founding partner" : "Become a partner"}
           </h2>
           <p className="text-muted-foreground text-center mt-3 text-sm leading-relaxed">
@@ -363,7 +363,7 @@ export default function PartnersPage() {
               <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-4">
                 <span className="text-success text-2xl">&#10003;</span>
               </div>
-              <p className="text-xl font-semibold text-foreground">Application received</p>
+              <p className="text-h4 text-foreground">Application received</p>
               <p className="text-muted-foreground mt-3 leading-relaxed">
                 We&apos;re reviewing partner applications personally.
                 Expect to hear from us within 48 hours.
@@ -465,7 +465,7 @@ function SectionHeading({
       <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
         {eyebrow}
       </p>
-      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mt-2">
+      <h2 className="text-h2 tracking-tight text-foreground mt-2">
         {title}
       </h2>
       {subtitle && (
