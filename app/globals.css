@@ -31,12 +31,6 @@
   --color-grey-800: #2A2A2A;
   --color-grey-900: #1A1A1A;
 
-  /* Semantic */
-  --color-success: #1D9E75;
-  --color-warning: #BA7517;
-  --color-error: #E24B4A;
-  --color-info: #378ADD;
-
   /* Builder score tiers */
   --color-tier-member: #A3A29E;
   --color-tier-contributor: #378ADD;
@@ -85,9 +79,15 @@
   --color-border-strong: var(--border-strong);
   --color-accent: var(--accent);
   --color-accent-foreground: var(--accent-foreground);
+  --color-accent-text: var(--accent-text);
   --color-input: var(--input);
   --color-input-border: var(--input-border);
   --color-ring: var(--ring);
+  /* Status colors are theme-aware so text passes AA in both palettes */
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-error: var(--error);
+  --color-info: var(--info);
 }
 
 /* Light (warm off-white) — default. Contrast ratios vs their pairs are
@@ -104,11 +104,17 @@
   --subtle-foreground: #6B6A67;   /* 4.6:1 on bg — tertiary text */
   --border-base: #D5D4D0;
   --border-strong: #A3A29E;       /* 3:1+ UI boundaries */
-  --accent: #FF5733;              /* brand coral, unchanged */
-  --accent-foreground: #FFFFFF;   /* see ACCESSIBILITY note: coral+white is 3.15:1 */
+  --accent: #FF5733;              /* brand coral fill, unchanged */
+  --accent-foreground: #1A1A1A;   /* near-black on coral = 5.5:1 (AA) */
+  --accent-text: #BE3A1D;         /* deepened coral for TEXT — 5:1 on bg */
   --input: #FFFFFF;
   --input-border: #D5D4D0;
   --ring: #FF5733;
+  /* Status (text-safe on the light bg) */
+  --success: #15803D;             /* 4.8:1 */
+  --warning: #B45309;             /* 4.7:1 */
+  --error: #B91C1C;               /* 5.9:1 */
+  --info: #1D4ED8;                /* 6.2:1 */
 }
 
 /* Dark — the original brand surface, with secondary text raised to pass AA. */
@@ -125,10 +131,16 @@
   --border-base: #333333;
   --border-strong: #72716E;       /* 3.5:1 UI boundaries */
   --accent: #FF5733;
-  --accent-foreground: #FFFFFF;   /* coral+white is 3.15:1 — see ACCESSIBILITY note */
+  --accent-foreground: #1A1A1A;   /* near-black on coral = 5.5:1 (AA) */
+  --accent-text: #FF5733;         /* brand coral for TEXT — 5.5:1 on dark bg */
   --input: #242424;
   --input-border: #3A3A3A;
   --ring: #FF5733;
+  /* Status (brightened so text passes on the dark bg) */
+  --success: #4ADE80;             /* 9:1 */
+  --warning: #FBBF24;             /* 10:1 */
+  --error: #F87171;               /* 6.3:1 */
+  --info: #60A5FA;                /* 6.5:1 */
 }
 
 /* ========================================

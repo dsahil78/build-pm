@@ -47,9 +47,9 @@ function MarqueeRow({
 
 export function ToolShelf() {
   return (
-    <section className="bg-brand-dark py-24 px-4 sm:px-6 lg:px-8">
+    <section className="bg-background py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
-        <h2 className="text-xl text-grey-300 text-center">
+        <h2 className="text-xl text-muted-foreground text-center">
           40+ enterprise tools. Free for members.
         </h2>
 
@@ -64,14 +64,14 @@ export function ToolShelf() {
           {IS_PRELAUNCH ? (
             <Link
               href="/partners"
-              className="text-brand-coral hover:opacity-80 transition-opacity duration-200"
+              className="text-accent-text hover:opacity-80 transition-opacity duration-200"
             >
               Interested in partnering? Apply here &rarr;
             </Link>
           ) : (
             <Link
               href="/partners"
-              className="text-brand-coral hover:opacity-80 transition-opacity duration-200"
+              className="text-accent-text hover:opacity-80 transition-opacity duration-200"
             >
               Become a partner &rarr;
             </Link>

@@ -146,13 +146,15 @@ export default function PartnersPage() {
   }
 
   return (
-    <div className="bg-brand-dark min-h-svh">
+    <div className="bg-background min-h-svh">
       {/* Nav */}
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <Link href="/">
           <Logo variant="dark" size="md" />
         </Link>
       </nav>
+
+      <main id="main-content">
 
       {/* ═══════════════════════════════════════
           HERO
@@ -164,21 +166,21 @@ export default function PartnersPage() {
           </Badge>
         )}
 
-        <h1 className="text-4xl md:text-5xl font-bold text-white tracking-tight leading-[1.1]">
+        <h1 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight leading-[1.1]">
           {IS_PRELAUNCH ? (
             <>
               Get distribution{" "}
-              <span className="text-brand-coral">before everyone else</span>.
+              <span className="text-accent-text">before everyone else</span>.
             </>
           ) : (
             <>
               Partner with{" "}
-              <span className="text-brand-coral">BuildPM</span>
+              <span className="text-accent-text">BuildPM</span>
             </>
           )}
         </h1>
 
-        <p className="text-grey-300 text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
+        <p className="text-muted-foreground text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
           Your tools in the hands of product builders who ship weekly.
           Get adoption, structured feedback, and a talent pipeline — not vanity metrics.
         </p>
@@ -186,7 +188,7 @@ export default function PartnersPage() {
         <div className="mt-8">
           <a
             href="#apply"
-            className="inline-flex items-center px-8 py-4 bg-brand-coral text-white font-semibold rounded-xl transition-all hover:brightness-110 hover:scale-[1.02]"
+            className="inline-flex items-center px-8 py-4 bg-accent text-accent-foreground font-semibold rounded-xl transition-all hover:brightness-110 hover:scale-[1.02]"
             style={{ transitionDuration: "var(--duration-fast)" }}
             onClick={() => analytics.trackCtaClicked("partner_hero", "Apply as founding partner", "#apply")}
           >
@@ -199,13 +201,13 @@ export default function PartnersPage() {
           PROOF LAYER — stats bar (post-launch only)
          ═══════════════════════════════════════ */}
       {!IS_PRELAUNCH && (
-        <section className="py-12 border-y border-[#222]">
+        <section className="py-12 border-y border-border-base">
           <div className="max-w-4xl mx-auto px-4 sm:px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {PARTNER_STATS.map((stat) => (
                 <div key={stat.label} className="text-center">
-                  <p className="text-3xl font-bold text-white">{stat.value}</p>
-                  <p className="text-xs text-grey-500 mt-1">{stat.label}</p>
+                  <p className="text-3xl font-bold text-foreground">{stat.value}</p>
+                  <p className="text-xs text-subtle-foreground mt-1">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -239,10 +241,10 @@ export default function PartnersPage() {
               >
                 {/* Group header */}
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-xl bg-brand-coral/[0.08] flex items-center justify-center text-brand-coral">
+                  <div className="w-10 h-10 rounded-xl bg-accent/[0.08] flex items-center justify-center text-accent-text">
                     {group.icon}
                   </div>
-                  <h3 className="text-lg font-semibold text-white">{group.label}</h3>
+                  <h3 className="text-lg font-semibold text-foreground">{group.label}</h3>
                 </div>
 
                 {/* Items */}
@@ -250,11 +252,11 @@ export default function PartnersPage() {
                   {group.items.map((item) => (
                     <div
                       key={item.title}
-                      className="rounded-2xl bg-gradient-to-b from-[#242424] to-[#1F1F1F] p-5 transition-all duration-300 hover:-translate-y-0.5"
+                      className="rounded-2xl bg-card border border-border-base p-5 transition-all duration-300 hover:-translate-y-0.5"
                       style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
                     >
-                      <h4 className="text-sm font-semibold text-white">{item.title}</h4>
-                      <p className="text-[13px] text-grey-400 mt-2 leading-relaxed">{item.description}</p>
+                      <h4 className="text-sm font-semibold text-foreground">{item.title}</h4>
+                      <p className="text-[13px] text-muted-foreground mt-2 leading-relaxed">{item.description}</p>
                     </div>
                   ))}
                 </div>
@@ -267,7 +269,7 @@ export default function PartnersPage() {
       {/* ═══════════════════════════════════════
           HOW IT WORKS — 3 steps
          ═══════════════════════════════════════ */}
-      <section className="bg-[#222] py-20 md:py-24">
+      <section className="bg-muted py-20 md:py-24">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <SectionHeading
             eyebrow="How it works"
@@ -284,11 +286,11 @@ export default function PartnersPage() {
                 transition={{ duration: 0.4, delay: i * 0.1, ease: EASE_OUT }}
                 className="text-center"
               >
-                <div className="w-12 h-12 rounded-2xl bg-brand-coral/[0.08] flex items-center justify-center mx-auto">
-                  <span className="text-brand-coral font-mono text-sm font-bold">{step.num}</span>
+                <div className="w-12 h-12 rounded-2xl bg-accent/[0.08] flex items-center justify-center mx-auto">
+                  <span className="text-accent-text font-mono text-sm font-bold">{step.num}</span>
                 </div>
-                <h3 className="text-base font-semibold text-white mt-4">{step.title}</h3>
-                <p className="text-sm text-grey-400 mt-2 leading-relaxed">{step.description}</p>
+                <h3 className="text-base font-semibold text-foreground mt-4">{step.title}</h3>
+                <p className="text-sm text-muted-foreground mt-2 leading-relaxed">{step.description}</p>
               </motion.div>
             ))}
           </div>
@@ -309,11 +311,11 @@ export default function PartnersPage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.4, delay: i * 0.08, ease: EASE_OUT }}
-                  className="rounded-2xl bg-gradient-to-b from-[#242424] to-[#1F1F1F] p-6 text-center"
+                  className="rounded-2xl bg-card border border-border-base p-6 text-center"
                   style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
                 >
-                  <p className="text-3xl font-bold text-brand-coral">{uc.metric}</p>
-                  <p className="text-sm text-grey-400 mt-2">{uc.label}</p>
+                  <p className="text-3xl font-bold text-accent-text">{uc.metric}</p>
+                  <p className="text-sm text-muted-foreground mt-2">{uc.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -324,9 +326,9 @@ export default function PartnersPage() {
       {/* ═══════════════════════════════════════
           TOOL LOGOS
          ═══════════════════════════════════════ */}
-      <section className="py-12 border-y border-[#222]">
+      <section className="py-12 border-y border-border-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
-          <p className="text-grey-500 text-sm mb-8">
+          <p className="text-subtle-foreground text-sm mb-8">
             Tools already in the ecosystem
           </p>
           <div className="flex flex-wrap justify-center gap-x-10 gap-y-6">
@@ -347,10 +349,10 @@ export default function PartnersPage() {
          ═══════════════════════════════════════ */}
       <section id="apply" className="py-20 md:py-24">
         <div className="max-w-lg mx-auto px-4 sm:px-6">
-          <h2 className="text-2xl font-bold text-white text-center">
+          <h2 className="text-2xl font-bold text-foreground text-center">
             {IS_PRELAUNCH ? "Apply as founding partner" : "Become a partner"}
           </h2>
-          <p className="text-grey-400 text-center mt-3 text-sm leading-relaxed">
+          <p className="text-muted-foreground text-center mt-3 text-sm leading-relaxed">
             {IS_PRELAUNCH
               ? "We\u2019re selecting a small group of founding partners. Tell us about your tools and we\u2019ll be in touch within 48 hours."
               : "Tell us about your tools and goals."}
@@ -358,15 +360,15 @@ export default function PartnersPage() {
 
           {status === "success" ? (
             <div className="mt-12 text-center" aria-live="polite">
-              <div className="w-16 h-16 bg-[#27C93F]/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-[#27C93F] text-2xl">&#10003;</span>
+              <div className="w-16 h-16 bg-success/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-success text-2xl">&#10003;</span>
               </div>
-              <p className="text-xl font-semibold text-white">Application received</p>
-              <p className="text-grey-400 mt-3 leading-relaxed">
+              <p className="text-xl font-semibold text-foreground">Application received</p>
+              <p className="text-muted-foreground mt-3 leading-relaxed">
                 We&apos;re reviewing partner applications personally.
                 Expect to hear from us within 48 hours.
               </p>
-              <Link href="/" className="text-brand-coral text-sm mt-6 inline-block hover:underline">
+              <Link href="/" className="text-accent-text text-sm mt-6 inline-block hover:underline">
                 &larr; Back to home
               </Link>
             </div>
@@ -409,9 +411,9 @@ export default function PartnersPage() {
                 {status === "submitting" ? "Sending..." : IS_PRELAUNCH ? "Submit founding partner application" : "Send partnership inquiry"}
               </Button>
 
-              <p className="text-grey-600 text-xs text-center">
+              <p className="text-subtle-foreground text-xs text-center">
                 Or reach us directly at{" "}
-                <a href="mailto:partners@buildpm.co" className="text-grey-400 hover:text-white transition-colors">
+                <a href="mailto:partners@buildpm.co" className="text-muted-foreground hover:text-foreground transition-colors">
                   partners@buildpm.co
                 </a>
               </p>
@@ -424,13 +426,15 @@ export default function PartnersPage() {
           URGENCY FOOTER
          ═══════════════════════════════════════ */}
       {IS_PRELAUNCH && (
-        <section className="py-12 border-t border-[#222] text-center">
-          <p className="text-grey-500 text-sm">
+        <section className="py-12 border-t border-border-base text-center">
+          <p className="text-subtle-foreground text-sm">
             We&apos;re selecting a small group of founding partners.{" "}
-            <span className="text-grey-300">Spots are limited.</span>
+            <span className="text-muted-foreground">Spots are limited.</span>
           </p>
         </section>
       )}
+
+      </main>
 
       <Footer />
     </div>
@@ -458,14 +462,14 @@ function SectionHeading({
       transition={{ duration: 0.5, ease: EASE_OUT }}
       className="text-center max-w-2xl mx-auto"
     >
-      <p className="text-brand-coral text-sm font-semibold tracking-wider uppercase">
+      <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
         {eyebrow}
       </p>
-      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-white mt-2">
+      <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mt-2">
         {title}
       </h2>
       {subtitle && (
-        <p className="text-grey-400 mt-3 text-lg">{subtitle}</p>
+        <p className="text-muted-foreground mt-3 text-lg">{subtitle}</p>
       )}
     </motion.div>
   );

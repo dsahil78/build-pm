@@ -48,20 +48,20 @@ export function LiveStats() {
           <span className="flex items-center justify-center w-6 h-6">
             {ICONS[stat.icon]}
           </span>
-          <span className="text-white font-bold tabular-nums">
+          <span className="text-foreground font-bold tabular-nums">
             <AnimatedNumber target={stat.value} inView={isInView} />
           </span>
-          <span className="text-grey-400 text-sm">{stat.label}</span>
+          <span className="text-muted-foreground text-sm">{stat.label}</span>
         </div>
       ))}
 
       {/* Pulse dot — "live" indicator */}
       <div className="flex items-center gap-1.5 ml-2">
         <span className="relative flex h-2 w-2">
-          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#27C93F] opacity-75" />
-          <span className="relative inline-flex rounded-full h-2 w-2 bg-[#27C93F]" />
+          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-success opacity-75" />
+          <span className="relative inline-flex rounded-full h-2 w-2 bg-success" />
         </span>
-        <span className="text-[#27C93F] text-xs font-medium">Live</span>
+        <span className="text-success text-xs font-medium">Live</span>
       </div>
     </motion.div>
   );

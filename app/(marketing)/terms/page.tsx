@@ -11,12 +11,12 @@ export default function TermsPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-brand-dark pt-28 pb-20 px-4 sm:px-6">
+      <main id="main-content" className="min-h-screen bg-background pt-28 pb-20 px-4 sm:px-6">
         <article className="max-w-3xl mx-auto prose-invert">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+          <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2">
             Terms of Service
           </h1>
-          <p className="text-grey-500 text-sm mb-12">
+          <p className="text-subtle-foreground text-sm mb-12">
             Effective date: March 19, 2026 | Last reviewed: March 19, 2026
           </p>
 
@@ -26,7 +26,7 @@ export default function TermsPage() {
               (&quot;you&quot;, &quot;your&quot;, or &quot;User&quot;) and BuildPM (&quot;BuildPM&quot;,
               &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) governing your access to
               and use of the website at{" "}
-              <a href="https://buildpm.co" className="text-brand-coral hover:underline">
+              <a href="https://buildpm.co" className="text-accent-text hover:underline">
                 https://buildpm.co
               </a>{" "}
               and all related services, features, content, and applications (collectively, the &quot;Service&quot;).
@@ -34,7 +34,7 @@ export default function TermsPage() {
             <p>
               By accessing or using the Service, you confirm that you have read, understood, and agree to be
               bound by these Terms and our{" "}
-              <a href="/privacy" className="text-brand-coral hover:underline">
+              <a href="/privacy" className="text-accent-text hover:underline">
                 Privacy Policy
               </a>
               , which is incorporated herein by reference. If you do not agree to these Terms, you must not
@@ -81,7 +81,7 @@ export default function TermsPage() {
               <li>Maintain the security and confidentiality of your account credentials</li>
               <li>Accept responsibility for all activities that occur under your account</li>
               <li>Notify us immediately at{" "}
-                <a href="mailto:support@buildpm.co" className="text-brand-coral hover:underline">
+                <a href="mailto:support@buildpm.co" className="text-accent-text hover:underline">
                   support@buildpm.co
                 </a>{" "}
                 if you suspect unauthorized use of your account</li>
@@ -93,14 +93,14 @@ export default function TermsPage() {
           </Section>
 
           <Section title="5. User content">
-            <h3 className="text-lg font-semibold text-white mt-6 mb-3">5.1 Ownership</h3>
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">5.1 Ownership</h3>
             <p>
               You retain all ownership rights in any content, materials, projects, build logs, documentation,
               and other information you submit, post, or display through the Service (&quot;User Content&quot;).
               BuildPM does not claim ownership of your User Content.
             </p>
 
-            <h3 className="text-lg font-semibold text-white mt-6 mb-3">5.2 License grant</h3>
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">5.2 License grant</h3>
             <p>
               By submitting User Content to the Service, you grant BuildPM a non-exclusive, worldwide,
               royalty-free, sublicensable, and transferable license to use, reproduce, display, distribute,
@@ -110,7 +110,7 @@ export default function TermsPage() {
               may be retained.
             </p>
 
-            <h3 className="text-lg font-semibold text-white mt-6 mb-3">5.3 Your responsibilities</h3>
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">5.3 Your responsibilities</h3>
             <p>You represent and warrant that your User Content:</p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>Is original to you or you have all necessary rights and permissions to share it</li>
@@ -199,7 +199,7 @@ export default function TermsPage() {
           </Section>
 
           <Section title="11. Disclaimers">
-            <p className="uppercase text-xs tracking-wider text-grey-400 mb-3">
+            <p className="uppercase text-xs tracking-wider text-muted-foreground mb-3">
               PLEASE READ THIS SECTION CAREFULLY
             </p>
             <p>
@@ -259,19 +259,19 @@ export default function TermsPage() {
 
           <Section title="14. Termination">
             <p>
-              <strong className="text-white">By you:</strong> You may stop using the Service at any time. To
+              <strong className="text-foreground">By you:</strong> You may stop using the Service at any time. To
               delete your account and data, email{" "}
-              <a href="mailto:support@buildpm.co" className="text-brand-coral hover:underline">
+              <a href="mailto:support@buildpm.co" className="text-accent-text hover:underline">
                 support@buildpm.co
               </a>.
             </p>
             <p>
-              <strong className="text-white">By us:</strong> We may suspend or terminate your access to the
+              <strong className="text-foreground">By us:</strong> We may suspend or terminate your access to the
               Service immediately, without prior notice or liability, for any reason, including if you
               breach these Terms. Upon termination, your right to use the Service ceases immediately.
             </p>
             <p>
-              <strong className="text-white">Survival:</strong> Sections 5.2 (License Grant), 6 (Acceptable
+              <strong className="text-foreground">Survival:</strong> Sections 5.2 (License Grant), 6 (Acceptable
               Use), 7 (Intellectual Property), 10 (Confidentiality), 11 (Disclaimers), 12 (Limitation of
               Liability), 13 (Indemnification), 15 (Dispute Resolution), and 16 (Governing Law) shall
               survive any termination or expiration of these Terms.
@@ -280,15 +280,15 @@ export default function TermsPage() {
 
           <Section title="15. Dispute resolution">
             <p>
-              <strong className="text-white">Informal resolution first:</strong> Before filing any formal
+              <strong className="text-foreground">Informal resolution first:</strong> Before filing any formal
               legal action, you agree to contact us at{" "}
-              <a href="mailto:legal@buildpm.co" className="text-brand-coral hover:underline">
+              <a href="mailto:legal@buildpm.co" className="text-accent-text hover:underline">
                 legal@buildpm.co
               </a>{" "}
               and attempt to resolve the dispute informally for at least 30 days.
             </p>
             <p>
-              <strong className="text-white">Binding arbitration:</strong> If the dispute is not resolved
+              <strong className="text-foreground">Binding arbitration:</strong> If the dispute is not resolved
               informally, you and BuildPM agree to resolve it through final and binding arbitration
               administered by a mutually agreed-upon arbitration provider, in accordance with its rules then
               in effect. The arbitration shall be conducted in English. The arbitrator&apos;s decision shall
@@ -296,12 +296,12 @@ export default function TermsPage() {
               jurisdiction.
             </p>
             <p>
-              <strong className="text-white">Class action waiver:</strong> YOU AND BUILD.PM AGREE THAT EACH
+              <strong className="text-foreground">Class action waiver:</strong> YOU AND BUILD.PM AGREE THAT EACH
               PARTY MAY ONLY BRING CLAIMS AGAINST THE OTHER IN YOUR OR ITS INDIVIDUAL CAPACITY, AND NOT AS
               A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION.
             </p>
             <p>
-              <strong className="text-white">Exceptions:</strong> Either party may seek injunctive or
+              <strong className="text-foreground">Exceptions:</strong> Either party may seek injunctive or
               equitable relief in a court of competent jurisdiction for claims related to intellectual
               property infringement or unauthorized access to the Service.
             </p>
@@ -325,42 +325,42 @@ export default function TermsPage() {
           <Section title="17. General provisions">
             <ul className="list-disc pl-5 space-y-3">
               <li>
-                <strong className="text-white">Entire agreement:</strong> These Terms, together with our
+                <strong className="text-foreground">Entire agreement:</strong> These Terms, together with our
                 Privacy Policy, constitute the entire agreement between you and BuildPM regarding the
                 Service and supersede all prior or contemporaneous agreements, representations, and
                 understandings.
               </li>
               <li>
-                <strong className="text-white">Severability:</strong> If any provision of these Terms is held
+                <strong className="text-foreground">Severability:</strong> If any provision of these Terms is held
                 to be invalid, illegal, or unenforceable, the remaining provisions shall continue in full
                 force and effect. The invalid provision shall be modified to the minimum extent necessary to
                 make it valid and enforceable.
               </li>
               <li>
-                <strong className="text-white">Waiver:</strong> Our failure to enforce any right or provision
+                <strong className="text-foreground">Waiver:</strong> Our failure to enforce any right or provision
                 of these Terms shall not constitute a waiver of that right or provision. Any waiver must be
                 in writing and signed by BuildPM.
               </li>
               <li>
-                <strong className="text-white">Assignment:</strong> You may not assign or transfer these Terms
+                <strong className="text-foreground">Assignment:</strong> You may not assign or transfer these Terms
                 or your rights hereunder without our prior written consent. We may assign these Terms without
                 restriction, including in connection with a merger, acquisition, or sale of assets.
               </li>
               <li>
-                <strong className="text-white">Force majeure:</strong> We shall not be liable for any failure
+                <strong className="text-foreground">Force majeure:</strong> We shall not be liable for any failure
                 or delay in performance due to circumstances beyond our reasonable control, including natural
                 disasters, war, terrorism, pandemics, government actions, power failures, internet
                 disruptions, or third-party service outages.
               </li>
               <li>
-                <strong className="text-white">Notices:</strong> We may provide notices to you via email, the
+                <strong className="text-foreground">Notices:</strong> We may provide notices to you via email, the
                 Service, or posted on our website. Notices to us should be sent to{" "}
-                <a href="mailto:legal@buildpm.co" className="text-brand-coral hover:underline">
+                <a href="mailto:legal@buildpm.co" className="text-accent-text hover:underline">
                   legal@buildpm.co
                 </a>.
               </li>
               <li>
-                <strong className="text-white">Headings:</strong> Section headings are for convenience only
+                <strong className="text-foreground">Headings:</strong> Section headings are for convenience only
                 and do not affect the interpretation of these Terms.
               </li>
             </ul>
@@ -373,19 +373,19 @@ export default function TermsPage() {
             <ul className="list-none pl-0 space-y-1 mt-3">
               <li>
                 Legal:{" "}
-                <a href="mailto:legal@buildpm.co" className="text-brand-coral hover:underline">
+                <a href="mailto:legal@buildpm.co" className="text-accent-text hover:underline">
                   legal@buildpm.co
                 </a>
               </li>
               <li>
                 Support:{" "}
-                <a href="mailto:support@buildpm.co" className="text-brand-coral hover:underline">
+                <a href="mailto:support@buildpm.co" className="text-accent-text hover:underline">
                   support@buildpm.co
                 </a>
               </li>
               <li>
                 General:{" "}
-                <a href="mailto:hello@buildpm.co" className="text-brand-coral hover:underline">
+                <a href="mailto:hello@buildpm.co" className="text-accent-text hover:underline">
                   hello@buildpm.co
                 </a>
               </li>
@@ -407,8 +407,8 @@ function Section({
 }) {
   return (
     <section className="mb-10">
-      <h2 className="text-xl font-semibold text-white mb-4">{title}</h2>
-      <div className="text-grey-300 text-[15px] leading-relaxed space-y-3">
+      <h2 className="text-xl font-semibold text-foreground mb-4">{title}</h2>
+      <div className="text-muted-foreground text-[15px] leading-relaxed space-y-3">
         {children}
       </div>
     </section>

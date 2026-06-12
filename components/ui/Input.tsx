@@ -1,6 +1,18 @@
 import { cn } from "@/lib/utils";
 import { type InputHTMLAttributes, type TextareaHTMLAttributes, type SelectHTMLAttributes } from "react";
 
+/** Build an id and the describedby/invalid wiring shared by all fields. */
+function fieldIds(id: string | undefined, label: string | undefined, hint?: string, error?: string) {
+  const inputId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
+  const hintId = hint ? `${inputId}-hint` : undefined;
+  const errorId = error ? `${inputId}-error` : undefined;
+  const describedBy = [hintId, errorId].filter(Boolean).join(" ") || undefined;
+  return { inputId, hintId, errorId, describedBy };
+}
+
+const fieldBase =
+  "w-full bg-card border border-border-base rounded-lg px-4 py-3 text-sm text-foreground placeholder:text-subtle-foreground transition-colors focus:border-ring focus:outline-none";
+
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   error?: string;
@@ -8,26 +20,24 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export function Input({ label, error, hint, className, id, ...props }: InputProps) {
-  const inputId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
+  const { inputId, hintId, errorId, describedBy } = fieldIds(id, label, hint, error);
   return (
     <div className="space-y-1.5">
       {label && (
-        <label htmlFor={inputId} className="block text-sm font-medium text-grey-300">
+        <label htmlFor={inputId} className="block text-sm font-medium text-muted-foreground">
           {label}
         </label>
       )}
-      {hint && <p className="text-xs text-grey-500">{hint}</p>}
+      {hint && <p id={hintId} className="text-xs text-subtle-foreground">{hint}</p>}
       <input
         id={inputId}
-        className={cn(
-          "w-full bg-brand-grey border border-[#333] rounded-lg px-4 py-3 text-sm text-white placeholder:text-grey-600 transition-colors focus:border-brand-coral focus:outline-none",
-          error && "border-error",
-          className
-        )}
+        aria-describedby={describedBy}
+        aria-invalid={error ? true : undefined}
+        className={cn(fieldBase, error && "border-error", className)}
         style={{ transitionDuration: "var(--duration-fast)" }}
         {...props}
       />
-      {error && <p className="text-xs text-error">{error}</p>}
+      {error && <p id={errorId} role="alert" className="text-xs text-error">{error}</p>}
     </div>
   );
 }
@@ -39,26 +49,24 @@ interface TextareaProps extends TextareaHTMLAttributes<HTMLTextAreaElement> {
 }
 
 export function Textarea({ label, error, hint, className, id, ...props }: TextareaProps) {
-  const inputId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
+  const { inputId, hintId, errorId, describedBy } = fieldIds(id, label, hint, error);
   return (
     <div className="space-y-1.5">
       {label && (
-        <label htmlFor={inputId} className="block text-sm font-medium text-grey-300">
+        <label htmlFor={inputId} className="block text-sm font-medium text-muted-foreground">
           {label}
         </label>
       )}
-      {hint && <p className="text-xs text-grey-500">{hint}</p>}
+      {hint && <p id={hintId} className="text-xs text-subtle-foreground">{hint}</p>}
       <textarea
         id={inputId}
-        className={cn(
-          "w-full bg-brand-grey border border-[#333] rounded-lg px-4 py-3 text-sm text-white placeholder:text-grey-600 transition-colors focus:border-brand-coral focus:outline-none resize-y min-h-[100px]",
-          error && "border-error",
-          className
-        )}
+        aria-describedby={describedBy}
+        aria-invalid={error ? true : undefined}
+        className={cn(fieldBase, "resize-y min-h-[100px]", error && "border-error", className)}
         style={{ transitionDuration: "var(--duration-fast)" }}
         {...props}
       />
-      {error && <p className="text-xs text-error">{error}</p>}
+      {error && <p id={errorId} role="alert" className="text-xs text-error">{error}</p>}
     </div>
   );
 }
@@ -71,21 +79,19 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
 }
 
 export function Select({ label, error, options, placeholder, className, id, ...props }: SelectProps) {
-  const inputId = id ?? label?.toLowerCase().replace(/\s+/g, "-");
+  const { inputId, errorId, describedBy } = fieldIds(id, label, undefined, error);
   return (
     <div className="space-y-1.5">
       {label && (
-        <label htmlFor={inputId} className="block text-sm font-medium text-grey-300">
+        <label htmlFor={inputId} className="block text-sm font-medium text-muted-foreground">
           {label}
         </label>
       )}
       <select
         id={inputId}
-        className={cn(
-          "w-full bg-brand-grey border border-[#333] rounded-lg px-4 py-3 text-sm text-white transition-colors focus:border-brand-coral focus:outline-none appearance-none",
-          error && "border-error",
-          className
-        )}
+        aria-describedby={describedBy}
+        aria-invalid={error ? true : undefined}
+        className={cn(fieldBase, "appearance-none", error && "border-error", className)}
         style={{ transitionDuration: "var(--duration-fast)" }}
         {...props}
       >
@@ -100,7 +106,7 @@ export function Select({ label, error, options, placeholder, className, id, ...p
           </option>
         ))}
       </select>
-      {error && <p className="text-xs text-error">{error}</p>}
+      {error && <p id={errorId} role="alert" className="text-xs text-error">{error}</p>}
     </div>
   );
 }

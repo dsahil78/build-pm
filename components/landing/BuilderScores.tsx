@@ -19,32 +19,32 @@ const BARS: BarItem[] = [
 
 function MockProfileCard() {
   return (
-    <div className="animate-float bg-brand-grey rounded-2xl border border-[#333] p-8 max-w-sm mx-auto">
+    <div className="animate-float bg-card rounded-2xl border border-border-base p-8 max-w-sm mx-auto">
       {/* Avatar */}
-      <div className="w-16 h-16 rounded-full bg-grey-700 flex items-center justify-center">
-        <span className="text-grey-400 font-medium">JC</span>
+      <div className="w-16 h-16 rounded-full bg-muted flex items-center justify-center">
+        <span className="text-muted-foreground font-medium">JC</span>
       </div>
 
       {/* Name */}
-      <h4 className="text-xl font-bold text-white mt-3">Jamie C.</h4>
+      <h4 className="text-xl font-bold text-foreground mt-3">Jamie C.</h4>
 
       {/* Headline */}
-      <p className="text-grey-400 text-sm mt-1">
+      <p className="text-muted-foreground text-sm mt-1">
         AI PM &middot; shipped 12 products
       </p>
 
       {/* Builder score + badge */}
       <div className="flex items-center gap-3 mt-4">
-        <span className="text-4xl font-bold text-brand-coral">847</span>
+        <span className="text-4xl font-bold text-accent-text">847</span>
         <Badge variant="coral">Builder</Badge>
       </div>
 
       {/* Stats row */}
-      <div className="flex items-center gap-2 mt-4 text-grey-400 text-sm">
+      <div className="flex items-center gap-2 mt-4 text-muted-foreground text-sm">
         <span>12 shipped</span>
-        <span className="text-grey-600">&middot;</span>
+        <span className="text-subtle-foreground">&middot;</span>
         <span>3 sprints led</span>
-        <span className="text-grey-600">&middot;</span>
+        <span className="text-subtle-foreground">&middot;</span>
         <span>24 reviews</span>
       </div>
 
@@ -52,12 +52,12 @@ function MockProfileCard() {
       <div className="mt-6 space-y-2">
         {BARS.map((bar) => (
           <div key={bar.label} className="flex items-center gap-3">
-            <span className="text-xs text-grey-400 w-12 text-right">
+            <span className="text-xs text-muted-foreground w-12 text-right">
               {bar.label}
             </span>
-            <div className="flex-1 h-2 rounded-full bg-grey-700">
+            <div className="flex-1 h-2 rounded-full bg-muted">
               <div
-                className="h-2 rounded-full bg-brand-coral"
+                className="h-2 rounded-full bg-accent"
                 style={{ width: bar.width }}
               />
             </div>
@@ -73,7 +73,7 @@ export function BuilderScores() {
   const isInView = useInView(sectionRef, { once: true, margin: "-100px" });
 
   return (
-    <section ref={sectionRef} className="bg-brand-dark py-24 px-4 sm:px-6 lg:px-8">
+    <section ref={sectionRef} className="bg-background py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           {/* Right column first on mobile (order) — card */}
@@ -94,17 +94,17 @@ export function BuilderScores() {
             transition={{ duration: 0.5, ease: EASE_OUT }}
           >
             {/* Overline */}
-            <p className="text-brand-coral text-xs tracking-[0.08em] uppercase font-medium">
+            <p className="text-accent-text text-xs tracking-[0.08em] uppercase font-medium">
               Credibility System
             </p>
 
             {/* Heading */}
-            <h2 className="text-3xl font-bold text-white mt-3">
+            <h2 className="text-3xl font-bold text-foreground mt-3">
               Builder scores, not job titles
             </h2>
 
             {/* Body */}
-            <p className="text-grey-300 mt-4 leading-relaxed">
+            <p className="text-muted-foreground mt-4 leading-relaxed">
               What you&apos;ve shipped matters more than where you work. An
               aspiring PM who leads a build sprint outranks a FAANG PM who lurks.
               Your score grows every time you build, teach, review, or mentor.

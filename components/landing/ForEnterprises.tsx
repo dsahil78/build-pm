@@ -134,15 +134,15 @@ function EnterpriseCardItem({
       animate={isInView ? "visible" : "hidden"}
       variants={cardVariants}
     >
-      <div className="bg-brand-grey border border-[#333] border-l-3 border-l-white rounded-xl p-6 h-full">
+      <div className="bg-card border border-border-base border-l-3 border-l-white rounded-xl p-6 h-full">
         {/* Icon */}
-        <div className="text-brand-coral">{card.icon}</div>
+        <div className="text-accent-text">{card.icon}</div>
 
         {/* Title */}
-        <h3 className="text-lg font-semibold text-white mt-3">{card.title}</h3>
+        <h3 className="text-lg font-semibold text-foreground mt-3">{card.title}</h3>
 
         {/* Description */}
-        <p className="text-sm text-grey-400 mt-2 leading-relaxed">
+        <p className="text-sm text-muted-foreground mt-2 leading-relaxed">
           {card.description}
         </p>
       </div>
@@ -158,7 +158,7 @@ export function ForEnterprises() {
     <section
       id="enterprises"
       ref={sectionRef}
-      className="bg-[#222] py-24 px-4 sm:px-6 lg:px-8"
+      className="bg-muted py-24 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-6xl mx-auto">
         {/* Section heading */}
@@ -168,10 +168,10 @@ export function ForEnterprises() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center"
         >
-          <h2 className="text-3xl font-bold text-white">
+          <h2 className="text-3xl font-bold text-foreground">
             Your next 500 power users are already here.
           </h2>
-          <p className="text-grey-400 mt-3">
+          <p className="text-muted-foreground mt-3">
             They&apos;re building with your tools daily. Make it official.
           </p>
         </motion.div>
@@ -192,11 +192,11 @@ export function ForEnterprises() {
           >
             <a
               href="/partners"
-              className="inline-block bg-brand-coral text-white rounded-xl px-8 py-4 text-base font-medium hover:brightness-110 transition-all"
+              className="inline-block bg-accent text-accent-foreground rounded-xl px-8 py-4 text-base font-medium hover:brightness-110 transition-all"
             >
               Become a founding partner
             </a>
-            <p className="text-grey-500 text-sm mt-3">
+            <p className="text-subtle-foreground text-sm mt-3">
               Or email partners@buildpm.co
             </p>
           </motion.div>

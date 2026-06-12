@@ -62,7 +62,7 @@ export function EcosystemLoop() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <p className="text-brand-coral text-sm font-semibold tracking-wider uppercase">
+          <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
             The ecosystem
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground mt-2">
@@ -87,13 +87,13 @@ export function EcosystemLoop() {
                 <div
                   className="rounded-2xl bg-card border border-border-base p-5 text-center h-full transition-all duration-300 hover:-translate-y-1 hover:bg-elevated"
                 >
-                  <div className="w-11 h-11 rounded-xl bg-accent/[0.08] flex items-center justify-center text-accent mx-auto transition-colors duration-300 group-hover:bg-accent/[0.15]">
+                  <div className="w-11 h-11 rounded-xl bg-accent/[0.08] flex items-center justify-center text-accent-text mx-auto transition-colors duration-300 group-hover:bg-accent/[0.15]">
                     {step.icon}
                   </div>
                   <h3 className="text-foreground font-semibold text-sm mt-3">
                     {step.label}
                   </h3>
-                  <p className="text-accent text-xs font-medium mt-1">
+                  <p className="text-accent-text text-xs font-medium mt-1">
                     {step.action}
                   </p>
                   <p className="text-muted-foreground text-[11px] mt-2 leading-relaxed">
@@ -128,7 +128,7 @@ export function EcosystemLoop() {
           className="flex items-center justify-center gap-3 mt-8"
         >
           <div className="h-px w-8 bg-border-strong" />
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-brand-coral" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-accent-text" aria-hidden="true">
             <polyline points="23 4 23 10 17 10" />
             <polyline points="1 20 1 14 7 14" />
             <path d="M3.51 9a9 9 0 0114.85-3.36L23 10" />

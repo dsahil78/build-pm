@@ -7,8 +7,8 @@ interface BadgeProps {
 }
 
 const variantStyles = {
-  default: "bg-grey-700 text-grey-300",
-  coral: "bg-brand-coral/20 text-brand-coral",
+  default: "bg-muted text-muted-foreground",
+  coral: "bg-accent/20 text-accent-text",
   success: "bg-success/20 text-success",
 };
 

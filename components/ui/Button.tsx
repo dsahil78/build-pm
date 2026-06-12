@@ -9,10 +9,10 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 const variantStyles = {
   primary:
-    "bg-brand-coral text-white hover:brightness-110 hover:scale-[1.02] active:scale-[0.98]",
+    "bg-accent text-accent-foreground hover:brightness-110 hover:scale-[1.02] active:scale-[0.98]",
   secondary:
-    "bg-transparent border-2 border-brand-coral text-brand-coral hover:bg-brand-coral hover:text-white",
-  ghost: "bg-transparent text-grey-400 hover:text-white hover:bg-grey-800",
+    "bg-transparent border-2 border-accent text-accent-text hover:bg-accent hover:text-accent-foreground",
+  ghost: "bg-transparent text-muted-foreground hover:text-foreground hover:bg-muted",
 };
 
 const sizeStyles = {

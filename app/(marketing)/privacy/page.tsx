@@ -11,12 +11,12 @@ export default function PrivacyPage() {
   return (
     <>
       <Navbar />
-      <main className="min-h-screen bg-brand-dark pt-28 pb-20 px-4 sm:px-6">
+      <main id="main-content" className="min-h-screen bg-background pt-28 pb-20 px-4 sm:px-6">
         <article className="max-w-3xl mx-auto prose-invert">
-          <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+          <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-2">
             Privacy Policy
           </h1>
-          <p className="text-grey-500 text-sm mb-12">
+          <p className="text-subtle-foreground text-sm mb-12">
             Effective date: March 19, 2026 | Last reviewed: March 19, 2026
           </p>
 
@@ -24,7 +24,7 @@ export default function PrivacyPage() {
             <p>
               BuildPM (&quot;BuildPM&quot;, &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates
               the website located at{" "}
-              <a href="https://buildpm.co" className="text-brand-coral hover:underline">
+              <a href="https://buildpm.co" className="text-accent-text hover:underline">
                 https://buildpm.co
               </a>{" "}
               and any associated subdomains, applications, and services (collectively, the &quot;Service&quot;).
@@ -45,40 +45,40 @@ export default function PrivacyPage() {
               For the purposes of the EU General Data Protection Regulation (&quot;GDPR&quot;), the UK GDPR,
               and other applicable data protection laws, BuildPM is the data controller responsible for
               your personal data. You can contact us at{" "}
-              <a href="mailto:privacy@buildpm.co" className="text-brand-coral hover:underline">
+              <a href="mailto:privacy@buildpm.co" className="text-accent-text hover:underline">
                 privacy@buildpm.co
               </a>.
             </p>
           </Section>
 
           <Section title="3. Personal data we collect">
-            <h3 className="text-lg font-semibold text-white mt-6 mb-3">
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
               3.1 Information you provide directly
             </h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong className="text-white">Waitlist and newsletter sign-up:</strong> email address and submission source
+                <strong className="text-foreground">Waitlist and newsletter sign-up:</strong> email address and submission source
               </li>
               <li>
-                <strong className="text-white">Builder application:</strong> full name, email address, LinkedIn profile URL,
+                <strong className="text-foreground">Builder application:</strong> full name, email address, LinkedIn profile URL,
                 current role, experience level, areas of interest, and free-text responses
               </li>
               <li>
-                <strong className="text-white">Partner application:</strong> company name, contact name, email address,
+                <strong className="text-foreground">Partner application:</strong> company name, contact name, email address,
                 partnership tier preference, and description of interest
               </li>
               <li>
-                <strong className="text-white">Communications:</strong> any information you provide when you email us or
+                <strong className="text-foreground">Communications:</strong> any information you provide when you email us or
                 submit a support request
               </li>
             </ul>
 
-            <h3 className="text-lg font-semibold text-white mt-6 mb-3">
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
               3.2 Information collected automatically
             </h3>
             <p>
               When you consent to analytics (see Section 5), we collect the following through{" "}
-              <a href="https://posthog.com" target="_blank" rel="noopener noreferrer" className="text-brand-coral hover:underline">
+              <a href="https://posthog.com" target="_blank" rel="noopener noreferrer" className="text-accent-text hover:underline">
                 PostHog
               </a>{" "}
               and Vercel Analytics:
@@ -92,7 +92,7 @@ export default function PrivacyPage() {
               <li>Session recordings with all form inputs automatically masked</li>
             </ul>
 
-            <h3 className="text-lg font-semibold text-white mt-6 mb-3">
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
               3.3 Information we do NOT collect
             </h3>
             <ul className="list-disc pl-5 space-y-2">
@@ -108,20 +108,20 @@ export default function PrivacyPage() {
             <p>We process your personal data under the following legal bases:</p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>
-                <strong className="text-white">Consent (Art. 6(1)(a)):</strong> analytics cookies and session recordings are only
+                <strong className="text-foreground">Consent (Art. 6(1)(a)):</strong> analytics cookies and session recordings are only
                 activated after you affirmatively consent via our cookie banner
               </li>
               <li>
-                <strong className="text-white">Contract performance (Art. 6(1)(b)):</strong> processing your application or
+                <strong className="text-foreground">Contract performance (Art. 6(1)(b)):</strong> processing your application or
                 waitlist sign-up to provide the Service you requested
               </li>
               <li>
-                <strong className="text-white">Legitimate interests (Art. 6(1)(f)):</strong> improving our Service, preventing
+                <strong className="text-foreground">Legitimate interests (Art. 6(1)(f)):</strong> improving our Service, preventing
                 fraud and abuse, and ensuring security. We balance these interests against your rights and
                 do not use this basis for marketing
               </li>
               <li>
-                <strong className="text-white">Legal obligation (Art. 6(1)(c)):</strong> where we are required by law to retain
+                <strong className="text-foreground">Legal obligation (Art. 6(1)(c)):</strong> where we are required by law to retain
                 or disclose data
               </li>
             </ul>
@@ -129,32 +129,32 @@ export default function PrivacyPage() {
 
           <Section title="5. Cookies, local storage, and tracking">
             <p>
-              <strong className="text-white">
+              <strong className="text-foreground">
                 No analytics data is collected until you affirmatively accept cookies.
               </strong>{" "}
               If you decline, PostHog is fully disabled and no tracking data leaves your browser. We also
               honor the Do Not Track (DNT) browser signal.
             </p>
 
-            <h3 className="text-lg font-semibold text-white mt-6 mb-3">Cookie inventory</h3>
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">Cookie inventory</h3>
             <div className="overflow-x-auto mt-3">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-[#333]">
-                    <th className="text-left py-2 pr-4 text-grey-400 font-medium">Name</th>
-                    <th className="text-left py-2 pr-4 text-grey-400 font-medium">Type</th>
-                    <th className="text-left py-2 pr-4 text-grey-400 font-medium">Purpose</th>
-                    <th className="text-left py-2 text-grey-400 font-medium">Duration</th>
+                  <tr className="border-b border-border-base">
+                    <th className="text-left py-2 pr-4 text-muted-foreground font-medium">Name</th>
+                    <th className="text-left py-2 pr-4 text-muted-foreground font-medium">Type</th>
+                    <th className="text-left py-2 pr-4 text-muted-foreground font-medium">Purpose</th>
+                    <th className="text-left py-2 text-muted-foreground font-medium">Duration</th>
                   </tr>
                 </thead>
-                <tbody className="text-grey-300">
-                  <tr className="border-b border-[#222]">
+                <tbody className="text-muted-foreground">
+                  <tr className="border-b border-border-base">
                     <td className="py-2 pr-4 font-mono text-xs">ph_*</td>
                     <td className="py-2 pr-4">Analytics</td>
                     <td className="py-2 pr-4">PostHog anonymous visitor ID and session tracking</td>
                     <td className="py-2">1 year</td>
                   </tr>
-                  <tr className="border-b border-[#222]">
+                  <tr className="border-b border-border-base">
                     <td className="py-2 pr-4 font-mono text-xs">cookie_consent</td>
                     <td className="py-2 pr-4">Functional</td>
                     <td className="py-2 pr-4">Stores your cookie consent preference (localStorage)</td>
@@ -193,24 +193,24 @@ export default function PrivacyPage() {
             <div className="overflow-x-auto mt-3">
               <table className="w-full text-sm">
                 <thead>
-                  <tr className="border-b border-[#333]">
-                    <th className="text-left py-2 pr-4 text-grey-400 font-medium">Provider</th>
-                    <th className="text-left py-2 pr-4 text-grey-400 font-medium">Purpose</th>
-                    <th className="text-left py-2 text-grey-400 font-medium">Location</th>
+                  <tr className="border-b border-border-base">
+                    <th className="text-left py-2 pr-4 text-muted-foreground font-medium">Provider</th>
+                    <th className="text-left py-2 pr-4 text-muted-foreground font-medium">Purpose</th>
+                    <th className="text-left py-2 text-muted-foreground font-medium">Location</th>
                   </tr>
                 </thead>
-                <tbody className="text-grey-300">
-                  <tr className="border-b border-[#222]">
+                <tbody className="text-muted-foreground">
+                  <tr className="border-b border-border-base">
                     <td className="py-2 pr-4">Supabase</td>
                     <td className="py-2 pr-4">Database (form submissions, applications)</td>
                     <td className="py-2">EU / US</td>
                   </tr>
-                  <tr className="border-b border-[#222]">
+                  <tr className="border-b border-border-base">
                     <td className="py-2 pr-4">PostHog</td>
                     <td className="py-2 pr-4">Product analytics and session recordings</td>
                     <td className="py-2">US (EU processing available)</td>
                   </tr>
-                  <tr className="border-b border-[#222]">
+                  <tr className="border-b border-border-base">
                     <td className="py-2 pr-4">Vercel</td>
                     <td className="py-2 pr-4">Website hosting and performance analytics</td>
                     <td className="py-2">US (global edge)</td>
@@ -236,7 +236,7 @@ export default function PrivacyPage() {
             </ul>
             <p className="mt-3">
               You may request a copy of the applicable transfer safeguards by contacting us at{" "}
-              <a href="mailto:privacy@buildpm.co" className="text-brand-coral hover:underline">
+              <a href="mailto:privacy@buildpm.co" className="text-accent-text hover:underline">
                 privacy@buildpm.co
               </a>.
             </p>
@@ -245,19 +245,19 @@ export default function PrivacyPage() {
           <Section title="9. Data retention">
             <ul className="list-disc pl-5 space-y-2">
               <li>
-                <strong className="text-white">Application and waitlist data:</strong> retained for as long as your application
+                <strong className="text-foreground">Application and waitlist data:</strong> retained for as long as your application
                 or account is active, plus 12 months after the last interaction, unless you request earlier deletion
               </li>
               <li>
-                <strong className="text-white">Analytics data:</strong> retained for 12 months from the date of collection, then
+                <strong className="text-foreground">Analytics data:</strong> retained for 12 months from the date of collection, then
                 automatically deleted or anonymized
               </li>
               <li>
-                <strong className="text-white">Cookie consent preferences:</strong> retained in your browser localStorage until
+                <strong className="text-foreground">Cookie consent preferences:</strong> retained in your browser localStorage until
                 you clear it or change your preference
               </li>
               <li>
-                <strong className="text-white">Communications:</strong> retained for 24 months for support and audit purposes
+                <strong className="text-foreground">Communications:</strong> retained for 24 months for support and audit purposes
               </li>
             </ul>
             <p className="mt-3">
@@ -266,44 +266,44 @@ export default function PrivacyPage() {
           </Section>
 
           <Section title="10. Your privacy rights">
-            <h3 className="text-lg font-semibold text-white mt-6 mb-3">
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
               10.1 Rights under GDPR (EEA and UK residents)
             </h3>
             <ul className="list-disc pl-5 space-y-2">
-              <li><strong className="text-white">Right of access (Art. 15):</strong> obtain a copy of your personal data</li>
-              <li><strong className="text-white">Right to rectification (Art. 16):</strong> correct inaccurate or incomplete data</li>
-              <li><strong className="text-white">Right to erasure (Art. 17):</strong> request deletion of your data (&quot;right to be forgotten&quot;)</li>
-              <li><strong className="text-white">Right to restrict processing (Art. 18):</strong> limit how we use your data</li>
-              <li><strong className="text-white">Right to data portability (Art. 20):</strong> receive your data in a structured, machine-readable format</li>
-              <li><strong className="text-white">Right to object (Art. 21):</strong> object to processing based on legitimate interests</li>
-              <li><strong className="text-white">Right to withdraw consent:</strong> withdraw consent at any time by changing your cookie preference or contacting us. Withdrawal does not affect the lawfulness of processing before withdrawal.</li>
+              <li><strong className="text-foreground">Right of access (Art. 15):</strong> obtain a copy of your personal data</li>
+              <li><strong className="text-foreground">Right to rectification (Art. 16):</strong> correct inaccurate or incomplete data</li>
+              <li><strong className="text-foreground">Right to erasure (Art. 17):</strong> request deletion of your data (&quot;right to be forgotten&quot;)</li>
+              <li><strong className="text-foreground">Right to restrict processing (Art. 18):</strong> limit how we use your data</li>
+              <li><strong className="text-foreground">Right to data portability (Art. 20):</strong> receive your data in a structured, machine-readable format</li>
+              <li><strong className="text-foreground">Right to object (Art. 21):</strong> object to processing based on legitimate interests</li>
+              <li><strong className="text-foreground">Right to withdraw consent:</strong> withdraw consent at any time by changing your cookie preference or contacting us. Withdrawal does not affect the lawfulness of processing before withdrawal.</li>
             </ul>
             <p className="mt-3">
               You also have the right to lodge a complaint with your local supervisory authority (e.g., the
               ICO in the UK, CNIL in France, or your national DPA).
             </p>
 
-            <h3 className="text-lg font-semibold text-white mt-6 mb-3">
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
               10.2 Rights under CCPA/CPRA (California residents)
             </h3>
             <p>If you are a California resident, you have the right to:</p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
-              <li><strong className="text-white">Know</strong> what personal information we collect and how it is used</li>
-              <li><strong className="text-white">Delete</strong> your personal information, subject to certain exceptions</li>
-              <li><strong className="text-white">Opt out</strong> of the sale or sharing of personal information. We do not sell or share personal information as defined by the CCPA/CPRA.</li>
-              <li><strong className="text-white">Non-discrimination:</strong> we will not discriminate against you for exercising your rights</li>
+              <li><strong className="text-foreground">Know</strong> what personal information we collect and how it is used</li>
+              <li><strong className="text-foreground">Delete</strong> your personal information, subject to certain exceptions</li>
+              <li><strong className="text-foreground">Opt out</strong> of the sale or sharing of personal information. We do not sell or share personal information as defined by the CCPA/CPRA.</li>
+              <li><strong className="text-foreground">Non-discrimination:</strong> we will not discriminate against you for exercising your rights</li>
             </ul>
             <p className="mt-3">
               In the preceding 12 months, we have not sold personal information. We do not use sensitive
               personal information for purposes beyond those permitted by the CPRA.
             </p>
 
-            <h3 className="text-lg font-semibold text-white mt-6 mb-3">
+            <h3 className="text-lg font-semibold text-foreground mt-6 mb-3">
               10.3 How to exercise your rights
             </h3>
             <p>
               To exercise any of the above rights, email{" "}
-              <a href="mailto:privacy@buildpm.co" className="text-brand-coral hover:underline">
+              <a href="mailto:privacy@buildpm.co" className="text-accent-text hover:underline">
                 privacy@buildpm.co
               </a>{" "}
               with the subject line &quot;Privacy Rights Request&quot;. We will verify your identity and
@@ -336,7 +336,7 @@ export default function PrivacyPage() {
               collect personal data from children under 16. If we learn that we have collected data from a
               child under 16, we will promptly delete it. If you believe we have inadvertently collected
               such data, please contact us at{" "}
-              <a href="mailto:privacy@buildpm.co" className="text-brand-coral hover:underline">
+              <a href="mailto:privacy@buildpm.co" className="text-accent-text hover:underline">
                 privacy@buildpm.co
               </a>.
             </p>
@@ -374,13 +374,13 @@ export default function PrivacyPage() {
             <ul className="list-none pl-0 space-y-1 mt-3">
               <li>
                 Email:{" "}
-                <a href="mailto:privacy@buildpm.co" className="text-brand-coral hover:underline">
+                <a href="mailto:privacy@buildpm.co" className="text-accent-text hover:underline">
                   privacy@buildpm.co
                 </a>
               </li>
               <li>
                 General inquiries:{" "}
-                <a href="mailto:hello@buildpm.co" className="text-brand-coral hover:underline">
+                <a href="mailto:hello@buildpm.co" className="text-accent-text hover:underline">
                   hello@buildpm.co
                 </a>
               </li>
@@ -405,8 +405,8 @@ function Section({
 }) {
   return (
     <section className="mb-10">
-      <h2 className="text-xl font-semibold text-white mb-4">{title}</h2>
-      <div className="text-grey-300 text-[15px] leading-relaxed space-y-3">
+      <h2 className="text-xl font-semibold text-foreground mb-4">{title}</h2>
+      <div className="text-muted-foreground text-[15px] leading-relaxed space-y-3">
         {children}
       </div>
     </section>

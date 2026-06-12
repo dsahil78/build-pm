@@ -56,29 +56,29 @@ export default function ApplyPage() {
 
   if (status === "success") {
     return (
-      <div className="min-h-svh flex items-center justify-center px-4">
-        <div className="max-w-md text-center">
+      <main id="main-content" className="min-h-svh flex items-center justify-center px-4">
+        <div className="max-w-md text-center" aria-live="polite">
           <div className="text-4xl mb-4">✓</div>
-          <h1 className="text-2xl font-bold text-white">Application received</h1>
-          <p className="text-grey-400 mt-3 leading-relaxed">
+          <h1 className="text-2xl font-bold text-foreground">Application received</h1>
+          <p className="text-muted-foreground mt-3 leading-relaxed">
             We review applications weekly. You&apos;ll hear from us within 7 days.
             In the meantime, join the newsletter for weekly build updates.
           </p>
           <div className="mt-6">
             <Link
               href="/"
-              className="text-brand-coral text-sm hover:underline"
+              className="text-accent-text text-sm hover:underline"
             >
               ← Back to home
             </Link>
           </div>
         </div>
-      </div>
+      </main>
     );
   }
 
   return (
-    <div className="min-h-svh flex items-center justify-center px-4 py-20">
+    <main id="main-content" className="min-h-svh flex items-center justify-center px-4 py-20">
       <div className="w-full max-w-[640px]">
         {/* Logo */}
         <div className="mb-10">
@@ -88,10 +88,10 @@ export default function ApplyPage() {
         </div>
 
         {/* Header */}
-        <h1 className="text-3xl font-bold text-white">
+        <h1 className="text-3xl font-bold text-foreground">
           {IS_PRELAUNCH ? "Apply to the founding cohort" : "Apply to BuildPM"}
         </h1>
-        <p className="text-grey-400 mt-2 leading-relaxed">
+        <p className="text-muted-foreground mt-2 leading-relaxed">
           {IS_PRELAUNCH
             ? "We\u2019re hand-picking the first 100 builders. Takes 2 minutes. If it\u2019s a fit, you get free enterprise tools, a build squad, and early access at launch \u2014 we reply within 7 days."
             : "We review every application. We\u2019re looking for people who build, not just talk."}
@@ -164,9 +164,11 @@ export default function ApplyPage() {
             required
           />
 
-          {status === "error" && (
-            <p className="text-error text-sm">{errorMessage}</p>
-          )}
+          <div aria-live="assertive">
+            {status === "error" && (
+              <p className="text-error text-sm">{errorMessage}</p>
+            )}
+          </div>
 
           <Button
             type="submit"
@@ -179,6 +181,6 @@ export default function ApplyPage() {
           </Button>
         </form>
       </div>
-    </div>
+    </main>
   );
 }

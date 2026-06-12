@@ -83,7 +83,7 @@ function CoreCard({ item, index }: { item: ValueItem; index: number }) {
       className="group"
     >
       <div className="rounded-3xl bg-card border border-border-base p-8 h-full transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-xl hover:shadow-black/20">
-        <div className="w-12 h-12 rounded-2xl bg-accent/[0.08] flex items-center justify-center text-accent transition-colors duration-300 group-hover:bg-accent/[0.15]">
+        <div className="w-12 h-12 rounded-2xl bg-accent/[0.08] flex items-center justify-center text-accent-text transition-colors duration-300 group-hover:bg-accent/[0.15]">
           {item.icon}
         </div>
         <h3 className="text-xl font-semibold text-foreground mt-5 tracking-tight">
@@ -106,7 +106,7 @@ function SupportingCard({ item, index }: { item: ValueItem; index: number }) {
       transition={{ duration: 0.4, delay: index * 0.06, ease: EASE_OUT }}
       className="group rounded-2xl bg-card border border-border-base px-5 py-5 transition-all duration-300 hover:bg-elevated hover:-translate-y-0.5 h-full"
     >
-      <div className="w-10 h-10 rounded-xl bg-accent/[0.06] flex items-center justify-center text-accent shrink-0 mb-3 transition-colors duration-300 group-hover:bg-accent/[0.12]">
+      <div className="w-10 h-10 rounded-xl bg-accent/[0.06] flex items-center justify-center text-accent-text shrink-0 mb-3 transition-colors duration-300 group-hover:bg-accent/[0.12]">
         {item.icon}
       </div>
       <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
@@ -140,7 +140,7 @@ export function BuilderValue() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center"
         >
-          <p className="text-brand-coral text-sm font-semibold tracking-wider uppercase">
+          <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
             The builder stack
           </p>
           <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2 tracking-tight">

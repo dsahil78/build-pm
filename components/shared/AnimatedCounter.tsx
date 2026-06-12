@@ -26,11 +26,11 @@ export function AnimatedCounter({
 
   return (
     <div ref={ref} className="text-center">
-      <div className="text-4xl font-bold text-white">
+      <div className="text-4xl font-bold text-foreground">
         {display}
         {suffix}
       </div>
-      <div className="text-sm text-grey-500 mt-1">{label}</div>
+      <div className="text-sm text-subtle-foreground mt-1">{label}</div>
     </div>
   );
 }

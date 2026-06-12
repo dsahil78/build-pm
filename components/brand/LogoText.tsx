@@ -20,8 +20,8 @@ export function LogoText({ size = "md", className }: LogoTextProps) {
         className
       )}
     >
-      <span className="text-white">Build</span>
-      <span className="text-brand-coral">PM</span>
+      <span className="text-foreground">Build</span>
+      <span className="text-accent-text">PM</span>
     </span>
   );
 }

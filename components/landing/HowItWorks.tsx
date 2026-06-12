@@ -64,25 +64,25 @@ function StepItem({ step, index }: { step: Step; index: number }) {
       className="flex flex-col items-center text-center relative"
     >
       {/* Coral numbered circle */}
-      <div className="w-12 h-12 rounded-full bg-brand-coral flex items-center justify-center flex-shrink-0">
-        <span className="text-white font-bold text-lg">{step.number}</span>
+      <div className="w-12 h-12 rounded-full bg-accent flex items-center justify-center flex-shrink-0">
+        <span className="text-foreground font-bold text-lg">{step.number}</span>
       </div>
 
       {/* Title */}
-      <h3 className="text-lg font-semibold text-white mt-4">{step.title}</h3>
+      <h3 className="text-lg font-semibold text-foreground mt-4">{step.title}</h3>
 
       {/* Description */}
-      <p className="text-sm text-grey-400 mt-2 max-w-xs">{step.description}</p>
+      <p className="text-sm text-muted-foreground mt-2 max-w-xs">{step.description}</p>
     </motion.div>
   );
 }
 
 export function HowItWorks() {
   return (
-    <section className="bg-[#222] py-24 px-4 sm:px-6 lg:px-8">
+    <section className="bg-muted py-24 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         {/* Heading */}
-        <h2 className="text-3xl font-bold text-center text-white">
+        <h2 className="text-3xl font-bold text-center text-foreground">
           How it works
         </h2>
 
@@ -90,13 +90,13 @@ export function HowItWorks() {
         <div className="relative mt-16">
           {/* Desktop: horizontal connecting line */}
           <div
-            className="hidden md:block absolute top-6 left-[12.5%] right-[12.5%] h-px bg-grey-700"
+            className="hidden md:block absolute top-6 left-[12.5%] right-[12.5%] h-px bg-muted"
             aria-hidden="true"
           />
 
           {/* Mobile: vertical connecting line */}
           <div
-            className="md:hidden absolute top-6 bottom-6 left-1/2 -translate-x-px w-px bg-grey-700"
+            className="md:hidden absolute top-6 bottom-6 left-1/2 -translate-x-px w-px bg-muted"
             aria-hidden="true"
           />
 

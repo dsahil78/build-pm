@@ -15,12 +15,12 @@ function FeedItem({ item, index }: { item: ShippedProject; index: number }) {
       initial={{ opacity: 0, y: 16 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
       transition={{ duration: 0.4, delay: index * 0.08, ease: EASE_OUT }}
-      className="group flex items-start gap-4 rounded-2xl bg-gradient-to-b from-[#242424] to-[#1F1F1F] p-5 transition-all duration-300 hover:from-[#282828] hover:to-[#222] hover:-translate-y-0.5"
+      className="group flex items-start gap-4 rounded-2xl bg-card border border-border-base p-5 transition-all duration-300 hover:from-[#282828] hover:to-[#222] hover:-translate-y-0.5"
       style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
     >
       {/* Avatar */}
       <div
-        className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-xs font-bold shrink-0"
+        className="w-10 h-10 rounded-xl flex items-center justify-center text-foreground text-xs font-bold shrink-0"
         style={{ backgroundColor: item.avatarBg }}
       >
         {item.avatar}
@@ -29,22 +29,22 @@ function FeedItem({ item, index }: { item: ShippedProject; index: number }) {
       {/* Content */}
       <div className="min-w-0 flex-1">
         <div className="flex items-center gap-2 flex-wrap">
-          <h4 className="text-sm font-semibold text-white truncate">
+          <h4 className="text-sm font-semibold text-foreground truncate">
             {item.project}
           </h4>
-          <span className="text-[11px] text-grey-500 font-mono shrink-0">
+          <span className="text-[11px] text-subtle-foreground font-mono shrink-0">
             {item.timeToShip}
           </span>
         </div>
-        <p className="text-xs text-grey-400 mt-0.5">{item.builder}</p>
-        <p className="text-xs text-brand-coral mt-1.5 font-medium">
+        <p className="text-xs text-muted-foreground mt-0.5">{item.builder}</p>
+        <p className="text-xs text-accent-text mt-1.5 font-medium">
           {item.outcome}
         </p>
       </div>
 
       {/* Ship indicator */}
       <div className="shrink-0 mt-1">
-        <span className="text-[#27C93F] text-xs">&#10003;</span>
+        <span className="text-success text-xs">&#10003;</span>
       </div>
     </motion.div>
   );
@@ -55,7 +55,7 @@ export function BuildFeed() {
   const isInView = useInView(headingRef, { once: true, margin: "-60px" });
 
   return (
-    <section className="bg-brand-dark py-24 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section className="bg-background py-24 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <motion.div
           ref={headingRef}
@@ -64,12 +64,12 @@ export function BuildFeed() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center max-w-2xl mx-auto mb-14"
         >
-          <p className="text-brand-coral text-sm font-semibold tracking-wider uppercase">
+          <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
             Shipped this week
           </p>
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mt-2 tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-bold text-foreground mt-2 tracking-tight">
             Builders are shipping.{" "}
-            <span className="text-grey-500">Right now.</span>
+            <span className="text-subtle-foreground">Right now.</span>
           </h2>
         </motion.div>
 

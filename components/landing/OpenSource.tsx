@@ -13,7 +13,7 @@ export function OpenSource() {
     <section
       id="open-source"
       ref={sectionRef}
-      className="bg-brand-dark py-24 px-4 sm:px-6 lg:px-8"
+      className="bg-background py-24 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-2xl mx-auto text-center">
         {/* Heading */}
@@ -21,7 +21,7 @@ export function OpenSource() {
           initial={{ opacity: 0, y: 16 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
           transition={{ duration: 0.5, ease: EASE_OUT }}
-          className="text-3xl font-bold text-white"
+          className="text-3xl font-bold text-foreground"
         >
           Built by the community. Open to all.
         </motion.h2>
@@ -31,7 +31,7 @@ export function OpenSource() {
           initial={{ opacity: 0, y: 12 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
           transition={{ duration: 0.5, delay: 0.1, ease: EASE_OUT }}
-          className="text-grey-300 mt-4 leading-relaxed"
+          className="text-muted-foreground mt-4 leading-relaxed"
         >
           The platform itself is the first community project. Members contribute
           to the codebase, vote on the roadmap, and ship features. Open metrics.
@@ -61,7 +61,7 @@ export function OpenSource() {
             href="https://github.com/build-pm"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-brand-coral text-sm font-medium hover:opacity-80 transition-opacity"
+            className="text-accent-text text-sm font-medium hover:opacity-80 transition-opacity"
           >
             Star us on GitHub &rarr;
           </a>

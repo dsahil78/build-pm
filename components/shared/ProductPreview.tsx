@@ -157,7 +157,7 @@ export function ProductPreview() {
           transition={{ duration: 0.7, ease: EASE_OUT }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <p className="text-brand-coral text-sm font-semibold tracking-wider uppercase">
+          <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
             The platform
           </p>
           <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-foreground mt-4 tracking-tight leading-[1.1]">

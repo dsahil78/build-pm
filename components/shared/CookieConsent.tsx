@@ -41,13 +41,13 @@ export function CookieConsent() {
       role="dialog"
       aria-label="Cookie consent"
     >
-      <div className="max-w-xl mx-auto rounded-2xl bg-[#242424] border border-[#333] px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 shadow-2xl">
-        <p className="text-sm text-grey-300 flex-1">
+      <div className="max-w-xl mx-auto rounded-2xl bg-card border border-border-base px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center gap-4 shadow-2xl">
+        <p className="text-sm text-muted-foreground flex-1">
           We use cookies to understand how you use our site and improve your
           experience.{" "}
           <a
             href="/privacy"
-            className="text-brand-coral hover:underline"
+            className="text-accent-text hover:underline"
           >
             Privacy Policy
           </a>
@@ -55,14 +55,14 @@ export function CookieConsent() {
         <div className="flex gap-3 shrink-0">
           <button
             onClick={reject}
-            className="px-4 py-2 text-sm text-grey-400 hover:text-white rounded-lg border border-[#444] hover:border-[#555] transition-colors"
+            className="px-4 py-2 text-sm text-muted-foreground hover:text-foreground rounded-lg border border-input-border hover:border-border-strong transition-colors"
             style={{ transitionDuration: "var(--duration-fast)" }}
           >
             Reject
           </button>
           <button
             onClick={accept}
-            className="px-4 py-2 text-sm text-white bg-brand-coral rounded-lg hover:brightness-110 transition-all"
+            className="px-4 py-2 text-sm text-accent-foreground bg-accent rounded-lg hover:brightness-110 transition-all"
             style={{ transitionDuration: "var(--duration-fast)" }}
           >
             Accept

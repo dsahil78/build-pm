@@ -42,7 +42,7 @@ export function SocialProof() {
   const isInView = useInView(ref, { once: true, margin: "-60px" });
 
   return (
-    <section className="bg-brand-dark py-24 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section className="bg-background py-24 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto" ref={ref}>
         {/* "Builders from" logos */}
         <motion.div
@@ -51,7 +51,7 @@ export function SocialProof() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center mb-20"
         >
-          <p className="text-grey-500 text-sm mb-8">
+          <p className="text-subtle-foreground text-sm mb-8">
             Builders use tools from
           </p>
           <div className="flex flex-wrap justify-center gap-x-10 gap-y-6">
@@ -86,28 +86,28 @@ export function SocialProof() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: i * 0.1, ease: EASE_OUT }}
-              className="rounded-2xl bg-gradient-to-b from-[#242424] to-[#1F1F1F] p-6 relative"
+              className="rounded-2xl bg-card border border-border-base p-6 relative"
               style={{ boxShadow: "inset 0 1px 0 rgba(255,255,255,0.04)" }}
             >
               {/* Quote mark */}
-              <span className="text-brand-coral/20 text-5xl font-serif leading-none absolute top-4 right-6 select-none" aria-hidden="true">
+              <span className="text-accent-text/20 text-5xl font-serif leading-none absolute top-4 right-6 select-none" aria-hidden="true">
                 &ldquo;
               </span>
 
-              <p className="text-[15px] text-grey-300 leading-relaxed relative z-10">
+              <p className="text-[15px] text-muted-foreground leading-relaxed relative z-10">
                 &ldquo;{t.quote}&rdquo;
               </p>
 
-              <div className="flex items-center gap-3 mt-6 pt-5 border-t border-[#2A2A2A]">
+              <div className="flex items-center gap-3 mt-6 pt-5 border-t border-border-base">
                 <div
-                  className="w-9 h-9 rounded-xl flex items-center justify-center text-white text-xs font-bold"
+                  className="w-9 h-9 rounded-xl flex items-center justify-center text-foreground text-xs font-bold"
                   style={{ backgroundColor: t.bg }}
                 >
                   {t.initials}
                 </div>
                 <div>
-                  <p className="text-sm font-medium text-white">{t.name}</p>
-                  <p className="text-xs text-grey-500">{t.title}</p>
+                  <p className="text-sm font-medium text-foreground">{t.name}</p>
+                  <p className="text-xs text-subtle-foreground">{t.title}</p>
                 </div>
               </div>
             </motion.div>

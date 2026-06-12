@@ -50,7 +50,7 @@ export function FinalCTA() {
           <p className="text-foreground text-4xl md:text-5xl font-bold tracking-tight" style={{ letterSpacing: "-0.02em" }}>
             Stop talking about building.
           </p>
-          <p className="text-brand-coral text-4xl md:text-5xl font-bold tracking-tight mt-2" style={{ letterSpacing: "-0.02em" }}>
+          <p className="text-accent-text text-4xl md:text-5xl font-bold tracking-tight mt-2" style={{ letterSpacing: "-0.02em" }}>
             Start building.
           </p>
         </motion.div>
@@ -72,7 +72,7 @@ export function FinalCTA() {
           {!IS_PRELAUNCH && (
             <a
               href="/partners"
-              className="bg-transparent border-2 border-accent text-accent rounded-xl px-8 py-4 font-medium hover:bg-accent hover:text-accent-foreground transition-all"
+              className="bg-transparent border-2 border-accent text-accent-text rounded-xl px-8 py-4 font-medium hover:bg-accent hover:text-accent-foreground transition-all"
             >
               Partner with us
             </a>
@@ -91,7 +91,7 @@ export function FinalCTA() {
           </p>
           <div aria-live="polite">
             {status === "success" ? (
-              <p className="text-brand-coral text-sm font-medium">
+              <p className="text-accent-text text-sm font-medium">
                 Thanks! You&apos;re subscribed.
               </p>
             ) : (
@@ -104,6 +104,7 @@ export function FinalCTA() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Your email"
+                  aria-label="Email address"
                   required
                   disabled={status === "submitting"}
                   className="bg-input border border-input-border text-foreground rounded-lg px-4 py-3 text-sm flex-1 outline-none focus:border-ring transition-colors placeholder:text-subtle-foreground disabled:opacity-60"
@@ -134,7 +135,7 @@ export function FinalCTA() {
             className="mt-10 text-muted-foreground text-sm"
           >
             Run a tool PMs love?{" "}
-            <a href="/partners" className="text-accent hover:underline">
+            <a href="/partners" className="text-accent-text hover:underline">
               Partner with us &rarr;
             </a>
           </motion.p>

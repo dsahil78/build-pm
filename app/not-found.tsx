@@ -156,7 +156,7 @@ export default function NotFound() {
   const excuse = useSyncExternalStore(noopSubscribe, pickExcuse, () => "");
 
   return (
-    <div className="relative min-h-svh flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden bg-brand-dark">
+    <main id="main-content" className="relative min-h-svh flex flex-col items-center justify-center px-4 sm:px-6 overflow-hidden bg-background">
       {/* Radial glow */}
       <div
         className="absolute top-[38%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] pointer-events-none"
@@ -176,23 +176,24 @@ export default function NotFound() {
 
         {/* 404 */}
         <p
-          className="text-[4.5rem] sm:text-[5.5rem] md:text-[6rem] font-bold text-brand-coral leading-none select-none mt-6 nf-entrance"
+          className="text-[4.5rem] sm:text-[5.5rem] md:text-[6rem] font-bold text-accent-text leading-none select-none mt-6 nf-entrance"
           style={{ animationDelay: "200ms" }}
+          aria-hidden="true"
         >
           404
         </p>
 
-        {/* Headline */}
-        <p
-          className="text-grey-300 text-base sm:text-lg mt-3 text-center nf-entrance"
+        {/* Headline (page h1) */}
+        <h1
+          className="text-muted-foreground text-base sm:text-lg mt-3 text-center nf-entrance"
           style={{ animationDelay: "350ms" }}
         >
-          This feature is still in the backlog.
-        </p>
+          <span className="sr-only">404: </span>This feature is still in the backlog.
+        </h1>
 
         {/* Excuse */}
         <p
-          className="text-grey-500 text-sm mt-1.5 max-w-sm text-center nf-entrance"
+          className="text-subtle-foreground text-sm mt-1.5 max-w-sm text-center nf-entrance"
           style={{ animationDelay: "500ms" }}
         >
           {excuse || "\u00A0"}
@@ -201,7 +202,7 @@ export default function NotFound() {
         {/* CTA */}
         <Link
           href="/"
-          className="mt-8 inline-flex items-center px-6 py-2.5 bg-brand-coral text-white text-sm font-semibold rounded-lg transition-all hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] nf-entrance"
+          className="mt-8 inline-flex items-center px-6 py-2.5 bg-accent text-accent-foreground text-sm font-semibold rounded-lg transition-all hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] nf-entrance"
           style={{ animationDelay: "650ms", transitionDuration: "var(--duration-fast)" }}
         >
           Back to home
@@ -209,9 +210,9 @@ export default function NotFound() {
 
         {/* Logo */}
         <div className="mt-10 nf-entrance-fade" style={{ animationDelay: "800ms" }}>
-          <Logo variant="dark" size="sm" />
+          <Logo size="sm" />
         </div>
       </div>
-    </div>
+    </main>
   );
 }

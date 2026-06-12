@@ -180,7 +180,7 @@ export function TerminalHero() {
         <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight leading-[1.1] text-foreground">
           No GitHub for PMs.
           <br />
-          <span className="text-brand-coral">Until now.</span>
+          <span className="text-accent-text">Until now.</span>
         </h1>
 
       </div>
@@ -270,7 +270,7 @@ export function TerminalHero() {
               </a>
               <a
                 href="#apply"
-                className="inline-flex items-center px-8 py-4 border-2 border-accent text-accent text-base font-medium rounded-xl hover:bg-accent hover:text-accent-foreground transition-all"
+                className="inline-flex items-center px-8 py-4 border-2 border-accent text-accent-text text-base font-medium rounded-xl hover:bg-accent hover:text-accent-foreground transition-all"
               >
                 Learn more
               </a>

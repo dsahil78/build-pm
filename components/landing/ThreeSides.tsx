@@ -168,7 +168,7 @@ function SideCard({ side, index }: { side: MarketplaceSide; index: number }) {
       className="group"
     >
       <div
-        className="rounded-3xl bg-gradient-to-b from-[#242424] to-[#1F1F1F] p-8 sm:p-10 h-full
+        className="rounded-3xl bg-card border border-border-base p-8 sm:p-10 h-full
                     transition-all duration-500 ease-out
                     hover:from-[#282828] hover:to-[#222]
                     hover:-translate-y-1"
@@ -186,17 +186,17 @@ function SideCard({ side, index }: { side: MarketplaceSide; index: number }) {
         }}
       >
         {/* Icon */}
-        <div className="w-12 h-12 rounded-2xl bg-brand-coral/[0.08] flex items-center justify-center text-brand-coral transition-colors duration-300 group-hover:bg-brand-coral/[0.12]">
+        <div className="w-12 h-12 rounded-2xl bg-accent/[0.08] flex items-center justify-center text-accent-text transition-colors duration-300 group-hover:bg-accent/[0.12]">
           {side.icon}
         </div>
 
         {/* Title */}
-        <h3 className="text-xl font-semibold text-white mt-6 tracking-tight">
+        <h3 className="text-xl font-semibold text-foreground mt-6 tracking-tight">
           {side.title}
         </h3>
 
         {/* Description */}
-        <p className="text-[15px] text-grey-400 mt-3 leading-relaxed">
+        <p className="text-[15px] text-muted-foreground mt-3 leading-relaxed">
           {side.description}
         </p>
       </div>
@@ -211,7 +211,7 @@ export function ThreeSides() {
   return (
     <section
       id="builders"
-      className="bg-brand-dark py-24 md:py-32 px-4 sm:px-6 lg:px-8"
+      className="bg-background py-24 md:py-32 px-4 sm:px-6 lg:px-8"
     >
       <div className="max-w-6xl mx-auto" ref={headingRef}>
         {/* Heading */}
@@ -221,12 +221,12 @@ export function ThreeSides() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-foreground">
             Three sides.
             <br />
-            <span className="text-grey-500">One ecosystem.</span>
+            <span className="text-subtle-foreground">One ecosystem.</span>
           </h2>
-          <p className="text-grey-400 mt-5 text-lg">
+          <p className="text-muted-foreground mt-5 text-lg">
             Builders get tools. Enterprises get feedback. Everyone wins.
           </p>
         </motion.div>
