@@ -24,6 +24,7 @@ const cspReportOnly = [
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  poweredByHeader: false, // drop the X-Powered-By header (security/best-practices)
   rewrites: async () => [
     {
       source: "/ingest/static/:path*",
