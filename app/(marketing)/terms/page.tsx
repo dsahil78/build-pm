@@ -3,8 +3,9 @@ import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 
 export const metadata: Metadata = {
-  title: "Terms of Service | BuildPM",
+  title: "Terms of Service",
   description: "Terms and conditions governing your use of BuildPM.",
+  alternates: { canonical: "/terms" },
 };
 
 export default function TermsPage() {

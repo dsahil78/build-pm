@@ -41,9 +41,25 @@ const FAQS: QA[] = [
   },
 ];
 
+// FAQPage structured data — eligible for rich results in search.
+const faqJsonLd = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.question,
+    acceptedAnswer: { "@type": "Answer", text: f.answer },
+  })),
+});
+
 export function FAQ() {
   return (
     <section className="bg-background py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
+      <script
+        type="application/ld+json"
+        suppressHydrationWarning
+        dangerouslySetInnerHTML={{ __html: faqJsonLd }}
+      />
       <div className="max-w-3xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 16 }}

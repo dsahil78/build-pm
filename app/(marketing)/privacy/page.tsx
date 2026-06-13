@@ -3,8 +3,9 @@ import { Navbar } from "@/components/landing/Navbar";
 import { Footer } from "@/components/landing/Footer";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | BuildPM",
+  title: "Privacy Policy",
   description: "How BuildPM collects, uses, stores, and protects your personal data.",
+  alternates: { canonical: "/privacy" },
 };
 
 export default function PrivacyPage() {

@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { IS_PRELAUNCH } from "@/lib/constants";
 import { Navbar } from "@/components/landing/Navbar";
 import { TerminalHero } from "@/components/landing/TerminalHero";
@@ -13,6 +14,10 @@ import { FAQ } from "@/components/landing/FAQ";
 import { FinalCTA } from "@/components/landing/FinalCTA";
 import { Footer } from "@/components/landing/Footer";
 import { ScrollDepthTracker } from "@/components/shared/ScrollDepthTracker";
+
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 export default function LandingPage() {
   return (
