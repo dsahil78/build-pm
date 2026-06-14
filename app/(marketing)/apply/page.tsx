@@ -123,7 +123,7 @@ export default function ApplyPage() {
           <Input
             name="full_name"
             label="Full name"
-            placeholder="Jane Smith"
+            placeholder="Emma Carter"
             autoComplete="name"
             autoCapitalize="words"
             required
