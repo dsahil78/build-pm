@@ -24,10 +24,12 @@ const FAQS: QA[] = [
       "As much as you want to put in. Most builders work in 2-week sprints with a squad — show up, build, document what you decided. No mandatory standups, no busywork.",
   },
   {
-    // TODO(founder): replace this answer with your founder note before launch.
+    // TODO(founder): swap in your real, NAMED 2–3 sentence note before launch
+    // (see LAUNCH_CHECKLIST.md item 6). This holding copy is launch-safe but
+    // anonymous — a named note is far more credible.
     question: "Who's behind BuildPM?",
     answer:
-      "Builders, not bystanders. A proper founder note is coming here — for now, know that BuildPM is being built by people who'd rather ship than talk about shipping.",
+      "Builders, not bystanders. BuildPM is built by product people who got tired of great PM work being invisible — so we're building the home where what you ship is the proof, not your résumé.",
   },
   {
     question: "What do I get with early access?",

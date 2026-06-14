@@ -2,8 +2,10 @@
 
 import { useState, useRef, type FormEvent } from "react";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 import { Logo } from "@/components/brand/Logo";
 import { ThemeToggle } from "@/components/shared/ThemeToggle";
+import { Honeypot } from "@/components/shared/Honeypot";
 import { Input, Textarea, Select } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { ARCHETYPES, REFERRAL_SOURCES, IS_PRELAUNCH } from "@/lib/constants";
@@ -30,6 +32,7 @@ export default function ApplyPage() {
       shipped_recently: (form.elements.namedItem("shipped_recently") as HTMLTextAreaElement).value,
       why_build_pm: (form.elements.namedItem("why_build_pm") as HTMLTextAreaElement).value,
       referral_source: (form.elements.namedItem("referral_source") as HTMLSelectElement).value,
+      company_url: (form.elements.namedItem("company_url") as HTMLInputElement)?.value ?? "",
     };
 
     try {
@@ -45,6 +48,9 @@ export default function ApplyPage() {
       }
 
       setStatus("success");
+      // Vercel custom event — consent-free, so apply-rate is measurable even
+      // for visitors who decline analytics cookies.
+      track("apply_submitted", { archetype: data.archetype });
       analytics.trackApplicationSubmitted(data.archetype, data.referral_source);
       analytics.identify(data.email);
     } catch (err) {
@@ -113,6 +119,7 @@ export default function ApplyPage() {
           }}
           className="mt-10 space-y-6"
         >
+          <Honeypot />
           <Input
             name="full_name"
             label="Full name"
@@ -188,6 +195,11 @@ export default function ApplyPage() {
           >
             {status === "submitting" ? "Submitting..." : "Submit application"}
           </Button>
+
+          <p className="text-xs text-subtle-foreground text-center">
+            We&apos;ll only use your details to review your application. See our{" "}
+            <Link href="/privacy" className="underline hover:text-foreground">Privacy Policy</Link>.
+          </p>
         </form>
       </div>
     </main>

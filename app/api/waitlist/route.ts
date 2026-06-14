@@ -30,6 +30,11 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Invalid JSON" }, { status: 400 });
   }
 
+  // Honeypot — bots fill the hidden field; return success, persist nothing.
+  if (typeof body.company_url === "string" && body.company_url.trim() !== "") {
+    return NextResponse.json({ success: true });
+  }
+
   const email = (typeof body.email === "string" ? body.email : "").trim().toLowerCase();
   if (!email || !isValidEmail(email)) {
     return NextResponse.json({ error: "Valid email is required" }, { status: 400 });
@@ -39,22 +44,27 @@ export async function POST(request: NextRequest) {
 
   const supabase = getSupabaseAdmin();
 
-  if (supabase) {
-    const { error } = await supabase.from("waitlist").insert({
-      email,
-      source,
-    });
-
-    if (error) {
-      if (error.code === "23505") {
-        // Already on waitlist — still return success (don't leak info)
-        return NextResponse.json({ success: true });
-      }
-      console.error("[waitlist] Supabase insert failed:", error.code, error.message);
-      return NextResponse.json({ error: "Failed to join waitlist" }, { status: 500 });
+  // Never fake success with no store — fail loudly in production.
+  if (!supabase) {
+    console.error("[waitlist] No data store configured — signup NOT persisted.");
+    if (process.env.NODE_ENV === "production") {
+      return NextResponse.json(
+        { error: "Couldn't sign you up right now. Please try again in a moment." },
+        { status: 503 },
+      );
     }
-  } else {
-    console.log("[waitlist] Signup received (no Supabase configured)");
+    return NextResponse.json({ success: true }); // dev convenience only
+  }
+
+  const { error } = await supabase.from("waitlist").insert({ email, source });
+
+  if (error) {
+    if (error.code === "23505") {
+      // Already on the waitlist — treat as success (don't leak membership).
+      return NextResponse.json({ success: true });
+    }
+    console.error("[waitlist] Supabase insert failed:", error.code, error.message);
+    return NextResponse.json({ error: "Failed to join waitlist" }, { status: 500 });
   }
 
   return NextResponse.json({ success: true });

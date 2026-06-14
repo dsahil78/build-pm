@@ -2,9 +2,11 @@
 
 import { useState, useRef, type FormEvent } from "react";
 import Link from "next/link";
+import { track } from "@vercel/analytics";
 import { motion, useInView } from "framer-motion";
 import { Logo } from "@/components/brand/Logo";
 import { ThemeToggle } from "@/components/shared/ThemeToggle";
+import { Honeypot } from "@/components/shared/Honeypot";
 import { Input, Textarea, Select } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -127,6 +129,7 @@ export default function PartnersPage() {
       role: (form.elements.namedItem("role") as HTMLInputElement).value,
       tier: (form.elements.namedItem("tier") as HTMLSelectElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+      company_url: (form.elements.namedItem("company_url") as HTMLInputElement)?.value ?? "",
       type: "partner",
     };
 
@@ -138,6 +141,7 @@ export default function PartnersPage() {
       });
       if (!res.ok) throw new Error("Failed");
       setStatus("success");
+      track("partner_submitted", { tier: data.tier });
       analytics.trackPartnerApplicationSubmitted(data.tier, data.company);
       analytics.identify(data.email);
     } catch {
@@ -385,6 +389,7 @@ export default function PartnersPage() {
               }}
               className="mt-10 space-y-5"
             >
+              <Honeypot />
               <Input name="company" label="Company name" placeholder="Acme Inc." autoComplete="organization" autoCapitalize="words" required />
               <Input name="contact_name" label="Your name" placeholder="Jane Smith" autoComplete="name" autoCapitalize="words" required />
               <Input name="contact_email" label="Work email" type="email" placeholder="jane@acme.com" autoComplete="email" required />

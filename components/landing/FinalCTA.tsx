@@ -1,10 +1,12 @@
 "use client";
 
 import { useRef, useState, type FormEvent } from "react";
+import { track } from "@vercel/analytics";
 import { motion, useInView } from "framer-motion";
 import { IS_PRELAUNCH } from "@/lib/constants";
 import { EASE_OUT } from "@/lib/motion";
 import { analytics } from "@/lib/analytics";
+import { Honeypot } from "@/components/shared/Honeypot";
 
 export function FinalCTA() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -15,15 +17,17 @@ export function FinalCTA() {
   async function handleSubscribe(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!email.trim()) return;
+    const companyUrl = (e.currentTarget.elements.namedItem("company_url") as HTMLInputElement)?.value ?? "";
     setStatus("submitting");
 
     try {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: "landing_cta" }),
+        body: JSON.stringify({ email, source: "landing_cta", company_url: companyUrl }),
       });
       if (!res.ok) throw new Error("Request failed");
+      track("notify_submitted", { source: "landing_cta" });
       analytics.trackWaitlistSignup("landing_cta");
       analytics.identify(email);
       setStatus("success");
@@ -99,6 +103,7 @@ export function FinalCTA() {
                 onSubmit={handleSubscribe}
                 className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
               >
+                <Honeypot />
                 <input
                   type="email"
                   value={email}
@@ -125,6 +130,12 @@ export function FinalCTA() {
             {status === "error" && (
               <p className="text-error text-sm mt-3">
                 Couldn&apos;t sign you up just now — please try again.
+              </p>
+            )}
+            {status !== "success" && (
+              <p className="text-xs text-subtle-foreground mt-3">
+                We&apos;ll only email you about launch. No spam. See our{" "}
+                <a href="/privacy" className="underline hover:text-foreground">Privacy Policy</a>.
               </p>
             )}
           </div>

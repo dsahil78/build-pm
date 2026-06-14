@@ -4,7 +4,7 @@ const ALLOWED_PATHS = new Set(["/", "/apply", "/partners", "/preview", "/privacy
 const ALLOWED_API_PREFIXES = ["/api/apply", "/api/waitlist"];
 // Generated metadata files (favicon, manifest, sitemap, robots) must be reachable
 // even in pre-launch — otherwise the icon/manifest/sitemap get redirected to "/".
-const ALLOWED_METADATA = ["/icon", "/apple-icon", "/manifest.webmanifest", "/sitemap.xml", "/robots.txt"];
+const ALLOWED_METADATA = ["/icon", "/apple-icon", "/opengraph-image", "/twitter-image", "/manifest.webmanifest", "/sitemap.xml", "/robots.txt"];
 const STATIC_ASSET_RE = /\.(js|css|png|jpg|jpeg|gif|svg|ico|webp|woff2?|ttf|eot|map|webmanifest|xml|txt)$/;
 
 export function middleware(request: NextRequest) {
