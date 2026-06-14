@@ -89,7 +89,7 @@ function CoreCard({ item, index }: { item: ValueItem; index: number }) {
         <h3 className="text-h4 text-foreground mt-5 tracking-tight">
           {item.title}
         </h3>
-        <p className="text-[15px] text-muted-foreground mt-3 leading-relaxed">
+        <p className="text-body text-muted-foreground mt-3 leading-relaxed">
           {item.description}
         </p>
       </div>
@@ -109,8 +109,8 @@ function SupportingCard({ item, index }: { item: ValueItem; index: number }) {
       <div className="w-10 h-10 rounded-xl bg-accent/[0.06] flex items-center justify-center text-accent-text shrink-0 mb-3 transition-colors duration-300 group-hover:bg-accent/[0.12]">
         {item.icon}
       </div>
-      <h3 className="text-sm font-semibold text-foreground">{item.title}</h3>
-      <p className="text-[13px] text-muted-foreground mt-1.5 leading-relaxed">{item.description}</p>
+      <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
+      <p className="text-body-sm text-muted-foreground mt-1.5 leading-relaxed">{item.description}</p>
     </motion.div>
   );
 }

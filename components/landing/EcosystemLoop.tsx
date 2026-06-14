@@ -90,13 +90,13 @@ export function EcosystemLoop() {
                   <div className="w-11 h-11 rounded-xl bg-accent/[0.08] flex items-center justify-center text-accent-text mx-auto transition-colors duration-300 group-hover:bg-accent/[0.15]">
                     {step.icon}
                   </div>
-                  <h3 className="text-foreground font-semibold text-sm mt-3">
+                  <h3 className="text-foreground font-semibold text-base mt-3">
                     {step.label}
                   </h3>
-                  <p className="text-accent-text text-xs font-medium mt-1">
+                  <p className="text-accent-text text-caption font-medium mt-1">
                     {step.action}
                   </p>
-                  <p className="text-muted-foreground text-[11px] mt-2 leading-relaxed">
+                  <p className="text-muted-foreground text-body-sm mt-2 leading-relaxed">
                     {step.description}
                   </p>
                 </div>
