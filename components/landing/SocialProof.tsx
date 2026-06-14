@@ -58,14 +58,14 @@ export function SocialProof() {
             {TOOL_LOGOS.slice(0, 10).map((logo) => (
               <div
                 key={logo.name}
-                className="opacity-20 hover:opacity-80 transition-opacity duration-300"
+                className="text-foreground opacity-20 hover:opacity-80 transition-opacity duration-300"
                 title={logo.name}
               >
                 <svg
                   viewBox={logo.viewBox}
                   width="28"
                   height="28"
-                  fill="white"
+                  fill="currentColor"
                   role="img"
                   aria-label={logo.name}
                 >

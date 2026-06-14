@@ -7,12 +7,12 @@ const row2 = TOOL_LOGOS.slice(10, 20);
 
 function LogoIcon({ logo }: { logo: LogoDef }) {
   return (
-    <div className="flex-shrink-0 px-8 opacity-30 hover:opacity-100 transition-opacity duration-300">
+    <div className="flex-shrink-0 px-8 text-foreground opacity-30 hover:opacity-100 transition-opacity duration-300">
       <svg
         viewBox={logo.viewBox}
         width="36"
         height="36"
-        fill="white"
+        fill="currentColor"
         role="img"
         aria-label={logo.name}
       >

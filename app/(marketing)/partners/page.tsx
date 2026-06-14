@@ -340,7 +340,7 @@ export default function PartnersPage() {
           <div className="flex flex-wrap justify-center gap-x-10 gap-y-6">
             {TOOL_LOGOS.slice(0, 12).map((logo) => (
               <div key={logo.name} className="opacity-20 hover:opacity-80 transition-opacity duration-300" title={logo.name}>
-                <svg viewBox={logo.viewBox} width="30" height="30" fill="white" role="img" aria-label={logo.name}>
+                <svg viewBox={logo.viewBox} width="30" height="30" fill="currentColor" className="text-foreground" role="img" aria-label={logo.name}>
                   <title>{logo.name}</title>
                   <path d={logo.path} />
                 </svg>
