@@ -46,10 +46,10 @@ export async function sendApplicationConfirmation(to: string, name: string): Pro
     subject: "We got your BuildPM application",
     text: `Hi ${first},
 
-Thanks for applying to BuildPM — your application landed. We read every single one, and you'll hear back within 7 days.
+Thanks for applying to BuildPM. Your application landed. We read every single one, and you'll hear back within 7 days.
 
 In the meantime: keep shipping.
 
-— The BuildPM team`,
+The BuildPM team`,
   });
 }

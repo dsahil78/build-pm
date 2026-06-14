@@ -14,7 +14,7 @@ const ENTERPRISE_CARDS: EnterpriseCard[] = [
   {
     title: "Structured feedback",
     description:
-      "Monthly reports: NPS trends, friction points, feature requests — from real builders, not surveys.",
+      "Monthly reports: NPS trends, friction points, feature requests, from real builders, not surveys.",
     icon: (
       <svg
         width="24"

@@ -15,7 +15,7 @@ const STEPS: Step[] = [
     number: 1,
     title: "Join the community",
     description:
-      "Create your profile. Tell us what you're into — building, learning, mentoring, or all three.",
+      "Create your profile. Tell us what you’re into: building, learning, mentoring, or all three.",
   },
   {
     number: 2,

@@ -61,7 +61,7 @@ const TERMINAL_BLOCKS: TerminalBlock[] = [
     command: "build --impact",
     lines: IS_PRELAUNCH
       ? [
-          { text: "\u2713 Founding cohort forming \u2014 first 100 builders", type: "checkmark" },
+          { text: "\u2713 Founding cohort forming, first 100 builders", type: "checkmark" },
           { text: "\u2713 $200K+ in free enterprise tools for builders", type: "checkmark" },
           { text: "Ready to build? \u2192", type: "cta" },
         ]
@@ -196,7 +196,7 @@ export function TerminalHero() {
               <div className="w-3 h-3 rounded-full bg-[#27C93F]" />
             </div>
             <span className="mx-auto text-xs font-mono text-grey-500 select-none">
-              BuildPM &mdash; v1.0.0
+              BuildPM v1.0.0
             </span>
             <div className="w-[52px]" />
           </div>

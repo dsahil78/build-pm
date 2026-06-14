@@ -15,7 +15,7 @@ import type { MetadataRoute } from "next";
  */
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "BuildPM — For product people who ship",
+    name: "BuildPM: For product people who ship",
     short_name: "BuildPM",
     description:
       "A community for PMs who build and ship. Free enterprise tools, build squads, career growth.",

@@ -104,7 +104,7 @@ export default function ApplyPage() {
         </h1>
         <p className="text-muted-foreground mt-2 leading-relaxed">
           {IS_PRELAUNCH
-            ? "We\u2019re hand-picking the first 100 builders. Takes 2 minutes. If it\u2019s a fit, you get free enterprise tools, a build squad, and early access at launch \u2014 we reply within 7 days."
+            ? "We\u2019re hand-picking the first 100 builders. Takes 2 minutes. If it\u2019s a fit, you get free enterprise tools, a build squad, and early access at launch. We reply within 7 days."
             : "We review every application. We\u2019re looking for people who build, not just talk."}
         </p>
 
@@ -144,7 +144,7 @@ export default function ApplyPage() {
             type="url"
             placeholder="https://linkedin.com/in/you"
             autoComplete="url"
-            hint="Optional — so we can see what you've shipped"
+            hint="Optional. So we can see what you've shipped"
           />
 
           <Select
@@ -160,7 +160,6 @@ export default function ApplyPage() {
             name="shipped_recently"
             label="What have you shipped recently?"
             placeholder="Link to a live product, feature, or project you built. GitHub repos count."
-            hint="Link to a live product, feature, or project you built. GitHub repos count."
             required
           />
 

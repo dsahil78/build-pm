@@ -90,7 +90,7 @@ export function Footer() {
 
         {/* Built in Seattle tagline */}
         <p className="mt-6 text-center text-subtle-foreground text-xs tracking-wide">
-          Built in Seattle, WA — shipped everywhere.
+          Built in Seattle, WA. Shipped everywhere.
         </p>
       </div>
     </footer>

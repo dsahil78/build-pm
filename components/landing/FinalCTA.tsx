@@ -129,7 +129,7 @@ export function FinalCTA() {
             )}
             {status === "error" && (
               <p className="text-error text-sm mt-3">
-                Couldn&apos;t sign you up just now — please try again.
+                Couldn&apos;t sign you up just now. Please try again.
               </p>
             )}
             {status !== "success" && (

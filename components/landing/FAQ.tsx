@@ -14,14 +14,19 @@ interface QA {
 // founding-cohort phase ("early access", "first 100", "spots").
 const FAQS: QA[] = [
   {
-    question: "Is it free?",
+    question: "Is BuildPM free?",
     answer:
-      "Yes — free for builders. That includes $200K+ in enterprise tools we make free for members. We make money from partners, not from you.",
+      "Yes, free for builders. That includes $200K+ in enterprise tools we make free for members. We make money from partners, not from you.",
   },
   {
     question: "What's the time commitment?",
     answer:
-      "As much as you want to put in. Most builders work in 2-week sprints with a squad — show up, build, document what you decided. No mandatory standups, no busywork.",
+      "As much as you want to put in. Most builders work in 2-week sprints with a squad. Show up, build, document what you decided. No mandatory standups, no busywork.",
+  },
+  {
+    question: "Do I need to know how to code?",
+    answer:
+      "No. “Building” here means shipping real product work: prototypes, no-code and AI-assisted builds, specs that ship, or actual code. If you can take something from idea to shipped, you belong. Your squad and the tools cover the rest.",
   },
   {
     // Founder note (provided by Sahil). Anonymous by choice — add a name/signature
@@ -33,12 +38,17 @@ const FAQS: QA[] = [
   {
     question: "What do I get with early access?",
     answer:
-      "First access to build squads, the full tool shelf, and your builder profile at buildpm.co/you — before everyone else. Founding members help shape what we build next.",
+      "First access to build squads, the full tool shelf, and your builder profile at buildpm.co/you, before everyone else. Founding members help shape what we build next.",
   },
   {
     question: "How many spots are there?",
     answer:
       "We're hand-picking the first 100 builders for the founding cohort. We read every application and reply within 7 days.",
+  },
+  {
+    question: "When does it start?",
+    answer:
+      "The founding cohort kicks off Fall 2026. Apply now, hear back within 7 days, and accepted builders get onboarded into that first group of 100.",
   },
 ];
 

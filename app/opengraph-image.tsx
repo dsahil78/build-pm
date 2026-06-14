@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 
 // Generates a sharp 1200x630 social card at build/request time — replaces the
 // previously-referenced (and missing) /og/default.png.
-export const alt = "BuildPM — For product people who ship";
+export const alt = "BuildPM: For product people who ship";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Apply to the founding cohort",
   description:
-    "Apply to BuildPM — we're hand-picking the first 100 builders. If it's a fit you get free enterprise tools, a build squad, and early access at launch.",
+    "Apply to BuildPM. We’re hand-picking the first 100 builders. If it's a fit you get free enterprise tools, a build squad, and early access at launch.",
   alternates: { canonical: "/apply" },
 };
 

@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Partner with BuildPM",
   description:
-    "Put your tools in the hands of product builders who ship weekly. Get real adoption, structured feedback, and a talent pipeline — not vanity metrics.",
+    "Put your tools in the hands of product builders who ship weekly. Get real adoption, structured feedback, and a talent pipeline, not vanity metrics.",
   alternates: { canonical: "/partners" },
 };
 

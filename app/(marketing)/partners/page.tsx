@@ -41,7 +41,7 @@ const VALUE_GROUPS = [
     items: [
       {
         title: "Your tool used by builders weekly",
-        description: "Not a listing — real usage in real build sprints. Builders choose your tools because they're the best for the job.",
+        description: "Not a listing. Real usage in real build sprints. Builders choose your tools because they're the best for the job.",
       },
       {
         title: "Embedded in real workflows",
@@ -59,7 +59,7 @@ const VALUE_GROUPS = [
     items: [
       {
         title: "Structured reports from real usage",
-        description: "Not surveys, not NPS — detailed friction analysis from product-minded builders using your tool in production.",
+        description: "Not surveys, not NPS. Detailed friction analysis from product-minded builders using your tool in production.",
       },
       {
         title: "48-hour feedback loops",
@@ -188,7 +188,7 @@ export default function PartnersPage() {
 
         <p className="text-muted-foreground text-lg mt-6 max-w-2xl mx-auto leading-relaxed">
           Your tools in the hands of product builders who ship weekly.
-          Get adoption, structured feedback, and a talent pipeline — not vanity metrics.
+          Get adoption, structured feedback, and a talent pipeline, not vanity metrics.
         </p>
 
         <div className="mt-8">
@@ -390,9 +390,9 @@ export default function PartnersPage() {
               className="mt-10 space-y-5"
             >
               <Honeypot />
-              <Input name="company" label="Company name" placeholder="Acme Inc." autoComplete="organization" autoCapitalize="words" required />
-              <Input name="contact_name" label="Your name" placeholder="Jane Smith" autoComplete="name" autoCapitalize="words" required />
-              <Input name="contact_email" label="Work email" type="email" placeholder="jane@acme.com" autoComplete="email" required />
+              <Input name="company" label="Company name" placeholder="Velora" autoComplete="organization" autoCapitalize="words" required />
+              <Input name="contact_name" label="Your name" placeholder="Maya Chen" autoComplete="name" autoCapitalize="words" required />
+              <Input name="contact_email" label="Work email" type="email" placeholder="maya@velora.com" autoComplete="email" required />
               <Input name="role" label="Your role" placeholder="Head of Developer Relations" autoComplete="organization-title" autoCapitalize="words" required />
               <Select
                 name="tier"
