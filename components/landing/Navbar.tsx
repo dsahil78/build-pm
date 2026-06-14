@@ -77,6 +77,17 @@ export function Navbar() {
                 {link.label}
               </a>
             ))}
+            {/* Quiet secondary path for tool companies — desktop only, so it
+                doesn't compete with Apply or re-introduce the mobile menu. */}
+            {IS_PRELAUNCH && (
+              <a
+                href="/partners"
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                style={{ transitionDuration: "var(--duration-fast)" }}
+              >
+                For partners
+              </a>
+            )}
             <ThemeToggle />
             <a
               href="/apply"
