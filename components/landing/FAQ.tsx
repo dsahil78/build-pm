@@ -16,7 +16,7 @@ const FAQS: QA[] = [
   {
     question: "Is it free?",
     answer:
-      "Yes — free for builders. That includes the $200K+ in enterprise tools committed by our launch partners. We make money from partners, not from you.",
+      "Yes — free for builders. That includes $200K+ in enterprise tools we make free for members. We make money from partners, not from you.",
   },
   {
     question: "What's the time commitment?",

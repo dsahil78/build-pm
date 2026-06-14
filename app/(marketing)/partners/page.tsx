@@ -335,7 +335,7 @@ export default function PartnersPage() {
       <section className="py-12 border-y border-border-base">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-subtle-foreground text-sm mb-8">
-            Tools already in the ecosystem
+            The tools builders actually use
           </p>
           <div className="flex flex-wrap justify-center gap-x-10 gap-y-6">
             {TOOL_LOGOS.slice(0, 12).map((logo) => (

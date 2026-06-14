@@ -62,7 +62,7 @@ const TERMINAL_BLOCKS: TerminalBlock[] = [
     lines: IS_PRELAUNCH
       ? [
           { text: "\u2713 Founding cohort forming \u2014 first 100 builders", type: "checkmark" },
-          { text: "\u2713 $200K+ in enterprise tools committed from launch partners", type: "checkmark" },
+          { text: "\u2713 $200K+ in free enterprise tools for builders", type: "checkmark" },
           { text: "Ready to build? \u2192", type: "cta" },
         ]
       : [
