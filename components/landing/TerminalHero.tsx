@@ -16,12 +16,12 @@ const TERMINAL_BLOCKS: TerminalBlock[] = [
     command: "build --why",
     lines: [
       {
-        text: "A community where PMs collaborate and ship real products.",
+        text: "Your résumé lists what you managed.",
         type: "response",
         highlight: false,
       },
       {
-        text: "Every build becomes proof of your product thinking.",
+        text: "Your builds prove what you shipped.",
         type: "response",
         highlight: true,
       },
@@ -58,19 +58,19 @@ const TERMINAL_BLOCKS: TerminalBlock[] = [
     ],
   },
   {
-    command: "build --impact",
+    command: "build --status",
     lines: IS_PRELAUNCH
       ? [
           { text: "\u2713 Founding cohort forming, first 100 builders", type: "checkmark" },
           { text: "\u2713 $200K+ in free enterprise tools for builders", type: "checkmark" },
-          { text: "Ready to build? \u2192", type: "cta" },
+          { text: "> build --start", type: "cta" },
         ]
       : [
           // TODO(post-launch): Replace with REAL, verified metrics before setting
           // IS_PRELAUNCH=false. Never ship fabricated traction numbers.
           { text: "\u2713 [TODO: verified builder count]", type: "checkmark" },
           { text: "\u2713 [TODO: verified tools value]", type: "checkmark" },
-          { text: "Ready to build? \u2192", type: "cta" },
+          { text: "> build --start", type: "cta" },
         ],
   },
 ];
