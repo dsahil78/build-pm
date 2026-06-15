@@ -137,7 +137,7 @@ export function ProductPreview() {
   return (
     <section
       ref={sectionRef}
-      className="relative bg-background py-16 sm:py-24 md:py-20 sm:py-28 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative bg-background py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       {/* Background glow */}
       <div
@@ -157,7 +157,7 @@ export function ProductPreview() {
           transition={{ duration: 0.7, ease: EASE_OUT }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
+          <p className="text-accent-text overline">
             The platform
           </p>
           <h2 className="text-display text-foreground mt-4 tracking-tight leading-[1.1]">

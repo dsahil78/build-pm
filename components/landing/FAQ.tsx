@@ -79,7 +79,7 @@ export function FAQ() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center mb-14"
         >
-          <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
+          <p className="text-accent-text overline">
             Questions
           </p>
           <h2 className="text-h2 text-foreground mt-2 tracking-tight">

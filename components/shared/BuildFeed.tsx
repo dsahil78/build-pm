@@ -55,7 +55,7 @@ export function BuildFeed() {
   const isInView = useInView(headingRef, { once: true, margin: "-60px" });
 
   return (
-    <section className="bg-background py-16 sm:py-24 md:py-20 sm:py-28 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section className="bg-background py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto">
         <motion.div
           ref={headingRef}
@@ -64,7 +64,7 @@ export function BuildFeed() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center max-w-2xl mx-auto mb-14"
         >
-          <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
+          <p className="text-accent-text overline">
             Shipped this week
           </p>
           <h2 className="text-h2 text-foreground mt-2 tracking-tight">

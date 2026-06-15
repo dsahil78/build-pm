@@ -53,7 +53,7 @@ export function EcosystemLoop() {
   const isInView = useInView(headingRef, { once: true, margin: "-60px" });
 
   return (
-    <section className="bg-background py-16 sm:py-24 md:py-20 sm:py-28 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section className="bg-background py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto" ref={headingRef}>
         {/* Heading */}
         <motion.div
@@ -62,7 +62,7 @@ export function EcosystemLoop() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <p className="text-accent-text text-sm font-semibold tracking-wider uppercase">
+          <p className="text-accent-text overline">
             The ecosystem
           </p>
           <h2 className="text-h2 tracking-tight text-foreground mt-2">
