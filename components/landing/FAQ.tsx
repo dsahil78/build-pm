@@ -29,6 +29,11 @@ const FAQS: QA[] = [
       "No. “Building” here means shipping real product work: prototypes, no-code and AI-assisted builds, specs that ship, or actual code. If you can take something from idea to shipped, you belong. Your squad and the tools cover the rest.",
   },
   {
+    question: "How is this different from a PM Slack group?",
+    answer:
+      "Slack is chatter that scrolls away. BuildPM is institutional memory. Every decision and post-mortem is documented and searchable through the Wisdom Graph, so the community's lessons compound instead of disappearing. It runs under the Chatham House Rule, so you share what you learned without exposing confidential work.",
+  },
+  {
     // Founder note (provided by Sahil). Anonymous by choice — add a name/signature
     // later for extra credibility if desired.
     question: "Who's behind BuildPM?",

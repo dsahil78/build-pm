@@ -5,6 +5,7 @@ import { TerminalHero } from "@/components/landing/TerminalHero";
 import { EcosystemLoop } from "@/components/landing/EcosystemLoop";
 import { BuilderValue } from "@/components/landing/BuilderValue";
 import { ProductPreview } from "@/components/shared/ProductPreview";
+import { WisdomGraph } from "@/components/landing/WisdomGraph";
 import { ToolShelf } from "@/components/landing/ToolShelf";
 import { HowItWorks } from "@/components/landing/HowItWorks";
 import { BuilderScores } from "@/components/landing/BuilderScores";
@@ -33,7 +34,10 @@ export default function LandingPage() {
         {/* 3. Product preview — show the platform UI */}
         <ProductPreview />
 
-        {/* 4. What builders get — Core/Supporting hierarchy */}
+        {/* 4. Wisdom Graph — the collective-learning differentiator */}
+        <WisdomGraph />
+
+        {/* 5. What builders get — Core/Supporting hierarchy */}
         <BuilderValue />
 
         {/* Post-launch sections */}
