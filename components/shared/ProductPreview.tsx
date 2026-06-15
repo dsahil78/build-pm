@@ -6,6 +6,7 @@ import { EASE_OUT } from "@/lib/motion";
 import { MOCK_PROJECTS, MOCK_BUILDER } from "@/lib/mock-data";
 
 function ProjectCard({ project }: { project: typeof MOCK_PROJECTS[number] }) {
+  const isShipped = project.status === "shipped";
   return (
     <div
       className="rounded-xl bg-[#1A1A1A]/80 p-4 border border-[#2A2A2A] hover:border-[#333] transition-colors duration-300"
@@ -43,6 +44,22 @@ function ProjectCard({ project }: { project: typeof MOCK_PROJECTS[number] }) {
           <span className="text-[10px] text-grey-500">{project.users} users</span>
         )}
         <span className="text-[10px] text-grey-500">{project.collaborators} collab</span>
+      </div>
+
+      {/* Wisdom Graph: shipped builds log a lesson, in-progress builds pull one */}
+      <div className="flex items-center gap-1.5 mt-2.5 pt-2.5 border-t border-[#222]">
+        <svg width="11" height="11" viewBox="0 0 12 12" fill="none" className="shrink-0" aria-hidden="true">
+          <circle cx="2.6" cy="9.4" r="1.6" fill="#FF5733" />
+          <circle cx="9.4" cy="2.8" r="1.6" fill="#FF5733" fillOpacity="0.5" />
+          <path d="M3.7 8.3L8.4 3.7" stroke="#FF5733" strokeWidth="0.9" strokeOpacity="0.45" />
+        </svg>
+        <span className="min-w-0 truncate text-[10px] text-grey-400">
+          <span className="text-grey-500">{isShipped ? "Lesson: " : "From the graph: "}</span>
+          <span className="text-grey-300">{project.wisdom.lesson}</span>
+        </span>
+        <span className="ml-auto shrink-0 text-[9px] font-mono text-brand-coral/90 whitespace-nowrap">
+          {isShipped ? `${project.wisdom.linked} linked` : `${project.wisdom.linked} precedents`}
+        </span>
       </div>
     </div>
   );

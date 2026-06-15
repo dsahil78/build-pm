@@ -101,6 +101,9 @@ export interface MockProject {
   decisions: number;
   users: number;
   collaborators: number;
+  // Wisdom Graph: shipped builds log a lesson; in-progress builds pull
+  // precedents from the graph. `linked` = related builds that share it.
+  wisdom: { lesson: string; linked: number };
 }
 
 export const MOCK_PROJECTS: MockProject[] = [
@@ -115,6 +118,7 @@ export const MOCK_PROJECTS: MockProject[] = [
     decisions: 8,
     users: 120,
     collaborators: 4,
+    wisdom: { lesson: "validate the data source before the UI", linked: 3 },
   },
   {
     name: "Feedback Pulse",
@@ -127,6 +131,7 @@ export const MOCK_PROJECTS: MockProject[] = [
     decisions: 5,
     users: 45,
     collaborators: 3,
+    wisdom: { lesson: "ship the empty state early", linked: 2 },
   },
   {
     name: "Sprint Retro Bot",
@@ -139,6 +144,7 @@ export const MOCK_PROJECTS: MockProject[] = [
     decisions: 3,
     users: 0,
     collaborators: 2,
+    wisdom: { lesson: "keep AI summaries short and skimmable", linked: 4 },
   },
   {
     name: "PM Interview Prep",
@@ -151,6 +157,7 @@ export const MOCK_PROJECTS: MockProject[] = [
     decisions: 6,
     users: 800,
     collaborators: 3,
+    wisdom: { lesson: "don't personalize too early", linked: 5 },
   },
   {
     name: "Roadmap Canvas",
@@ -163,6 +170,7 @@ export const MOCK_PROJECTS: MockProject[] = [
     decisions: 4,
     users: 65,
     collaborators: 5,
+    wisdom: { lesson: "give drag-and-drop a keyboard fallback", linked: 2 },
   },
   {
     name: "User Story Mapper",
@@ -175,6 +183,7 @@ export const MOCK_PROJECTS: MockProject[] = [
     decisions: 2,
     users: 0,
     collaborators: 2,
+    wisdom: { lesson: "avoid over-structuring raw interviews", linked: 3 },
   },
 ];
 
