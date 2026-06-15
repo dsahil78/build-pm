@@ -94,7 +94,7 @@ export function BuilderScores() {
             transition={{ duration: 0.5, ease: EASE_OUT }}
           >
             {/* Overline */}
-            <p className="text-accent-text overline font-medium">
+            <p className="text-accent-text eyebrow font-medium">
               Credibility System
             </p>
 

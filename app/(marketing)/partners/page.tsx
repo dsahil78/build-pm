@@ -469,7 +469,7 @@ function SectionHeading({
       transition={{ duration: 0.5, ease: EASE_OUT }}
       className="text-center max-w-2xl mx-auto"
     >
-      <p className="text-accent-text overline">
+      <p className="text-accent-text eyebrow">
         {eyebrow}
       </p>
       <h2 className="text-h2 tracking-tight text-foreground mt-2">

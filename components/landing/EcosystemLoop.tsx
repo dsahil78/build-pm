@@ -62,7 +62,7 @@ export function EcosystemLoop() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center max-w-2xl mx-auto mb-16"
         >
-          <p className="text-accent-text overline">
+          <p className="text-accent-text eyebrow">
             The ecosystem
           </p>
           <h2 className="text-h2 tracking-tight text-foreground mt-2">

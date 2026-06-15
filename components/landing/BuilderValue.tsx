@@ -140,7 +140,7 @@ export function BuilderValue() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center"
         >
-          <p className="text-accent-text overline">
+          <p className="text-accent-text eyebrow">
             The builder stack
           </p>
           <h2 className="text-h2 text-foreground mt-2 tracking-tight">

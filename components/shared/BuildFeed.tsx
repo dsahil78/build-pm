@@ -64,7 +64,7 @@ export function BuildFeed() {
           transition={{ duration: 0.5, ease: EASE_OUT }}
           className="text-center max-w-2xl mx-auto mb-14"
         >
-          <p className="text-accent-text overline">
+          <p className="text-accent-text eyebrow">
             Shipped this week
           </p>
           <h2 className="text-h2 text-foreground mt-2 tracking-tight">

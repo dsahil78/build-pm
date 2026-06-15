@@ -157,7 +157,7 @@ export function ProductPreview() {
           transition={{ duration: 0.7, ease: EASE_OUT }}
           className="text-center max-w-3xl mx-auto mb-20"
         >
-          <p className="text-accent-text overline">
+          <p className="text-accent-text eyebrow">
             The platform
           </p>
           <h2 className="text-display text-foreground mt-4 tracking-tight leading-[1.1]">
