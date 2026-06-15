@@ -76,13 +76,13 @@ export function EcosystemLoop() {
         {/* Loop: vertical on mobile, horizontal on desktop */}
         <div className="flex flex-col md:flex-row items-stretch justify-center gap-3 md:gap-0">
           {LOOP_STEPS.map((step, i) => (
-            <div key={i} className="flex flex-col md:flex-row items-center">
+            <div key={i} className="flex flex-col md:flex-row items-stretch">
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
                 whileInView={{ opacity: 1, scale: 1 }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.4, delay: i * 0.1, ease: EASE_OUT }}
-                className="group relative w-full md:w-[220px]"
+                className="group relative w-full md:w-[220px] h-full"
               >
                 <div
                   className="rounded-2xl bg-card border border-border-base p-5 text-center h-full transition-all duration-300 hover:-translate-y-1 hover:bg-elevated"
@@ -104,7 +104,7 @@ export function EcosystemLoop() {
 
               {/* Arrow between steps */}
               {i < LOOP_STEPS.length - 1 && (
-                <div className="flex items-center justify-center text-subtle-foreground shrink-0 py-1 md:py-0 md:px-4">
+                <div className="flex items-center justify-center self-center text-subtle-foreground shrink-0 py-1 md:py-0 md:px-4">
                   {/* Vertical arrow for mobile */}
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="md:hidden" aria-hidden="true">
                     <line x1="12" y1="5" x2="12" y2="19" /><polyline points="19 12 12 19 5 12" />
