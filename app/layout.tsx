@@ -10,6 +10,7 @@ import { CookieConsent } from "@/components/shared/CookieConsent";
 import { AttributionTracker } from "@/components/shared/AttributionTracker";
 import { JourneyTracker } from "@/components/shared/JourneyTracker";
 import { ClarityAnalytics } from "@/components/shared/ClarityAnalytics";
+import { SOCIAL_LINKS } from "@/lib/constants";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -68,14 +69,34 @@ export const viewport: Viewport = {
   ],
 };
 
+// Auto-populates as you uncomment social profiles in lib/constants.ts.
+const sameAs = SOCIAL_LINKS.map((s) => s.href);
+
 const structuredData = JSON.stringify({
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "BuildPM",
-  url: "https://buildpm.co",
-  description:
-    "A three-sided marketplace for product builders. Free enterprise tools, build squads, and career growth.",
-  foundingDate: "2026",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://buildpm.co/#organization",
+      name: "BuildPM",
+      url: "https://buildpm.co",
+      logo: "https://buildpm.co/icon",
+      description:
+        "A community for product managers who build and ship real products. Free enterprise tools, build squads, and career growth.",
+      foundingDate: "2026",
+      ...(sameAs.length ? { sameAs } : {}),
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://buildpm.co/#website",
+      name: "BuildPM",
+      url: "https://buildpm.co",
+      description:
+        "BuildPM: the future of building for product managers. Build real products, prove your work, and get hired.",
+      publisher: { "@id": "https://buildpm.co/#organization" },
+      inLanguage: "en",
+    },
+  ],
 });
 
 export default function RootLayout({
