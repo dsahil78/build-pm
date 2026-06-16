@@ -1,6 +1,7 @@
 import { NextResponse, after, type NextRequest } from "next/server";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
+import { sendWaitlistConfirmation } from "@/lib/email";
 import { logEvent } from "@/lib/events";
 import type { AttributionPayload } from "@/lib/attribution";
 import { isValidEmail, isJsonContentType, cleanField } from "@/lib/validation";
@@ -70,9 +71,12 @@ export async function POST(request: NextRequest) {
   }
 
   // Run after the response but keep the function alive (via `after`) so the
-  // telemetry insert is not cut off when the serverless instance freezes.
+  // confirmation email + telemetry are not cut off when the instance freezes.
+  // (Only on a genuine new signup; the 23505 "already on list" path returned
+  // above without re-sending.)
   const reqHeaders = request.headers;
   const attribution = body.attribution as Partial<AttributionPayload> | null;
+  after(() => sendWaitlistConfirmation(email));
   after(() =>
     logEvent({
       eventType: "waitlist_submitted",

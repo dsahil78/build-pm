@@ -1,7 +1,7 @@
 import { NextResponse, after, type NextRequest } from "next/server";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
-import { sendApplicationConfirmation } from "@/lib/email";
+import { sendApplicationConfirmation, sendPartnerConfirmation } from "@/lib/email";
 import { logEvent } from "@/lib/events";
 import type { AttributionPayload } from "@/lib/attribution";
 import {
@@ -175,6 +175,8 @@ export async function POST(request: NextRequest) {
   // freezes. Each is still best-effort and never throws.
   if (!isPartner) {
     after(() => sendApplicationConfirmation(email, fullName));
+  } else {
+    after(() => sendPartnerConfirmation(email, fullName));
   }
   after(() =>
     logEvent({
