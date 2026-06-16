@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { EASE_OUT } from "@/lib/motion";
 
@@ -69,6 +70,17 @@ const faqJsonLd = JSON.stringify({
 });
 
 export function FAQ() {
+  const [open, setOpen] = useState<Set<number>>(new Set());
+
+  function toggle(i: number) {
+    setOpen((prev) => {
+      const next = new Set(prev);
+      if (next.has(i)) next.delete(i);
+      else next.add(i);
+      return next;
+    });
+  }
+
   return (
     <section data-section="faq" className="bg-background py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
       <script
@@ -92,20 +104,61 @@ export function FAQ() {
           </h2>
         </motion.div>
 
-        <dl className="space-y-8">
-          {FAQS.map((faq, i) => (
-            <motion.div
-              key={faq.question}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.4, delay: i * 0.05, ease: EASE_OUT }}
-              className="border-b border-border-base pb-8"
-            >
-              <dt className="text-foreground font-semibold text-lg">{faq.question}</dt>
-              <dd className="text-muted-foreground mt-2 leading-relaxed">{faq.answer}</dd>
-            </motion.div>
-          ))}
+        <dl>
+          {FAQS.map((faq, i) => {
+            const isOpen = open.has(i);
+            return (
+              <motion.div
+                key={faq.question}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.4, delay: i * 0.05, ease: EASE_OUT }}
+                className="border-b border-border-base"
+              >
+                <dt>
+                  <button
+                    type="button"
+                    onClick={() => toggle(i)}
+                    aria-expanded={isOpen}
+                    aria-controls={`faq-answer-${i}`}
+                    className="group flex w-full items-center justify-between gap-4 py-5 text-left"
+                  >
+                    <span className="text-foreground font-semibold text-lg group-hover:text-accent-text transition-colors">
+                      {faq.question}
+                    </span>
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                      className={`shrink-0 text-subtle-foreground transition-transform duration-300 group-hover:text-foreground ${
+                        isOpen ? "rotate-180" : ""
+                      }`}
+                    >
+                      <polyline points="6 9 12 15 18 9" />
+                    </svg>
+                  </button>
+                </dt>
+                <motion.dd
+                  id={`faq-answer-${i}`}
+                  initial={false}
+                  animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
+                  transition={{ duration: 0.3, ease: EASE_OUT }}
+                  className="overflow-hidden"
+                >
+                  <p className="text-muted-foreground pb-5 leading-relaxed measure">
+                    {faq.answer}
+                  </p>
+                </motion.dd>
+              </motion.div>
+            );
+          })}
         </dl>
       </div>
     </section>
