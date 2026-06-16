@@ -25,7 +25,7 @@ export default function TermsPage() {
             <p>
               These Terms of Service (&quot;Terms&quot;) constitute a legally binding agreement between you
               (&quot;you&quot;, &quot;your&quot;, or &quot;User&quot;) and BuildPM (&quot;BuildPM&quot;,
-              &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) governing your access to
+              &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) governing your access to
               and use of the website at{" "}
               <a href="https://buildpm.co" className="text-accent-text hover:underline">
                 https://buildpm.co
@@ -206,7 +206,7 @@ export default function TermsPage() {
             <p>
               THE SERVICE IS PROVIDED ON AN &quot;AS IS&quot; AND &quot;AS AVAILABLE&quot; BASIS WITHOUT
               WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY, OR OTHERWISE. TO THE FULLEST
-              EXTENT PERMITTED BY APPLICABLE LAW, BUILD.PM DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT
+              EXTENT PERMITTED BY APPLICABLE LAW, BUILDPM DISCLAIMS ALL WARRANTIES, INCLUDING BUT NOT
               LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE,
               NON-INFRINGEMENT, AND TITLE.
             </p>
@@ -217,7 +217,7 @@ export default function TermsPage() {
               REQUIREMENTS OR EXPECTATIONS.
             </p>
             <p>
-              BUILD.PM DOES NOT GUARANTEE EMPLOYMENT, JOB PLACEMENT, CAREER ADVANCEMENT, OR ANY PARTICULAR
+              BUILDPM DOES NOT GUARANTEE EMPLOYMENT, JOB PLACEMENT, CAREER ADVANCEMENT, OR ANY PARTICULAR
               OUTCOME FROM YOUR USE OF THE SERVICE. REFERENCES TO &quot;GETTING HIRED&quot; OR &quot;CAREER
               FLYWHEEL&quot; ARE DESCRIPTIONS OF COMMUNITY BENEFITS, NOT PROMISES OF RESULTS.
             </p>
@@ -225,8 +225,8 @@ export default function TermsPage() {
 
           <Section title="12. Limitation of liability">
             <p>
-              TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL BUILD.PM, ITS DIRECTORS,
-              OFFICERS, EMPLOYEES, AGENTS, PARTNERS, SUPPLIERS, OR LICENSORS BE LIABLE FOR ANY:
+              TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL BUILDPM, ITS OPERATORS,
+              CONTRIBUTORS, AGENTS, PARTNERS, SUPPLIERS, OR LICENSORS BE LIABLE FOR ANY:
             </p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>Indirect, incidental, special, consequential, exemplary, or punitive damages</li>
@@ -249,8 +249,8 @@ export default function TermsPage() {
 
           <Section title="13. Indemnification">
             <p>
-              You agree to indemnify, defend, and hold harmless BuildPM and its directors, officers,
-              employees, agents, and affiliates from and against any and all claims, damages, losses,
+              You agree to indemnify, defend, and hold harmless BuildPM and the people who operate and
+              contribute to it, and its agents and partners, from and against any and all claims, damages, losses,
               liabilities, costs, and expenses (including reasonable attorneys&apos; fees) arising out of
               or related to: (a) your use of the Service; (b) your User Content; (c) your violation of
               these Terms; (d) your violation of any third-party rights; or (e) any claim that your User
@@ -297,7 +297,7 @@ export default function TermsPage() {
               jurisdiction.
             </p>
             <p>
-              <strong className="text-foreground">Class action waiver:</strong> YOU AND BUILD.PM AGREE THAT EACH
+              <strong className="text-foreground">Class action waiver:</strong> YOU AND BUILDPM AGREE THAT EACH
               PARTY MAY ONLY BRING CLAIMS AGAINST THE OTHER IN YOUR OR ITS INDIVIDUAL CAPACITY, AND NOT AS
               A PLAINTIFF OR CLASS MEMBER IN ANY PURPORTED CLASS, CONSOLIDATED, OR REPRESENTATIVE ACTION.
             </p>

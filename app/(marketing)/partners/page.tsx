@@ -333,15 +333,31 @@ export default function PartnersPage() {
       {/* ═══════════════════════════════════════
           TOOL LOGOS
          ═══════════════════════════════════════ */}
-      <section className="py-12 border-y border-border-base">
+      <section className="py-12 border-y border-border-base overflow-hidden">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 text-center">
           <p className="text-subtle-foreground text-sm mb-8">
             Tools we&apos;re actively building with
           </p>
-          <div className="flex flex-wrap justify-center gap-x-10 gap-y-6">
-            {TOOL_LOGOS.slice(0, 12).map((logo) => (
-              <div key={logo.name} className="opacity-20 hover:opacity-80 transition-opacity duration-300" title={logo.name}>
-                <svg viewBox={logo.viewBox} width="30" height="30" fill="currentColor" className="text-foreground" role="img" aria-label={logo.name}>
+        </div>
+        {/* Seamless marquee: logos rendered twice, track translates -50% */}
+        <div
+          className="relative w-full overflow-hidden"
+          style={{
+            maskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+            WebkitMaskImage:
+              "linear-gradient(to right, transparent, black 8%, black 92%, transparent)",
+          }}
+        >
+          <div className="flex w-max animate-marquee">
+            {[...TOOL_LOGOS.slice(0, 12), ...TOOL_LOGOS.slice(0, 12)].map((logo, i) => (
+              <div
+                key={`${logo.name}-${i}`}
+                className="mr-12 shrink-0 opacity-30 hover:opacity-90 transition-opacity duration-300"
+                title={logo.name}
+                aria-hidden={i >= 12}
+              >
+                <svg viewBox={logo.viewBox} width="32" height="32" fill="currentColor" className="text-foreground" role="img" aria-label={logo.name}>
                   <title>{logo.name}</title>
                   <path d={logo.path} />
                 </svg>

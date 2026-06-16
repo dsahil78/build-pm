@@ -30,9 +30,26 @@ function currentPath(): string {
   }
 }
 
+/** Respect Do Not Track and Global Privacy Control: no analytics for those users. */
+function trackingAllowed(): boolean {
+  if (typeof window === "undefined" || typeof navigator === "undefined") return false;
+  const nav = navigator as Navigator & {
+    doNotTrack?: string;
+    msDoNotTrack?: string;
+    globalPrivacyControl?: boolean;
+  };
+  const win = window as Window & { doNotTrack?: string };
+  const dnt =
+    nav.doNotTrack === "1" ||
+    win.doNotTrack === "1" ||
+    nav.msDoNotTrack === "1" ||
+    nav.globalPrivacyControl === true;
+  return !dnt;
+}
+
 /** Queue a journey event. Flushes early if the buffer fills up. */
 export function track(type: string, props?: Record<string, unknown>): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || !trackingAllowed()) return;
   buffer.push({ type, path: currentPath(), t: Date.now(), props });
   if (buffer.length >= MAX_BUFFER) flush();
 }
@@ -76,7 +93,7 @@ const RETURN_FIRED_KEY = "bpm_return_fired";
 const ABANDON_TTL_MS = 30 * 24 * 60 * 60 * 1000; // ignore flags older than 30 days
 
 export function markAbandoned(form: string): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || !trackingAllowed()) return;
   try {
     localStorage.setItem(
       ABANDON_KEY,
@@ -102,7 +119,7 @@ export function clearAbandoned(): void {
  * session. Pairs with a later `form_submit` to measure recovery.
  */
 export function checkReturningAbandoner(): void {
-  if (typeof window === "undefined") return;
+  if (typeof window === "undefined" || !trackingAllowed()) return;
   try {
     const raw = localStorage.getItem(ABANDON_KEY);
     if (!raw) return;

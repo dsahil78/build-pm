@@ -257,6 +257,25 @@ p {
 /* Prose measure: keep body copy at a comfortable 60–75ch line length */
 .measure { max-width: 68ch; }
 
+/* Marquee: seamless continuous scroll. The track renders its content twice and
+   translates by exactly -50%, so one full set scrolls off as the duplicate
+   takes its place. Each item owns its trailing gap (margin) so -50% lands
+   perfectly. Pauses on hover; disabled for reduced-motion. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 45s linear infinite;
+  will-change: transform;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee { animation: none; }
+}
+
 /* Eyebrow — one refined treatment for every section label: small, heavily
    tracked, uppercase. (Named `eyebrow`, NOT `overline`, to avoid colliding with
    Tailwind's `overline` text-decoration utility.) Pair with a color. */

@@ -23,7 +23,7 @@ export default function PrivacyPage() {
 
           <Section title="1. Introduction and scope">
             <p>
-              BuildPM (&quot;BuildPM&quot;, &quot;Company&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates
+              BuildPM (&quot;BuildPM&quot;, &quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates
               the website located at{" "}
               <a href="https://buildpm.co" className="text-accent-text hover:underline">
                 https://buildpm.co
@@ -94,7 +94,23 @@ export default function PrivacyPage() {
             </ul>
 
             <h3 className="text-h4 text-foreground mt-6 mb-3">
-              3.3 Information collected when you submit a form
+              3.3 Anonymous usage analytics (cookieless)
+            </h3>
+            <p>
+              To understand how the site is used and to improve it, we collect anonymous, aggregate
+              usage data from visitors on the basis of our legitimate interests (Art. 6(1)(f)). This
+              uses no cookies, does not identify you, and is never sold or used for advertising. It is
+              disabled if your browser sends a Do Not Track or Global Privacy Control signal.
+            </p>
+            <ul className="list-disc pl-5 space-y-2 mt-3">
+              <li>Pages viewed, time on page, scroll depth, sections viewed, and clicks on links and buttons</li>
+              <li>Approximate location (country, region, city) derived from your IP address by our hosting provider. We do not store your raw IP address.</li>
+              <li>Coarse device and browser context</li>
+              <li>Small amounts of anonymous, cookieless data kept in your browser to group a single visit and to measure whether visitors return to finish a form. This holds no personal data and is short-lived (cleared when you close the tab, or within about 30 days).</li>
+            </ul>
+
+            <h3 className="text-h4 text-foreground mt-6 mb-3">
+              3.4 Information collected when you submit a form
             </h3>
             <p>
               When you submit a form (waitlist, application, or partner enquiry), we record limited
@@ -104,18 +120,17 @@ export default function PrivacyPage() {
               processing:
             </p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
-              <li>Marketing attribution: the referring website, landing page, UTM campaign parameters, and ad click identifiers (such as gclid or fbclid) present when you arrived</li>
-              <li>Approximate location at country, region, and city level, derived from your IP address by our hosting provider. We do not store your raw IP address; we store only a one-way hashed value used to detect duplicate or fraudulent submissions</li>
-              <li>Coarse device context: device type, browser, operating system, language, and time zone</li>
+              <li>Marketing attribution: the referring website, landing page, campaign parameters, and ad click identifiers present when you arrived</li>
+              <li>Approximate location (country, region, city) derived from your IP address by our hosting provider. We do not store your raw IP address.</li>
+              <li>Coarse device, browser, language, and time-zone context</li>
             </ul>
             <p className="mt-3">
-              Additional device characteristics (screen and viewport size, pixel ratio, CPU cores,
-              device memory, and connection type) are collected only if you have accepted analytics
-              cookies.
+              Additional device and browser characteristics are collected only if you have accepted
+              analytics cookies.
             </p>
 
             <h3 className="text-h4 text-foreground mt-6 mb-3">
-              3.4 Information we do NOT collect
+              3.5 Information we do NOT collect
             </h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Payment or financial information (we do not process payments)</li>
@@ -152,10 +167,13 @@ export default function PrivacyPage() {
           <Section title="5. Cookies, local storage, and tracking">
             <p>
               <strong className="text-foreground">
-                No analytics data is collected until you affirmatively accept cookies.
+                No cookie-based or individually identifying analytics are collected until you
+                affirmatively accept cookies.
               </strong>{" "}
-              If you decline, PostHog is fully disabled and no tracking data leaves your browser. We also
-              honor the Do Not Track (DNT) browser signal.
+              If you decline, PostHog and Microsoft Clarity stay fully disabled. We do run the
+              anonymous, cookieless usage analytics described in Section 3.3, which do not identify
+              you. We honor the Do Not Track (DNT) and Global Privacy Control signals, which disable
+              all analytics, including the cookieless kind.
             </p>
 
             <h3 className="text-h4 text-foreground mt-6 mb-3">Cookie inventory</h3>
@@ -177,10 +195,22 @@ export default function PrivacyPage() {
                     <td className="py-2">1 year</td>
                   </tr>
                   <tr className="border-b border-border-base">
+                    <td className="py-2 pr-4 font-mono text-xs">_clck, _clsk</td>
+                    <td className="py-2 pr-4">Analytics</td>
+                    <td className="py-2 pr-4">Microsoft Clarity heatmaps and session replay (only after you accept cookies)</td>
+                    <td className="py-2">Up to 1 year</td>
+                  </tr>
+                  <tr className="border-b border-border-base">
                     <td className="py-2 pr-4 font-mono text-xs">cookie_consent</td>
                     <td className="py-2 pr-4">Functional</td>
                     <td className="py-2 pr-4">Stores your cookie consent preference (localStorage)</td>
                     <td className="py-2">Persistent</td>
+                  </tr>
+                  <tr className="border-b border-border-base">
+                    <td className="py-2 pr-4">First-party analytics storage</td>
+                    <td className="py-2 pr-4">Analytics (anonymous, first-party)</td>
+                    <td className="py-2 pr-4">Anonymous, cookieless browser storage used to measure visits and improve the site. No personal data.</td>
+                    <td className="py-2">Session to ~30 days</td>
                   </tr>
                 </tbody>
               </table>
