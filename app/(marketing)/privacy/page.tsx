@@ -81,8 +81,8 @@ export default function PrivacyPage() {
               When you consent to analytics (see Section 5), we collect the following through{" "}
               <a href="https://posthog.com" target="_blank" rel="noopener noreferrer" className="text-accent-text hover:underline">
                 PostHog
-              </a>{" "}
-              and Vercel Analytics:
+              </a>
+              , Microsoft Clarity, and Vercel Analytics:
             </p>
             <ul className="list-disc pl-5 space-y-2 mt-3">
               <li>Pages visited, time on page, and navigation paths</li>
@@ -231,6 +231,11 @@ export default function PrivacyPage() {
                     <td className="py-2 pr-4">PostHog</td>
                     <td className="py-2 pr-4">Product analytics and session recordings</td>
                     <td className="py-2">US (EU processing available)</td>
+                  </tr>
+                  <tr className="border-b border-border-base">
+                    <td className="py-2 pr-4">Microsoft Clarity</td>
+                    <td className="py-2 pr-4">Heatmaps and session replay (after consent)</td>
+                    <td className="py-2">US</td>
                   </tr>
                   <tr className="border-b border-border-base">
                     <td className="py-2 pr-4">Vercel</td>

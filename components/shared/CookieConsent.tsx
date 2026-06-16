@@ -24,6 +24,8 @@ export function CookieConsent() {
   function accept() {
     localStorage.setItem(CONSENT_KEY, "granted");
     posthog.opt_in_capturing();
+    // Let consent-gated tools (e.g. Clarity) start immediately, no reload.
+    window.dispatchEvent(new Event("bpm:consent-granted"));
     setDismissed(true);
   }
 

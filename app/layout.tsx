@@ -9,6 +9,7 @@ import { PostHogPageView } from "@/components/providers/PostHogPageView";
 import { CookieConsent } from "@/components/shared/CookieConsent";
 import { AttributionTracker } from "@/components/shared/AttributionTracker";
 import { JourneyTracker } from "@/components/shared/JourneyTracker";
+import { ClarityAnalytics } from "@/components/shared/ClarityAnalytics";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -113,6 +114,7 @@ export default function RootLayout({
             <PostHogPageView />
           </Suspense>
           <CookieConsent />
+          <ClarityAnalytics />
           <AttributionTracker />
           <Suspense>
             <JourneyTracker />
