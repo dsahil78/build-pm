@@ -1,4 +1,4 @@
-import { NextResponse, type NextRequest } from "next/server";
+import { NextResponse, after, type NextRequest } from "next/server";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { sendApplicationConfirmation } from "@/lib/email";
@@ -166,19 +166,24 @@ export async function POST(request: NextRequest) {
     );
   }
 
-  // Fire-and-forget auto-confirmation for builder applications (never blocks the
-  // response; no-ops until RESEND_API_KEY + EMAIL_FROM are configured).
-  if (!isPartner) {
-    void sendApplicationConfirmation(email, fullName);
-  }
+  // Capture what the deferred work needs BEFORE the response is sent.
+  const reqHeaders = request.headers;
+  const attribution = body.attribution as Partial<AttributionPayload> | null;
 
-  // Fire-and-forget attribution/telemetry (never blocks or fails the response).
-  void logEvent({
-    eventType: isPartner ? "partner_submitted" : "apply_submitted",
-    email,
-    attribution: body.attribution as Partial<AttributionPayload> | null,
-    headers: request.headers,
-  });
+  // Run after the response, but keep the serverless function alive until done
+  // (via `after`) so the email/telemetry are NOT cut off when the instance
+  // freezes. Each is still best-effort and never throws.
+  if (!isPartner) {
+    after(() => sendApplicationConfirmation(email, fullName));
+  }
+  after(() =>
+    logEvent({
+      eventType: isPartner ? "partner_submitted" : "apply_submitted",
+      email,
+      attribution,
+      headers: reqHeaders,
+    }),
+  );
 
   return NextResponse.json({ success: true });
 }

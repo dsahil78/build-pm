@@ -1,4 +1,4 @@
-import { NextResponse, type NextRequest } from "next/server";
+import { NextResponse, after, type NextRequest } from "next/server";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { logEvent } from "@/lib/events";
@@ -69,13 +69,18 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Failed to join waitlist" }, { status: 500 });
   }
 
-  // Fire-and-forget attribution/telemetry (never blocks or fails the response).
-  void logEvent({
-    eventType: "waitlist_submitted",
-    email,
-    attribution: body.attribution as Partial<AttributionPayload> | null,
-    headers: request.headers,
-  });
+  // Run after the response but keep the function alive (via `after`) so the
+  // telemetry insert is not cut off when the serverless instance freezes.
+  const reqHeaders = request.headers;
+  const attribution = body.attribution as Partial<AttributionPayload> | null;
+  after(() =>
+    logEvent({
+      eventType: "waitlist_submitted",
+      email,
+      attribution,
+      headers: reqHeaders,
+    }),
+  );
 
   return NextResponse.json({ success: true });
 }
