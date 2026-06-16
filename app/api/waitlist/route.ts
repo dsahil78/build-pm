@@ -1,6 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
+import { logEvent } from "@/lib/events";
+import type { AttributionPayload } from "@/lib/attribution";
 import { isValidEmail, isJsonContentType, cleanField } from "@/lib/validation";
 
 /* ── Rate limit: 10 requests per IP per hour ── */
@@ -66,6 +68,14 @@ export async function POST(request: NextRequest) {
     console.error("[waitlist] Supabase insert failed:", error.code, error.message);
     return NextResponse.json({ error: "Failed to join waitlist" }, { status: 500 });
   }
+
+  // Fire-and-forget attribution/telemetry (never blocks or fails the response).
+  void logEvent({
+    eventType: "waitlist_submitted",
+    email,
+    attribution: body.attribution as Partial<AttributionPayload> | null,
+    headers: request.headers,
+  });
 
   return NextResponse.json({ success: true });
 }

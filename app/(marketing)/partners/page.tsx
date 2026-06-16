@@ -16,6 +16,7 @@ import { LiveStats } from "@/components/shared/LiveStats";
 import { PARTNER_STATS, PARTNER_USE_CASES } from "@/lib/mock-data";
 import { EASE_OUT } from "@/lib/motion";
 import { analytics } from "@/lib/analytics";
+import { getAttribution } from "@/lib/attribution";
 import { Footer } from "@/components/landing/Footer";
 
 /* ── Tier options ── */
@@ -137,7 +138,7 @@ export default function PartnersPage() {
       const res = await fetch("/api/apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, attribution: getAttribution() }),
       });
       if (!res.ok) throw new Error("Failed");
       setStatus("success");

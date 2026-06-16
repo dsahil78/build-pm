@@ -7,6 +7,7 @@ import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { PostHogPageView } from "@/components/providers/PostHogPageView";
 import { CookieConsent } from "@/components/shared/CookieConsent";
+import { AttributionTracker } from "@/components/shared/AttributionTracker";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -111,6 +112,7 @@ export default function RootLayout({
             <PostHogPageView />
           </Suspense>
           <CookieConsent />
+          <AttributionTracker />
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>

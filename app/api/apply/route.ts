@@ -2,6 +2,8 @@ import { NextResponse, type NextRequest } from "next/server";
 import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 import { getSupabaseAdmin } from "@/lib/supabase-admin";
 import { sendApplicationConfirmation } from "@/lib/email";
+import { logEvent } from "@/lib/events";
+import type { AttributionPayload } from "@/lib/attribution";
 import {
   isValidEmail,
   isValidUrl,
@@ -169,6 +171,14 @@ export async function POST(request: NextRequest) {
   if (!isPartner) {
     void sendApplicationConfirmation(email, fullName);
   }
+
+  // Fire-and-forget attribution/telemetry (never blocks or fails the response).
+  void logEvent({
+    eventType: isPartner ? "partner_submitted" : "apply_submitted",
+    email,
+    attribution: body.attribution as Partial<AttributionPayload> | null,
+    headers: request.headers,
+  });
 
   return NextResponse.json({ success: true });
 }

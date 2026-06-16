@@ -10,6 +10,7 @@ import { Input, Textarea, Select } from "@/components/ui/Input";
 import { Button } from "@/components/ui/Button";
 import { ARCHETYPES, REFERRAL_SOURCES, IS_PRELAUNCH } from "@/lib/constants";
 import { analytics } from "@/lib/analytics";
+import { getAttribution } from "@/lib/attribution";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -39,7 +40,7 @@ export default function ApplyPage() {
       const res = await fetch("/api/apply", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
+        body: JSON.stringify({ ...data, attribution: getAttribution() }),
       });
 
       if (!res.ok) {

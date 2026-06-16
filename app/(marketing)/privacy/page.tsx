@@ -94,7 +94,28 @@ export default function PrivacyPage() {
             </ul>
 
             <h3 className="text-h4 text-foreground mt-6 mb-3">
-              3.3 Information we do NOT collect
+              3.3 Information collected when you submit a form
+            </h3>
+            <p>
+              When you submit a form (waitlist, application, or partner enquiry), we record limited
+              technical and attribution context alongside your submission to understand which
+              channels bring builders to BuildPM, to prevent fraud and abuse, and to improve the
+              Service. We rely on our legitimate interests (Art. 6(1)(f)) for this first-party
+              processing:
+            </p>
+            <ul className="list-disc pl-5 space-y-2 mt-3">
+              <li>Marketing attribution: the referring website, landing page, UTM campaign parameters, and ad click identifiers (such as gclid or fbclid) present when you arrived</li>
+              <li>Approximate location at country, region, and city level, derived from your IP address by our hosting provider. We do not store your raw IP address; we store only a one-way hashed value used to detect duplicate or fraudulent submissions</li>
+              <li>Coarse device context: device type, browser, operating system, language, and time zone</li>
+            </ul>
+            <p className="mt-3">
+              Additional device characteristics (screen and viewport size, pixel ratio, CPU cores,
+              device memory, and connection type) are collected only if you have accepted analytics
+              cookies.
+            </p>
+
+            <h3 className="text-h4 text-foreground mt-6 mb-3">
+              3.4 Information we do NOT collect
             </h3>
             <ul className="list-disc pl-5 space-y-2">
               <li>Payment or financial information (we do not process payments)</li>
@@ -204,7 +225,7 @@ export default function PrivacyPage() {
                   <tr className="border-b border-border-base">
                     <td className="py-2 pr-4">Supabase</td>
                     <td className="py-2 pr-4">Database (form submissions, applications)</td>
-                    <td className="py-2">EU / US</td>
+                    <td className="py-2">EU (North Europe, Sweden)</td>
                   </tr>
                   <tr className="border-b border-border-base">
                     <td className="py-2 pr-4">PostHog</td>
@@ -215,6 +236,11 @@ export default function PrivacyPage() {
                     <td className="py-2 pr-4">Vercel</td>
                     <td className="py-2 pr-4">Website hosting and performance analytics</td>
                     <td className="py-2">US (global edge)</td>
+                  </tr>
+                  <tr className="border-b border-border-base">
+                    <td className="py-2 pr-4">Resend</td>
+                    <td className="py-2 pr-4">Transactional email (application confirmations)</td>
+                    <td className="py-2">US</td>
                   </tr>
                 </tbody>
               </table>

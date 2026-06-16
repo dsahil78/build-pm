@@ -6,6 +6,7 @@ import { motion, useInView } from "framer-motion";
 import { IS_PRELAUNCH } from "@/lib/constants";
 import { EASE_OUT } from "@/lib/motion";
 import { analytics } from "@/lib/analytics";
+import { getAttribution } from "@/lib/attribution";
 import { Honeypot } from "@/components/shared/Honeypot";
 
 export function FinalCTA() {
@@ -24,7 +25,7 @@ export function FinalCTA() {
       const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: "landing_cta", company_url: companyUrl }),
+        body: JSON.stringify({ email, source: "landing_cta", company_url: companyUrl, attribution: getAttribution() }),
       });
       if (!res.ok) throw new Error("Request failed");
       track("notify_submitted", { source: "landing_cta" });
