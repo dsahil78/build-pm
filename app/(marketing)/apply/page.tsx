@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, type FormEvent } from "react";
+import { useState, useRef, useEffect, type FormEvent } from "react";
 import Link from "next/link";
 import { track } from "@vercel/analytics";
 import { Logo } from "@/components/brand/Logo";
@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/Button";
 import { ARCHETYPES, REFERRAL_SOURCES, IS_PRELAUNCH } from "@/lib/constants";
 import { analytics } from "@/lib/analytics";
 import { getAttribution } from "@/lib/attribution";
+import { track as trackJourney, flush as flushJourney } from "@/lib/journey";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -18,6 +19,25 @@ export default function ApplyPage() {
   const [status, setStatus] = useState<FormStatus>("idle");
   const [errorMessage, setErrorMessage] = useState("");
   const formStartedRef = useRef(false);
+  const submittedRef = useRef(false);
+  const abandonFiredRef = useRef(false);
+
+  // Journey funnel: a "form_abandon" event if they started the form but left
+  // (tab close or navigating away) without submitting. Fires at most once.
+  useEffect(() => {
+    function onLeave() {
+      if (formStartedRef.current && !submittedRef.current && !abandonFiredRef.current) {
+        abandonFiredRef.current = true;
+        trackJourney("form_abandon");
+        flushJourney(true);
+      }
+    }
+    window.addEventListener("pagehide", onLeave);
+    return () => {
+      window.removeEventListener("pagehide", onLeave);
+      onLeave(); // also catch client-side navigation away from /apply
+    };
+  }, []);
 
   async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -49,9 +69,11 @@ export default function ApplyPage() {
       }
 
       setStatus("success");
+      submittedRef.current = true;
       // Vercel custom event — consent-free, so apply-rate is measurable even
       // for visitors who decline analytics cookies.
       track("apply_submitted", { archetype: data.archetype });
+      trackJourney("form_submit");
       analytics.trackApplicationSubmitted(data.archetype, data.referral_source);
       analytics.identify(data.email);
     } catch (err) {
@@ -116,6 +138,7 @@ export default function ApplyPage() {
             if (!formStartedRef.current) {
               formStartedRef.current = true;
               analytics.trackFormStarted("apply");
+              trackJourney("form_start");
             }
           }}
           className="mt-10 space-y-6"

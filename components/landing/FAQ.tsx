@@ -70,7 +70,7 @@ const faqJsonLd = JSON.stringify({
 
 export function FAQ() {
   return (
-    <section className="bg-background py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
+    <section data-section="faq" className="bg-background py-16 sm:py-20 md:py-24 px-4 sm:px-6 lg:px-8">
       <script
         type="application/ld+json"
         suppressHydrationWarning

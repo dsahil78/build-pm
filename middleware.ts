@@ -1,7 +1,7 @@
 import { NextResponse, type NextRequest } from "next/server";
 
 const ALLOWED_PATHS = new Set(["/", "/apply", "/partners", "/preview", "/privacy", "/terms"]);
-const ALLOWED_API_PREFIXES = ["/api/apply", "/api/waitlist"];
+const ALLOWED_API_PREFIXES = ["/api/apply", "/api/waitlist", "/api/track"];
 // Generated metadata files (favicon, manifest, sitemap, robots) must be reachable
 // even in pre-launch — otherwise the icon/manifest/sitemap get redirected to "/".
 const ALLOWED_METADATA = ["/icon", "/apple-icon", "/opengraph-image", "/twitter-image", "/manifest.webmanifest", "/sitemap.xml", "/robots.txt"];

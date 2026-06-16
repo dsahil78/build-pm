@@ -117,6 +117,7 @@ export async function logEvent(input: LogEventInput): Promise<void> {
     const row = {
       event_type: str(input.eventType, 60) ?? "unknown",
       email: input.email ? input.email.toLowerCase().slice(0, 320) : null,
+      session_id: str(a.session_id, 64),
 
       utm_source: str(a.utm_source),
       utm_medium: str(a.utm_medium),
@@ -158,5 +159,81 @@ export async function logEvent(input: LogEventInput): Promise<void> {
   } catch (err) {
     // Never affect the request that triggered it.
     console.error("[events] logEvent threw:", err);
+  }
+}
+
+const MAX_BATCH = 50;
+
+/**
+ * Bulk-insert a batch of cookieless journey events (page_view, scroll,
+ * section_view, cta_click, form_start, form_abandon, page_exit). The client
+ * sends an envelope: { session_id, attribution, events: [{ type, path, t, props }] }.
+ * Best-effort, never throws.
+ */
+export async function logEventsBatch(body: unknown, headers: Headers): Promise<void> {
+  try {
+    const supabase = getSupabaseAdmin();
+    if (!supabase) return;
+    if (!body || typeof body !== "object") return;
+
+    const b = body as { session_id?: unknown; attribution?: unknown; events?: unknown };
+    const sessionId = typeof b.session_id === "string" ? b.session_id.slice(0, 64) : null;
+    const a = (b.attribution ?? {}) as Partial<AttributionPayload>;
+    const events = Array.isArray(b.events) ? b.events.slice(0, MAX_BATCH) : [];
+    if (events.length === 0) return;
+
+    const consent = a.consent === true;
+    const ua = headers.get("user-agent") ?? "";
+    const { device_type, browser, os } = parseUserAgent(ua);
+    const ipHash = hashIp(getClientIp(headers));
+    const ipCountry = str(headers.get("x-vercel-ip-country"), 8);
+    const ipRegion = decode(str(headers.get("x-vercel-ip-country-region"), 16));
+    const ipCity = decode(str(headers.get("x-vercel-ip-city"), 80));
+
+    const sharedAttribution = {
+      utm_source: str(a.utm_source),
+      utm_medium: str(a.utm_medium),
+      utm_campaign: str(a.utm_campaign),
+      utm_term: str(a.utm_term),
+      utm_content: str(a.utm_content),
+      referer: str(a.referrer),
+      landing_path: str(a.landing_path),
+    };
+
+    const rows = events.map((e) => {
+      const ev = (e ?? {}) as { type?: unknown; path?: unknown; props?: unknown };
+      const props = (ev.props ?? {}) as Record<string, unknown>;
+      const duration = typeof props.duration_ms === "number" ? props.duration_ms : null;
+      return {
+        event_type: str(ev.type, 40) ?? "journey",
+        session_id: sessionId,
+        path: str(ev.path, 200),
+        duration_ms:
+          duration !== null ? Math.max(0, Math.min(Math.round(duration), 86_400_000)) : null,
+        ...sharedAttribution,
+        user_agent: str(ua),
+        device_type,
+        ip_country: ipCountry,
+        ip_region: ipRegion,
+        ip_city: ipCity,
+        ip_hash: ipHash,
+        consent,
+        meta: {
+          browser,
+          os,
+          section: str(props.section, 80),
+          depth: typeof props.depth === "number" ? props.depth : null,
+          cta: str(props.cta, 120),
+          label: str(props.label, 120),
+        },
+      };
+    });
+
+    const { error } = await supabase.from("events").insert(rows);
+    if (error) {
+      console.error("[events] batch insert failed:", error.code, error.message);
+    }
+  } catch (err) {
+    console.error("[events] logEventsBatch threw:", err);
   }
 }

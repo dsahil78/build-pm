@@ -27,7 +27,7 @@ export function WisdomGraph() {
   const inView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
-    <section className="bg-background py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8">
+    <section data-section="wisdom_graph" className="bg-background py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8">
       <div className="max-w-5xl mx-auto" ref={ref}>
         {/* Heading */}
         <motion.div

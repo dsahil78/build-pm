@@ -12,6 +12,7 @@
  */
 
 export interface AttributionPayload {
+  session_id: string | null;
   utm_source: string | null;
   utm_medium: string | null;
   utm_campaign: string | null;
@@ -33,7 +34,30 @@ export interface AttributionPayload {
 }
 
 const STORAGE_KEY = "bpm_attribution";
+const SESSION_KEY = "bpm_sid";
 const CONSENT_KEY = "cookie_consent";
+
+/**
+ * Ephemeral, cookieless, anonymous session id (random, not derived from the
+ * user). Lives in sessionStorage, so it clears when the tab closes and is never
+ * shared across sites. Used only to stitch one visit's events together.
+ */
+export function getSessionId(): string {
+  if (typeof window === "undefined") return "";
+  try {
+    let id = sessionStorage.getItem(SESSION_KEY);
+    if (!id) {
+      id =
+        typeof crypto !== "undefined" && crypto.randomUUID
+          ? crypto.randomUUID()
+          : `${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 10)}`;
+      sessionStorage.setItem(SESSION_KEY, id);
+    }
+    return id;
+  } catch {
+    return "";
+  }
+}
 
 const UTM_KEYS = [
   "utm_source",
@@ -76,6 +100,7 @@ function hasConsent(): boolean {
 
 function emptyPayload(consent = false): AttributionPayload {
   return {
+    session_id: null,
     utm_source: null,
     utm_medium: null,
     utm_campaign: null,
@@ -162,6 +187,7 @@ export function getAttribution(): AttributionPayload {
   }
 
   const payload = emptyPayload(consent);
+  payload.session_id = getSessionId();
 
   if (stored) {
     payload.utm_source = stored.utm.utm_source ?? null;

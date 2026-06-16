@@ -167,7 +167,7 @@ export function TerminalHero() {
   }, [handleSkip]);
 
   return (
-    <section className="relative min-h-svh flex flex-col items-center justify-center bg-background px-4 sm:px-6 pt-20 pb-10">
+    <section data-section="hero" className="relative min-h-svh flex flex-col items-center justify-center bg-background px-4 sm:px-6 pt-20 pb-10">
       {/* Headline + Narrative */}
       <div className="w-full max-w-[768px] mb-2 text-center">
         {/* Problem bridge */}

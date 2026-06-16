@@ -75,8 +75,13 @@ create table if not exists public.events (
   id           uuid primary key default gen_random_uuid(),
   created_at   timestamptz not null default now(),
 
-  event_type   text not null,                  -- 'apply_submitted','waitlist_submitted','partner_submitted','page_view'
-  email        text,                           -- links the event to a person when known
+  event_type   text not null,                  -- 'page_view','scroll','section_view','cta_click','form_start','form_abandon','page_exit','apply_submitted','waitlist_submitted','partner_submitted'
+  email        text,                           -- links the event to a person when known (conversions only)
+
+  -- journey stitching (cookieless, anonymous, ephemeral - sessionStorage id)
+  session_id   text,                           -- groups one visitor's events; not a persistent identifier
+  path         text,                           -- page path for this event
+  duration_ms  integer,                        -- time-on-page (page_exit events)
 
   -- attribution (highest-ROI signal for a launch)
   utm_source   text,
@@ -101,9 +106,15 @@ create table if not exists public.events (
   meta         jsonb not null default '{}'::jsonb
 );
 
+-- If you ran an earlier version of this file, these add the new columns safely:
+alter table public.events add column if not exists session_id  text;
+alter table public.events add column if not exists path        text;
+alter table public.events add column if not exists duration_ms integer;
+
 create index if not exists events_created_at_idx on public.events (created_at desc);
 create index if not exists events_type_idx       on public.events (event_type);
-create index if not exists events_email_idx       on public.events (email);
+create index if not exists events_email_idx      on public.events (email);
+create index if not exists events_session_idx    on public.events (session_id);
 
 -- ===========================================================================
 -- 4. updated_at auto-touch (handy when you change application status by hand)

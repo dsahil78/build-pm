@@ -120,7 +120,7 @@ export function BuilderValue() {
   const isInView = useInView(headingRef, { once: true, margin: "-60px" });
 
   return (
-    <section className="relative bg-muted py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+    <section data-section="builder_value" className="relative bg-muted py-16 sm:py-24 md:py-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
       {/* Grid texture */}
       <div
         className="absolute inset-0 pointer-events-none opacity-[0.03]"

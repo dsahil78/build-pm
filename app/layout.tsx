@@ -8,6 +8,7 @@ import { ThemeProvider } from "@/components/providers/ThemeProvider";
 import { PostHogPageView } from "@/components/providers/PostHogPageView";
 import { CookieConsent } from "@/components/shared/CookieConsent";
 import { AttributionTracker } from "@/components/shared/AttributionTracker";
+import { JourneyTracker } from "@/components/shared/JourneyTracker";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -113,6 +114,9 @@ export default function RootLayout({
           </Suspense>
           <CookieConsent />
           <AttributionTracker />
+          <Suspense>
+            <JourneyTracker />
+          </Suspense>
           <Analytics />
           <SpeedInsights />
         </ThemeProvider>
