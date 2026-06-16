@@ -35,9 +35,15 @@ async function send(payload: {
   text: string;
   html?: string;
 }): Promise<void> {
-  if (!isEmailConfigured()) return;
+  if (!isEmailConfigured()) {
+    // Most common "no email" cause: env vars missing in this runtime.
+    console.warn(
+      "[email] Skipped: RESEND_API_KEY and/or EMAIL_FROM not set in this environment.",
+    );
+    return;
+  }
   try {
-    await fetch(RESEND_ENDPOINT, {
+    const res = await fetch(RESEND_ENDPOINT, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${process.env.RESEND_API_KEY}`,
@@ -53,8 +59,14 @@ async function send(payload: {
       // Don't let a slow email provider hold the request open indefinitely.
       signal: AbortSignal.timeout(4000),
     });
-  } catch {
-    // Swallow - never affect the submission.
+    // Surface Resend rejections (e.g. unverified domain) instead of swallowing
+    // them. Still never throws - a failed email must not affect the submission.
+    if (!res.ok) {
+      const body = await res.text().catch(() => "");
+      console.error(`[email] Resend rejected send (HTTP ${res.status}):`, body.slice(0, 600));
+    }
+  } catch (err) {
+    console.error("[email] send failed:", err);
   }
 }
 
