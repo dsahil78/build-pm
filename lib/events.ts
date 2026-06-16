@@ -225,6 +225,8 @@ export async function logEventsBatch(body: unknown, headers: Headers): Promise<v
           depth: typeof props.depth === "number" ? props.depth : null,
           cta: str(props.cta, 120),
           label: str(props.label, 120),
+          form: str(props.form, 40),
+          hours_since: typeof props.hours_since === "number" ? props.hours_since : null,
         },
       };
     });

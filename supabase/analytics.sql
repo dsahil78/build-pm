@@ -115,6 +115,29 @@ group by 1
 order by 1::int;
 
 -- ───────────────────────────────────────────────────────────────────────────
+-- 5. RETURNING ABANDONERS  — people who started the form, left, and came back
+--    (anonymous device flag; no email). 'recovered' = they submitted on return.
+-- ───────────────────────────────────────────────────────────────────────────
+with returns as (
+  select
+    session_id,
+    bool_or(event_type = 'returned_after_abandon')             as returned,
+    bool_or(event_type in ('form_submit','apply_submitted'))   as submitted,
+    max((meta->>'hours_since')::numeric)
+      filter (where event_type = 'returned_after_abandon')     as hours_away
+  from public.events
+  where session_id is not null and created_at > now() - interval '90 days'
+  group by session_id
+)
+select
+  count(*) filter (where returned)                  as returned_after_abandoning,
+  count(*) filter (where returned and submitted)    as recovered_and_submitted,
+  round(100.0 * count(*) filter (where returned and submitted)
+        / nullif(count(*) filter (where returned), 0), 1) as recovery_pct,
+  round(avg(hours_away) filter (where returned))::int as avg_hours_before_return
+from returns;
+
+-- ───────────────────────────────────────────────────────────────────────────
 -- BONUS: replay one anonymous journey step-by-step (paste a session_id)
 -- Find a session_id from any conversion row, then:
 -- ───────────────────────────────────────────────────────────────────────────

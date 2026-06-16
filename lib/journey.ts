@@ -67,6 +67,65 @@ export function flush(useBeacon = false): void {
   }
 }
 
+// ── Returning-abandoner detection (anonymous, no email, no identifier) ───────
+// When a visitor starts a form and leaves without submitting, we leave a single
+// anonymous flag on the device. On a later visit we recognize it and log that
+// they came back, then clear it once they finally submit. No PII is stored.
+const ABANDON_KEY = "bpm_abandoned";
+const RETURN_FIRED_KEY = "bpm_return_fired";
+const ABANDON_TTL_MS = 30 * 24 * 60 * 60 * 1000; // ignore flags older than 30 days
+
+export function markAbandoned(form: string): void {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.setItem(
+      ABANDON_KEY,
+      JSON.stringify({ at: Date.now(), form, sid: getSessionId() }),
+    );
+  } catch {
+    /* storage blocked - ignore */
+  }
+}
+
+export function clearAbandoned(): void {
+  if (typeof window === "undefined") return;
+  try {
+    localStorage.removeItem(ABANDON_KEY);
+  } catch {
+    /* ignore */
+  }
+}
+
+/**
+ * On load: if this device abandoned a form in a PRIOR session (and not too long
+ * ago), log a single `returned_after_abandon` event. Fires at most once per
+ * session. Pairs with a later `form_submit` to measure recovery.
+ */
+export function checkReturningAbandoner(): void {
+  if (typeof window === "undefined") return;
+  try {
+    const raw = localStorage.getItem(ABANDON_KEY);
+    if (!raw) return;
+    const data = JSON.parse(raw) as { at?: number; form?: string; sid?: string };
+    if (!data?.at) return;
+
+    if (Date.now() - data.at > ABANDON_TTL_MS) {
+      clearAbandoned();
+      return;
+    }
+    if (data.sid === getSessionId()) return; // same visit, not a return
+    if (sessionStorage.getItem(RETURN_FIRED_KEY)) return; // already counted this session
+
+    sessionStorage.setItem(RETURN_FIRED_KEY, "1");
+    track("returned_after_abandon", {
+      form: data.form ?? null,
+      hours_since: Math.round((Date.now() - data.at) / 3_600_000),
+    });
+  } catch {
+    /* ignore */
+  }
+}
+
 let intervalId: ReturnType<typeof setInterval> | null = null;
 
 /** Start the periodic flush loop (idempotent). */

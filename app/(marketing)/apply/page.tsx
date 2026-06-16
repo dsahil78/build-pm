@@ -11,7 +11,12 @@ import { Button } from "@/components/ui/Button";
 import { ARCHETYPES, REFERRAL_SOURCES, IS_PRELAUNCH } from "@/lib/constants";
 import { analytics } from "@/lib/analytics";
 import { getAttribution } from "@/lib/attribution";
-import { track as trackJourney, flush as flushJourney } from "@/lib/journey";
+import {
+  track as trackJourney,
+  flush as flushJourney,
+  markAbandoned,
+  clearAbandoned,
+} from "@/lib/journey";
 
 type FormStatus = "idle" | "submitting" | "success" | "error";
 
@@ -28,6 +33,7 @@ export default function ApplyPage() {
     function onLeave() {
       if (formStartedRef.current && !submittedRef.current && !abandonFiredRef.current) {
         abandonFiredRef.current = true;
+        markAbandoned("apply"); // anonymous device flag, so we can see if they return
         trackJourney("form_abandon");
         flushJourney(true);
       }
@@ -70,6 +76,7 @@ export default function ApplyPage() {
 
       setStatus("success");
       submittedRef.current = true;
+      clearAbandoned(); // they finished, so clear the returning-abandoner flag
       // Vercel custom event — consent-free, so apply-rate is measurable even
       // for visitors who decline analytics cookies.
       track("apply_submitted", { archetype: data.archetype });

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { track, flush, startFlushLoop } from "@/lib/journey";
+import { track, flush, startFlushLoop, checkReturningAbandoner } from "@/lib/journey";
 
 const SCROLL_MARKS = [25, 50, 75, 90, 100];
 
@@ -96,9 +96,11 @@ export function JourneyTracker() {
     return () => document.removeEventListener("click", onClick, true);
   }, []);
 
-  // Flush on tab hide / unload, plus a periodic loop.
+  // Flush on tab hide / unload, plus a periodic loop. Also check once on load
+  // whether this device returned after abandoning a form in a prior session.
   useEffect(() => {
     startFlushLoop();
+    checkReturningAbandoner();
     function onHide() {
       track("page_exit", { duration_ms: Date.now() - enteredAt.current });
       flush(true);
