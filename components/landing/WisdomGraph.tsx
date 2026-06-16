@@ -104,11 +104,20 @@ export function WisdomGraph() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : { opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.5, ease: EASE_OUT }}
-          className="text-center text-subtle-foreground text-sm mt-10 max-w-xl mx-auto leading-relaxed"
+          className="text-center text-subtle-foreground text-sm mt-10 max-w-2xl mx-auto leading-relaxed"
         >
-          The more you share, the sharper it gets. Shared under the{" "}
-          <span className="text-muted-foreground font-medium">Chatham House Rule</span>: take the
-          lesson, leave the confidential details.
+          The more you share, the sharper the room gets. But candor is never an obligation to
+          disclose. Your confidentiality agreements come first, always. Share what is yours to
+          share, and hold the rest. In turn, we expect every member to honor the{" "}
+          <a
+            href="https://en.wikipedia.org/wiki/Chatham_House_Rule"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-accent-text font-medium hover:underline"
+          >
+            Chatham House Rule
+          </a>
+          : take the insight, leave the attribution.
         </motion.p>
       </div>
     </section>
