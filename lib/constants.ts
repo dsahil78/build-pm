@@ -76,8 +76,8 @@ export const FOOTER_COLUMNS = [
 // Social accounts are hidden until they're live. Re-enable by restoring the
 // entries below (the Footer renders whatever is in this array).
 export const SOCIAL_LINKS: readonly { label: string; href: string }[] = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/company/build-pm" },
   // { label: "GitHub", href: "https://github.com/buildpm" },
-  // { label: "LinkedIn", href: "https://linkedin.com/company/buildpm" },
   // { label: "Twitter", href: "https://x.com/buildpm" },
 ];
 
